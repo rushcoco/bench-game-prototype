@@ -196,7 +196,7 @@ MonoBehaviour:
   inputListening: {fileID: 1120369429361536294, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   inputTalking: {fileID: -7956963294089831746, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   walkingSpeed: 5
-  forceOfInitialJump: 5.85
-  rateAtWhichForceOfJumpDiminishes: 20
+  forceOfInitialJump: 10
+  rateAtWhichForceOfJumpDiminishes: 40
   coyoteTime: 0.2
   jumpBufferTime: 0.1
