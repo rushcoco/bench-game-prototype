@@ -498,7 +498,7 @@ MonoBehaviour:
   targetTransform: {fileID: 0}
   directionFromTargetToCamera: {x: 0, y: 5, z: -12}
   distanceBetweenTargetAndCamera: 7
-  smoothedOutLerp: 0.0125
+  smoothedOutLerp: 0.0425
 --- !u!114 &5824944532730939075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -541,6 +541,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputClickOnThings: {fileID: 335827841905893634, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  inputCursorPosition: {fileID: 0}
   sentenceContainerRectangle: {fileID: 5914917544512353311}
   wordSelectorRectangle: {fileID: 7952124486983631207}
   emptyUIGameObject: {fileID: 8646101438223821950, guid: c62acf38e217f9b40a2f05a5ed4dd987, type: 3}
@@ -573,9 +574,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3ae6d2df47941764ea7202380e8d74d6, type: 2}
   - {fileID: 11400000, guid: cc71945099e8e584aa3c554dbedeaf10, type: 2}
   - {fileID: 11400000, guid: 765017052a9f8514e8c87821eae44aad, type: 2}
-  toHave: {fileID: 11400000, guid: 2e0c5d3a02d90e5f29d97b81889f0a73, type: 2}
+  toHave: {fileID: 0}
   toBe: {fileID: 11400000, guid: 84425fec3c9a33043a0bb76d77864f82, type: 2}
-  will: {fileID: 11400000, guid: 3d44d06c674fe7642871ca5652e6abca, type: 2}
+  will: {fileID: 0}
 --- !u!1 &6175192635033437921
 GameObject:
   m_ObjectHideFlags: 0

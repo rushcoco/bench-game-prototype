@@ -18,7 +18,15 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
     [SerializeField] private InputActionReference inputListening;
     [SerializeField] private InputActionReference inputTalking;
     [SerializeField] private float walkingSpeed;
-    [SerializeField] private float radiusOfSphereCastToCheckForInteractableThingsAroundPlayer;
+    [SerializeField] private float forceOfInitialJump;
+    [SerializeField] private float rateAtWhichForceOfJumpDiminishes;
+    [SerializeField] private float coyoteTime;
+    [SerializeField] private float jumpBufferTime;
+    private float jumpForce;
+    private float jumpBufferTimer;
+    private float coyoteTimer;
+    private bool jumpQueued;
+    private bool jumpAppliedThisFrame = false;
 
     private UIController uiController;
 
@@ -42,8 +50,8 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
         inputInspecting.action.performed += OnInputActionPerformedInputInspecting;
         inputListening.action.performed += OnInputActionPerformedInputListening;
         inputTalking.action.performed += OnInputActionPerformedInputTalking;
-        
-         // TODO: Get all UI elements that have been deactivated and re-activate them.
+
+        // TODO: Get all UI elements that have been deactivated and re-activate them.
     }
 
     private void OnDisable()
@@ -60,7 +68,7 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
         inputInspecting.action.Disable();
         inputListening.action.Disable();
         inputTalking.action.Disable();
-        
+
         // TODO: Get all active UI Elements and deactivate them.
     }
 
@@ -68,6 +76,8 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
     {
         if (!TryGetComponent<CharacterController>(out thisCharacterController))
             throw new NullReferenceException();
+        jumpForce = 0;
+        jumpQueued = false;
     }
 
     private void Start()
@@ -77,29 +87,53 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
 
     private void Update()
     {
-        Vector2 inputDirectionVector = inputWalking.action.ReadValue<Vector2>();
-        Vector3 movementVector = Vector3.right * inputDirectionVector.x + Vector3.forward * inputDirectionVector.y;
-        thisCharacterController.Move(movementVector.normalized * (walkingSpeed * Time.deltaTime));
+        if (thisCharacterController.isGrounded)
+            coyoteTimer = coyoteTime;
+        else
+            coyoteTimer = Mathf.Max(0f, coyoteTimer - Time.deltaTime);
+
+        jumpBufferTimer = Mathf.Max(0f, jumpBufferTimer - Time.deltaTime);
+
+        if (jumpQueued && jumpBufferTimer > 0f && coyoteTimer > 0f)
+        {
+            jumpForce = forceOfInitialJump;
+            jumpQueued = false;
+            jumpBufferTimer = 0f;
+            coyoteTimer = 0f;
+        }
+        
+        if (!thisCharacterController.isGrounded)
+        {
+            jumpForce -= rateAtWhichForceOfJumpDiminishes * Time.deltaTime;
+        }
+        else if (jumpForce < 0)
+        {
+            jumpForce = 0;
+        }
+        
+        Vector2 inputDirectionVector = inputWalking.action.ReadValue<Vector2>().normalized * walkingSpeed;
+        Vector3 movementVector = new(inputDirectionVector.x, jumpForce, inputDirectionVector.y);
+        thisCharacterController.Move(movementVector * Time.deltaTime);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log(other.gameObject);
-        if (other.TryGetComponent<IInspectable>(out var inspectable))
+        if (other.TryGetComponent<IInspectable>(out IInspectable inspectable))
         {
             // >>>> set a bool check to true and show UI element to communicate to player
             uiController.ShowUIElementInspect();
             currentInspectable = inspectable;
         }
 
-        if (other.TryGetComponent<IInteractable>(out var interactable))
+        if (other.TryGetComponent<IInteractable>(out IInteractable interactable))
         {
             // >>>> set a bool check to true and show UI element to communicate to player
             uiController.ShowUIElementInteract();
             currentInteractable = interactable;
         }
 
-        if (other.TryGetComponent<IConversable>(out var conversable))
+        if (other.TryGetComponent<IConversable>(out IConversable conversable))
         {
             // >>>> set a bool check to true and show UI element to communicate to player
             uiController.ShowUIElementListen();
@@ -132,6 +166,8 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
 
     private void OnInputActionPerformedInputJumping(InputAction.CallbackContext context)
     {
+        jumpQueued = true;
+        jumpBufferTimer = jumpBufferTime;
     }
 
     private void OnInputActionPerformedInputInteracting(InputAction.CallbackContext context)
@@ -154,7 +190,7 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
         if (currentConversable.IsUnityNull()) return;
 
         if (!currentConversable.StartChitChat())
-            currentConversable.StartSolutionChitChat(); 
+            currentConversable.StartSolutionChitChat();
 
         // TODO Delegate a function that shows all the correct UI Elements
         uiController.ShowSpeechBubble();
@@ -171,7 +207,7 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
         if (currentConversable.IsUnityNull()) return;
 
         if (!currentConversable.StartTalkPrompt()) return;
-        
+
         uiController.ShowSpeechBubble();
         uiController.HideUIElementInspect();
         uiController.HideUIElementInteract();

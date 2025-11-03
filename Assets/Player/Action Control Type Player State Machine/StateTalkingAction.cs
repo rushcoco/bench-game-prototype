@@ -8,17 +8,23 @@ using UnityEngine.UI;
 public class StateTalkingAction : MonoBehaviour, IControlTypeState
 {
     [SerializeField] private InputActionReference inputClickOnThings;
+    [SerializeField] private InputActionReference inputCursorPosition;
     [SerializeField] private RectTransform sentenceContainerRectangle;
     [SerializeField] private RectTransform wordSelectorRectangle;
     [SerializeField] private GameObject emptyUIGameObject;
     [SerializeField] private RectTransform sentenceBuildingCanvas;
-    private GameObject sentenceContainerPanel => sentenceContainerRectangle.gameObject;
-    private GameObject wordSelectorPanel => wordSelectorRectangle.gameObject;
+    
+    // Drag Behaviour Variable
+    private WordBehaviour draggedWord;
+    private Vector2 dragOffset;
+    private Transform originalParent;
+    private CanvasGroup draggedWordCanvasGroup;
+    
+    // Sentence Building Logic Variables
     private List<WordBehaviour> currentSentence;
     private List<WordBehaviour> currentWordsThatCanBeSelected;
     private Tense solutionTense;
     private Pronoun solutionPronoun;
-
     private float currentTimeInSeconds;
 
     private IConversable currentConversable;
@@ -28,6 +34,7 @@ public class StateTalkingAction : MonoBehaviour, IControlTypeState
         sentenceBuildingCanvas.gameObject.SetActive(true);
         
         inputClickOnThings.action.Enable();
+        inputCursorPosition.action.Enable();
         inputClickOnThings.action.performed += OnInputActionClickOnThings;
         
         currentSentence = new List<WordBehaviour>();
@@ -66,6 +73,7 @@ public class StateTalkingAction : MonoBehaviour, IControlTypeState
         
         inputClickOnThings.action.performed -= OnInputActionClickOnThings;
         inputClickOnThings.action.Disable();
+        inputCursorPosition.action.Disable();
         
         sentenceBuildingCanvas.gameObject.SetActive(false);
     }
@@ -90,6 +98,9 @@ public class StateTalkingAction : MonoBehaviour, IControlTypeState
     private void OnInputActionClickOnThings(InputAction.CallbackContext context)
     {
         if (!IsWordClickedOn(out WordBehaviour foundWord)) return;
+        
+        
+        
         
         Debug.Log("Found WordData: " + foundWord.wordData.presentedWord);
         if (currentSentence.Contains(foundWord))
