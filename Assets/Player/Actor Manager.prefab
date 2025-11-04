@@ -541,7 +541,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputClickOnThings: {fileID: 335827841905893634, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  inputCursorPosition: {fileID: 0}
+  inputCursorPosition: {fileID: -3649358892124769118, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   sentenceContainerRectangle: {fileID: 5914917544512353311}
   wordSelectorRectangle: {fileID: 7952124486983631207}
   emptyUIGameObject: {fileID: 8646101438223821950, guid: c62acf38e217f9b40a2f05a5ed4dd987, type: 3}
