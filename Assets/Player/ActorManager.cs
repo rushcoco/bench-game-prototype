@@ -42,6 +42,13 @@ public class ActorManager : MonoBehaviour
         return instance.wordsCollected;
     }
 
+    public static IReadOnlyCollection<NounData> GetAllNounsPlayerHasCollected()
+    {
+        List<NounData> playerNouns = new List<NounData>();
+        instance.wordsCollected.ForEach(x => {if (x is NounData y)  playerNouns.Add(y);});
+        return playerNouns;
+    }
+
     public static bool AddWordToWordsCollected(WordData localWord)
     {
         if (instance.wordsCollected.Contains(localWord)) return false;

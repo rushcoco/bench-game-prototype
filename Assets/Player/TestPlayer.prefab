@@ -196,6 +196,7 @@ MonoBehaviour:
   inputInspecting: {fileID: -7471211009204490832, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   inputListening: {fileID: 1120369429361536294, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   inputTalking: {fileID: -7956963294089831746, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  inputToCrafting: {fileID: -1964244872861669727, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   walkingSpeed: 5
   forceOfInitialJump: 10
   rateAtWhichForceOfJumpDiminishes: 40

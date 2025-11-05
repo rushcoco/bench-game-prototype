@@ -1,99 +1,86 @@
-using System;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class UIController : MonoBehaviour
 {
-    public static UIController instance { get; private set; }
-
     [SerializeField] private GameObject highlightInspect;
     [SerializeField] private GameObject highlightInteract;
     [SerializeField] private GameObject highlightListen;
     [SerializeField] private GameObject highlightTalk;
     [SerializeField] private TextMeshProUGUI tmpChitChat;
     [SerializeField] private TextMeshProUGUI tmpPrompt;
-
-    private GameObject instantiatedHighlightInspect;
-    private GameObject instantiatedHighlightInteract;
-    private GameObject instantiatedHighlightTalk;
-    private GameObject instantiatedHighlightListen;
+    public RectTransform uiHighlighter;
+    public static UIController instance { get; private set; }
 
     private void Awake()
     {
         if (!instance.IsUnityNull() && instance != this)
             Destroy(this);
         else
-        {
             instance = this;
-        }
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
-        
     }
 
     // Update is called once per frame
     private void Update()
     {
-        
     }
 
     public void ShowUIElementInspect()
     {
-        instantiatedHighlightInspect = Instantiate(highlightInspect, transform);
+        highlightInspect.SetActive(true);
     }
 
     public void ShowUIElementInteract()
     {
-        instantiatedHighlightInteract = Instantiate(highlightInteract, transform);
+        highlightInteract.SetActive(true);
     }
 
     public void ShowUIElementListen()
     {
-        instantiatedHighlightListen = Instantiate(highlightListen, transform);
+        highlightListen.SetActive(true);
     }
 
     public void ShowUIElementTalk()
     {
-        instantiatedHighlightTalk = Instantiate(highlightTalk, transform);
+        highlightTalk.SetActive(true);
     }
 
     private void ShowUIElement()
     {
-        
     }
 
     public void HideUIElementInspect()
     {
-        Destroy(instantiatedHighlightInspect);
+        highlightInspect.SetActive(false);
     }
 
     public void HideUIElementInteract()
     {
-        Destroy(instantiatedHighlightInteract);
+        highlightInteract.SetActive(false);
     }
 
     public void HideUIElementListen()
     {
-        Destroy(instantiatedHighlightListen);
+        highlightListen.SetActive(false);
     }
 
     public void HideUIElementTalk()
     {
-        Destroy(instantiatedHighlightTalk);
+        highlightTalk.SetActive(false);
     }
 
     public void ShowSpeechBubble()
     {
-        
     }
 
     public void HideSpeechBubble()
     {
-        
     }
 
     public static void InsertTextForTMP(string followingText)

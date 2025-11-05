@@ -1,5 +1,3 @@
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,11 +5,30 @@ public class StateListeningAction : MonoBehaviour, IControlTypeState
 {
     [SerializeField] private InputActionReference inputToNextChitChat;
     [SerializeField] private InputActionReference inputSpeedUpText;
+    [SerializeField] private RectTransform canvasDialogBox;
+
     private IConversable currentConversable;
     private bool hasPressedInputToNextChitChat;
 
+    private void Awake()
+    {
+    }
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private void Start()
+    {
+    }
+
+    // Update is called once per frame
+    private void Update()
+    {
+        //Debug.Log(inputToNextChitChat.action.ReadValue<float>());
+    }
+
     private void OnEnable()
     {
+        canvasDialogBox.gameObject.SetActive(true);
+
         inputToNextChitChat.action.Enable();
         inputSpeedUpText.action.Enable();
 
@@ -25,25 +42,11 @@ public class StateListeningAction : MonoBehaviour, IControlTypeState
         inputSpeedUpText.action.started -= OnInputActionStartedSpeedUpText;
         inputSpeedUpText.action.canceled -= OnInputActionCanceledSpeedUpText;
         inputToNextChitChat.action.started -= OnInputActionStartedToNextChitChat;
-        
+
         inputSpeedUpText.action.Disable();
         inputToNextChitChat.action.Disable();
-    }
 
-    private void Awake()
-    {
-    }
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //Debug.Log(inputToNextChitChat.action.ReadValue<float>());
+        canvasDialogBox.gameObject.SetActive(false);
     }
 
     public void ExitState()
@@ -76,6 +79,5 @@ public class StateListeningAction : MonoBehaviour, IControlTypeState
 
     private void OnInputActionCanceledSpeedUpText(InputAction.CallbackContext context)
     {
-        
     }
 }
