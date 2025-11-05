@@ -1,19 +1,24 @@
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class StateCraftingWordsAction : MonoBehaviour, IControlTypeState
 {
     [SerializeField] private InputActionReference inputClickOnThings;
     [SerializeField] private InputActionReference inputCursorPosition;
     [SerializeField] private RectTransform craftingWordsCanvas;
-    [SerializeField] private RectTransform craftWordsBoxPanel;
+    [SerializeField] private RectTransform craftingWordsTablePanel;
     [SerializeField] private RectTransform craftWordsSelectorPanel;
+    [SerializeField] private int amountOfNounsThatCanBeCraftedInTotal;
 
     [SerializeField] private GameObject emptyUIGameObject;
     private List<WordBehaviour> wordsThatCanBeSelected;
-    private List<WordBehaviour> wordsReadyForCrafting;
+    private List<WordBehaviour> toBeCrafted;
 
     private void Awake()
     {
@@ -41,7 +46,7 @@ public class StateCraftingWordsAction : MonoBehaviour, IControlTypeState
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         wordsThatCanBeSelected = new List<WordBehaviour>();
-        wordsReadyForCrafting = new List<WordBehaviour>();
+        toBeCrafted = new List<WordBehaviour>();
 
         foreach (NounData nounData in ActorManager.GetAllNounsPlayerHasCollected())
         {
@@ -78,6 +83,48 @@ public class StateCraftingWordsAction : MonoBehaviour, IControlTypeState
 
     private void OnInputActionPerformedClickOnThings(InputAction.CallbackContext context)
     {
+        if (!IsWordClickedOn(out WordBehaviour foundWord)) return;
+        
+        Debug.Log("Found WordData: " + foundWord.wordData.presentedWord);
+        if (toBeCrafted.Contains(foundWord))
+        {
+            toBeCrafted.Remove(foundWord);
+            Destroy(foundWord.gameObject);
+        }
+        else
+        {
+            if (toBeCrafted.Count >= amountOfNounsThatCanBeCraftedInTotal)
+            {
+                Destroy(toBeCrafted[0].gameObject);
+                toBeCrafted.RemoveAt(0);
+            }
+            toBeCrafted.Add(Instantiate(foundWord,craftingWordsTablePanel));
+            
+        }
+        LayoutRebuilder.ForceRebuildLayoutImmediate(craftingWordsTablePanel);
+    }
+    private bool IsWordClickedOn(out WordBehaviour foundWord)
+    {
+        foundWord = null;
+        Vector2 mousePosition = Mouse.current.position.value;
+        
+        PointerEventData pointerEventData = new (EventSystem.current)
+        {
+            position = mousePosition
+        };
+        
+        List<RaycastResult> results = new ();
+        EventSystem.current.RaycastAll(pointerEventData, results);
+
+        foreach (RaycastResult raycastResult in results)
+        {
+            if (!raycastResult.gameObject.TryGetComponent<WordBehaviour>(out WordBehaviour word)) continue;
+            
+            foundWord = word;
+            return true;
+        }
+
+        return false;
     }
 
     public void CloseCrafting()

@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 7256223683300625215}
   - component: {fileID: 2470468023614556656}
   - component: {fileID: 7965609513168329147}
+  - component: {fileID: 7343171074830424911}
   m_Layer: 2
   m_Name: Crafting Table - Panel
   m_TagString: Untagged
@@ -211,6 +212,32 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7343171074830424911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 468715188848548806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 4
+  m_Spacing: 20
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &787887923569812902
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,6 +249,7 @@ GameObject:
   - component: {fileID: 1859359662493220840}
   - component: {fileID: 8294166087538116620}
   - component: {fileID: 5537493962513068391}
+  - component: {fileID: 2261594890987628727}
   m_Layer: 2
   m_Name: Select Nouns - Panel
   m_TagString: Untagged
@@ -245,8 +273,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -120, y: 180}
-  m_SizeDelta: {x: 150, y: 300}
+  m_AnchoredPosition: {x: -120, y: 140}
+  m_SizeDelta: {x: 150, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8294166087538116620
 CanvasRenderer:
@@ -286,6 +314,32 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2261594890987628727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787887923569812902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 4
+  m_Spacing: 10
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &1996068024718889901
 GameObject:
   m_ObjectHideFlags: 0
@@ -530,9 +584,9 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5914917544512353311}
-  - {fileID: 766038136021138633}
   - {fileID: 7952124486983631207}
   - {fileID: 7982606899807273366}
+  - {fileID: 766038136021138633}
   m_Father: {fileID: 8147096439099444696}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1291,7 +1345,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4264733858631335975}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4e84b363f4e66640a23146e4a069424, type: 3}
   m_Name: 
@@ -1299,8 +1353,9 @@ MonoBehaviour:
   inputClickOnThings: {fileID: 335827841905893634, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   inputCursorPosition: {fileID: -3649358892124769118, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   craftingWordsCanvas: {fileID: 7366296501473886641}
-  craftWordsBoxPanel: {fileID: 7256223683300625215}
+  craftingWordsTablePanel: {fileID: 7256223683300625215}
   craftWordsSelectorPanel: {fileID: 1859359662493220840}
+  amountOfNounsThatCanBeCraftedInTotal: 2
   emptyUIGameObject: {fileID: 8646101438223821950, guid: c62acf38e217f9b40a2f05a5ed4dd987, type: 3}
 --- !u!114 &9028817651988108542
 MonoBehaviour:
@@ -1331,9 +1386,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cc71945099e8e584aa3c554dbedeaf10, type: 2}
   - {fileID: 11400000, guid: 765017052a9f8514e8c87821eae44aad, type: 2}
   - {fileID: 11400000, guid: 469f5ebad279eb14ca2ec1aa0fc43452, type: 2}
-  toHave: {fileID: 0}
+  toHave: {fileID: 11400000, guid: 5e70cad20b212c5ffadaa02e5c936f7f, type: 2}
   toBe: {fileID: 11400000, guid: 84425fec3c9a33043a0bb76d77864f82, type: 2}
-  will: {fileID: 0}
+  will: {fileID: 11400000, guid: e07e3b9c6217cba0cae8535aad701f48, type: 2}
 --- !u!1 &4532051610884197933
 GameObject:
   m_ObjectHideFlags: 0

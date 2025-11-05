@@ -99,9 +99,6 @@ public class StateTalkingAction : MonoBehaviour, IControlTypeState
     {
         if (!IsWordClickedOn(out WordBehaviour foundWord)) return;
         
-        
-        
-        
         Debug.Log("Found WordData: " + foundWord.wordData.presentedWord);
         if (currentSentence.Contains(foundWord))
         {
@@ -152,33 +149,14 @@ public class StateTalkingAction : MonoBehaviour, IControlTypeState
 
     private void WordPositionsInSentence()
     {
-        /* TODO:
-         - width of word behaviour should depend on the length of the word in the text.
-         */
-            
-        float xOffset = 20f;
-        int index = 1;
-        float xPosition = xOffset;
-        
         foreach (WordBehaviour wordBehaviour in currentSentence)
         {
-            // RectTransform rectangle = wordBehaviour.GetComponent<RectTransform>();
-            //
-            // rectangle.anchoredPosition = new Vector2(xPosition, 0);
-            // xPosition += rectangle.rect.width + xOffset;
-            //
-            // index++;
-
-            if (wordBehaviour.wordData is VerbData verbData)
+            if (wordBehaviour.wordData is not VerbData verbData) continue;
+            if (wordBehaviour.TryGetComponent(out TextMeshProUGUI tmpUGUI))
             {
-                if (wordBehaviour.TryGetComponent(out TextMeshProUGUI tmpUGUI))
-                {
-                    tmpUGUI.text = VerbConjugator.Conjugate(verbData, solutionTense, solutionPronoun);
-                    // rectangle.rect. = new Vector2(tmpUGUI.text.Length * 10f, rectangle.rect.height);
-                }
+                tmpUGUI.text = VerbConjugator.Conjugate(verbData, solutionTense, solutionPronoun);
             }
         }
-        
         LayoutRebuilder.ForceRebuildLayoutImmediate(sentenceContainerRectangle);
     }
 
