@@ -1298,10 +1298,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputClickOnThings: {fileID: 335827841905893634, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   inputCursorPosition: {fileID: -3649358892124769118, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  craftingWordsCanvas: {fileID: 0}
-  craftWordsBoxPanel: {fileID: 0}
-  craftWordsSelectorPanel: {fileID: 0}
-  emptyUIGameObject: {fileID: 0}
+  craftingWordsCanvas: {fileID: 7366296501473886641}
+  craftWordsBoxPanel: {fileID: 7256223683300625215}
+  craftWordsSelectorPanel: {fileID: 1859359662493220840}
+  emptyUIGameObject: {fileID: 8646101438223821950, guid: c62acf38e217f9b40a2f05a5ed4dd987, type: 3}
 --- !u!114 &9028817651988108542
 MonoBehaviour:
   m_ObjectHideFlags: 0
