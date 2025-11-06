@@ -8,6 +8,12 @@ public class CraftData : ScriptableObject
     public List<NounData> craftWords;
     public VerbData craftedWord;
 
+    private void Awake()
+    {
+        CraftableManager instance = CraftableManager.Instance();
+        instance.AddCraftable(this);
+    }
+
     private void OnEnable()
     {
         CraftableManager instance = CraftableManager.Instance();
