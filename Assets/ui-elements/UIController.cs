@@ -11,7 +11,7 @@ public class UIController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI tmpChitChat;
     [SerializeField] private TextMeshProUGUI tmpPrompt;
     [SerializeField] private TextMeshProUGUI tmpNotificationMessage;
-    public RectTransform uiHighlighter;
+    [SerializeField] private GameObject uiHighlighter;
     public static UIController instance { get; private set; }
 
     private void Awake()
@@ -97,5 +97,11 @@ public class UIController : MonoBehaviour
     public static void InsertNotificationMessagePopText(string followingText)
     {
         instance.tmpNotificationMessage.text = followingText;
+    }
+
+    public void EditUIHighlighters(bool value)
+    {
+        if (!uiHighlighter.IsUnityNull())
+            uiHighlighter.SetActive(value);
     }
 }

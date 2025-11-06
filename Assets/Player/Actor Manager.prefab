@@ -856,7 +856,7 @@ MonoBehaviour:
   tmpChitChat: {fileID: 328367088531966758}
   tmpPrompt: {fileID: 5838173363693969516}
   tmpNotificationMessage: {fileID: 7805101708634215443}
-  uiHighlighter: {fileID: 8686322676186441594}
+  uiHighlighter: {fileID: 3034959929261592216}
 --- !u!1 &3034959929261592216
 GameObject:
   m_ObjectHideFlags: 0
@@ -1453,11 +1453,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b457401398b63649803422bd8c55c23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  overworldMovement: {fileID: 5290268580018972452, guid: 35aadeb5ded45ac408284a622c521726, type: 3}
+  overworldMovement: {fileID: 0}
   listeningAction: {fileID: 463579676126668514}
   talkingAction: {fileID: 1793928788731071406}
   craftingWordsAction: {fileID: 6083774232372810144}
   popUpNotificationAction: {fileID: 2992934353613634070}
+  actorCurserVisible: 0
+  actorCursorLock: 0
 --- !u!114 &463579676126668514
 MonoBehaviour:
   m_ObjectHideFlags: 0

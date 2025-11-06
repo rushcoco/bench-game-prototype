@@ -92,10 +92,8 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
         inputTalking.action.performed += OnInputActionPerformedInputTalking;
         inputToCrafting.action.performed += OnInputActionPerformedChangeToCraftingState;
 
-        if (uiController.IsUnityNull())
-            uiController = UIController.instance;
-        if (uiController.uiHighlighter != null)
-            uiController.uiHighlighter.gameObject.SetActive(true);
+        if (!uiController.IsUnityNull())
+            uiController.EditUIHighlighters(true);
     }
 
     private void OnDisable()
@@ -115,9 +113,8 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
         inputTalking.action.Disable();
         inputToCrafting.action.Disable();
 
-        if (uiController.IsUnityNull())
-            uiController = UIController.instance;
-        uiController.uiHighlighter.gameObject.SetActive(false);
+        if (!uiController.IsUnityNull())
+            uiController.EditUIHighlighters(false);
     }
 
     private void OnTriggerEnter(Collider other)

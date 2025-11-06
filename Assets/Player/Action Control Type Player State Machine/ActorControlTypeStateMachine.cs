@@ -26,7 +26,7 @@ public class ActorControlTypeStateMachine : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
-        overworldMovement.enabled = false;
+        // overworldMovement.enabled = false;
         listeningAction.enabled = false;
         talkingAction.enabled = false;
         craftingWordsAction.enabled = false;
@@ -78,6 +78,7 @@ public class ActorControlTypeStateMachine : MonoBehaviour
     public static void ChangeStateToOverworldMovement()
     {
         instance.SetState(instance.overworldMovement);
+        // UIController.instance.EditUIHighlighters(true);
     }
 
     public static void ChangeStateToTalking(IConversable currentConversable)
