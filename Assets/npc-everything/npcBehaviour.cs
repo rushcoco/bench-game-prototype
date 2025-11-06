@@ -106,6 +106,11 @@ public class NpcBehaviour : MonoBehaviour, IConversable
         PlayChitChat(currentPuzzleData.GetTextForWhenPuzzleIsSolved()[indexChitChat]);
     }
 
+    public void StartWrongResponseChitChat()
+    {
+        ActorControlTypeStateMachine.PushStateToPopUpNotif(currentPuzzleData.dialogResponseFalse);
+    }
+
     public SentenceData GetSolutionSentence()
     {
         Debug.Log(currentPuzzleData.GetSolutionSentence().tense);

@@ -74,7 +74,7 @@ public class StateTalkingAction : MonoBehaviour, IControlTypeState
     {
         ActorControlTypeStateMachine.SetCursorModes(false, CursorLockMode.Locked);
 
-        currentConversable = null;
+        // currentConversable = null;
 
         currentWordsThatCanBeSelected.ForEach(behaviour => Destroy(behaviour.gameObject));
         currentSentence.ForEach(behaviour => Destroy(behaviour.gameObject));
@@ -178,6 +178,7 @@ public class StateTalkingAction : MonoBehaviour, IControlTypeState
         }
         else
         {
+            currentConversable.StartWrongResponseChitChat();
             Debug.Log("Words are wrong");
         }
     }

@@ -19,10 +19,14 @@ public class ItemBehaviour : MonoBehaviour, IInspectable
         // Player should learn this word
         if (ActorManager.TryAddWordToWordsCollected(itemData.learnThisWord))
         {
-            Debug.Log("You have learned the following Word: " + itemData.learnThisWord.presentedWord);
+            ActorControlTypeStateMachine.PushStateToPopUpNotif(
+                $"You have learned the word '{itemData.learnThisWord.presentedWord}'.");
+            Renderer thisrend = GetComponent<Renderer>();
+            thisrend.enabled = false;
             return;
         }
 
-        Debug.Log("You already learned the following Word: " + itemData.learnThisWord.presentedWord);
+        ActorControlTypeStateMachine.PushStateToPopUpNotif(
+            $"You already learned the word '{itemData.learnThisWord.presentedWord}'");
     }
 }

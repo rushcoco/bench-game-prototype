@@ -10,5 +10,6 @@ public interface IConversable
     bool StartTalkPrompt();
     bool TryResponse(List<WordData> sentence);
     void StartSolutionChitChat();
+    void StartWrongResponseChitChat();
     SentenceData GetSolutionSentence();
 }

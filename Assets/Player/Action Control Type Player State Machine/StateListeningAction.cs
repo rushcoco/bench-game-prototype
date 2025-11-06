@@ -30,20 +30,14 @@ public class StateListeningAction : MonoBehaviour, IControlTypeState
         canvasDialogBox.gameObject.SetActive(true);
 
         inputToNextChitChat.action.Enable();
-        inputSpeedUpText.action.Enable();
 
-        inputSpeedUpText.action.started += OnInputActionStartedSpeedUpText;
-        inputSpeedUpText.action.canceled += OnInputActionCanceledSpeedUpText;
         inputToNextChitChat.action.started += OnInputActionStartedToNextChitChat;
     }
 
     private void OnDisable()
     {
-        inputSpeedUpText.action.started -= OnInputActionStartedSpeedUpText;
-        inputSpeedUpText.action.canceled -= OnInputActionCanceledSpeedUpText;
         inputToNextChitChat.action.started -= OnInputActionStartedToNextChitChat;
 
-        inputSpeedUpText.action.Disable();
         inputToNextChitChat.action.Disable();
 
         canvasDialogBox.gameObject.SetActive(false);
@@ -69,12 +63,6 @@ public class StateListeningAction : MonoBehaviour, IControlTypeState
         if (currentConversable.NextChitChat()) return;
         UIController.instance.HideSpeechBubble();
         ActorControlTypeStateMachine.ChangeStateToOverworldMovement();
-    }
-
-    private void OnInputActionStartedSpeedUpText(InputAction.CallbackContext context)
-    {
-        currentConversable.StartSolutionChitChat();
-        ActorControlTypeStateMachine.ChangeStateToListening(currentConversable);
     }
 
     private void OnInputActionCanceledSpeedUpText(InputAction.CallbackContext context)
