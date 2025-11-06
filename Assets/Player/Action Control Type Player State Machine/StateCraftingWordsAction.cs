@@ -1,7 +1,5 @@
 using System.Collections.Generic;
-using System.Linq;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -17,8 +15,8 @@ public class StateCraftingWordsAction : MonoBehaviour, IControlTypeState
     [SerializeField] private int amountOfNounsThatCanBeCraftedInTotal;
 
     [SerializeField] private GameObject emptyUIGameObject;
-    private List<WordBehaviour> wordsThatCanBeSelected;
     private List<WordBehaviour> toBeCrafted;
+    private List<WordBehaviour> wordsThatCanBeSelected;
 
     private void Awake()
     {
@@ -50,10 +48,11 @@ public class StateCraftingWordsAction : MonoBehaviour, IControlTypeState
 
         foreach (NounData nounData in ActorManager.GetAllNounsPlayerHasCollected())
         {
-            WordBehaviour currEmptyWord = Instantiate(emptyUIGameObject, craftWordsSelectorPanel).AddComponent<WordBehaviour>();
+            WordBehaviour currEmptyWord =
+                Instantiate(emptyUIGameObject, craftWordsSelectorPanel).AddComponent<WordBehaviour>();
             currEmptyWord.SetWord(nounData);
             currEmptyWord.GetComponent<TextMeshProUGUI>().text = currEmptyWord.wordData.presentedWord;
-            
+
             wordsThatCanBeSelected.Add(currEmptyWord);
         }
     }
@@ -67,6 +66,14 @@ public class StateCraftingWordsAction : MonoBehaviour, IControlTypeState
 
         inputClickOnThings.action.Disable();
         inputCursorPosition.action.Disable();
+
+        toBeCrafted.ForEach(data => Destroy(data.gameObject));
+        toBeCrafted.Clear();
+        toBeCrafted.TrimExcess();
+
+        wordsThatCanBeSelected.ForEach(data => Destroy(data.gameObject));
+        wordsThatCanBeSelected.Clear();
+        wordsThatCanBeSelected.TrimExcess();
 
         craftingWordsCanvas.gameObject.SetActive(false);
     }
@@ -84,7 +91,7 @@ public class StateCraftingWordsAction : MonoBehaviour, IControlTypeState
     private void OnInputActionPerformedClickOnThings(InputAction.CallbackContext context)
     {
         if (!IsWordClickedOn(out WordBehaviour foundWord)) return;
-        
+
         Debug.Log("Found WordData: " + foundWord.wordData.presentedWord);
         if (toBeCrafted.Contains(foundWord))
         {
@@ -98,28 +105,30 @@ public class StateCraftingWordsAction : MonoBehaviour, IControlTypeState
                 Destroy(toBeCrafted[0].gameObject);
                 toBeCrafted.RemoveAt(0);
             }
-            toBeCrafted.Add(Instantiate(foundWord,craftingWordsTablePanel));
-            
+
+            toBeCrafted.Add(Instantiate(foundWord, craftingWordsTablePanel));
         }
+
         LayoutRebuilder.ForceRebuildLayoutImmediate(craftingWordsTablePanel);
     }
+
     private bool IsWordClickedOn(out WordBehaviour foundWord)
     {
         foundWord = null;
         Vector2 mousePosition = Mouse.current.position.value;
-        
-        PointerEventData pointerEventData = new (EventSystem.current)
+
+        PointerEventData pointerEventData = new(EventSystem.current)
         {
             position = mousePosition
         };
-        
-        List<RaycastResult> results = new ();
+
+        List<RaycastResult> results = new();
         EventSystem.current.RaycastAll(pointerEventData, results);
 
         foreach (RaycastResult raycastResult in results)
         {
-            if (!raycastResult.gameObject.TryGetComponent<WordBehaviour>(out WordBehaviour word)) continue;
-            
+            if (!raycastResult.gameObject.TryGetComponent(out WordBehaviour word)) continue;
+
             foundWord = word;
             return true;
         }
@@ -130,5 +139,14 @@ public class StateCraftingWordsAction : MonoBehaviour, IControlTypeState
     public void CloseCrafting()
     {
         ActorControlTypeStateMachine.PopStateToPrevious();
+    }
+
+    public void TryCraftWords()
+    {
+        foreach (WordBehaviour wordBehaviour in toBeCrafted) Debug.Log(wordBehaviour.wordData.presentedWord);
+        CraftableManager instance = CraftableManager.Instance();
+        foreach (CraftData craftData in instance.getCraftData)
+            Debug.Log(
+                $"{craftData.craftWords[0].presentedWord} and {craftData.craftWords[1].presentedWord} is {craftData.craftedWord.presentedWord}");
     }
 }
