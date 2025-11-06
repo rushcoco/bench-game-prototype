@@ -94,7 +94,8 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
 
         if (uiController.IsUnityNull())
             uiController = UIController.instance;
-        uiController.uiHighlighter.gameObject.SetActive(true);
+        if (uiController.uiHighlighter != null)
+            uiController.uiHighlighter.gameObject.SetActive(true);
     }
 
     private void OnDisable()
