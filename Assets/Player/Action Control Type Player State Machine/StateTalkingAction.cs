@@ -13,104 +13,83 @@ public class StateTalkingAction : MonoBehaviour, IControlTypeState
     [SerializeField] private RectTransform wordSelectorRectangle;
     [SerializeField] private GameObject emptyUIGameObject;
     [SerializeField] private RectTransform sentenceBuildingCanvas;
-    
-    // Drag Behaviour Variable
-    private WordBehaviour draggedWord;
-    private Vector2 dragOffset;
-    private Transform originalParent;
-    private CanvasGroup draggedWordCanvasGroup;
-    
-    // Sentence Building Logic Variables
-    private List<WordBehaviour> currentSentence;
-    private List<WordBehaviour> currentWordsThatCanBeSelected;
-    private Tense solutionTense;
-    private Pronoun solutionPronoun;
-    private float currentTimeInSeconds;
 
     private IConversable currentConversable;
+
+    // Sentence Building Logic Variables
+    private List<WordBehaviour> currentSentence;
+    private float currentTimeInSeconds;
+    private List<WordBehaviour> currentWordsThatCanBeSelected;
+
+    // Drag Behaviour Variable
+    private WordBehaviour draggedWord;
+    private CanvasGroup draggedWordCanvasGroup;
+    private Vector2 dragOffset;
+    private Transform originalParent;
+    private Pronoun solutionPronoun;
+    private Tense solutionTense;
+
+    private void Awake()
+    {
+    }
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private void Start()
+    {
+    }
+
+    // Update is called once per frame
+    private void Update()
+    {
+    }
 
     private void OnEnable()
     {
         sentenceBuildingCanvas.gameObject.SetActive(true);
-        
+
         inputClickOnThings.action.Enable();
         inputCursorPosition.action.Enable();
         inputClickOnThings.action.performed += OnInputActionClickOnThings;
-        
+
         currentSentence = new List<WordBehaviour>();
         currentWordsThatCanBeSelected = new List<WordBehaviour>();
-        
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
-        
+
+        ActorControlTypeStateMachine.SetCursorModes(true, CursorLockMode.None);
+
         foreach (WordData word in ActorManager.GetAllWordsPlayerHasCollected())
         {
-            WordBehaviour currEmptyWord = Instantiate(emptyUIGameObject, wordSelectorRectangle).AddComponent<WordBehaviour>();
+            WordBehaviour currEmptyWord =
+                Instantiate(emptyUIGameObject, wordSelectorRectangle).AddComponent<WordBehaviour>();
             currEmptyWord.SetWord(word);
             currEmptyWord.GetComponent<TextMeshProUGUI>().text = currEmptyWord.wordData.presentedWord;
-            
+
             currentWordsThatCanBeSelected.Add(currEmptyWord);
         }
-        
+
         solutionTense = currentConversable.GetSolutionSentence().tense;
         solutionPronoun = currentConversable.GetSolutionSentence().pronoun;
     }
 
     private void OnDisable()
     {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        ActorControlTypeStateMachine.SetCursorModes(false, CursorLockMode.Locked);
+
         currentConversable = null;
-        
+
         currentWordsThatCanBeSelected.ForEach(behaviour => Destroy(behaviour.gameObject));
         currentSentence.ForEach(behaviour => Destroy(behaviour.gameObject));
-        
+
         currentWordsThatCanBeSelected.Clear();
         currentSentence.Clear();
-        
+
         currentWordsThatCanBeSelected.TrimExcess();
         currentSentence.TrimExcess();
-        
+
         inputClickOnThings.action.performed -= OnInputActionClickOnThings;
         inputClickOnThings.action.Disable();
         inputCursorPosition.action.Disable();
-        
+
         sentenceBuildingCanvas.gameObject.SetActive(false);
-    }
-
-    private void Awake()
-    {
-        
-    }
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    private void Update()
-    {
-        
-    }
-
-    private void OnInputActionClickOnThings(InputAction.CallbackContext context)
-    {
-        if (!IsWordClickedOn(out WordBehaviour foundWord)) return;
-        
-        Debug.Log("Found WordData: " + foundWord.wordData.presentedWord);
-        if (currentSentence.Contains(foundWord))
-        {
-            currentSentence.Remove(foundWord);
-            Destroy(foundWord.gameObject);
-        }
-        else
-            currentSentence.Add(Instantiate(foundWord, sentenceContainerRectangle));
-            
-        // TODO: check if its a verb and conjugate the verb
-        
-        WordPositionsInSentence();
     }
 
     public void ExitState()
@@ -123,23 +102,43 @@ public class StateTalkingAction : MonoBehaviour, IControlTypeState
         enabled = true;
     }
 
+    private void OnInputActionClickOnThings(InputAction.CallbackContext context)
+    {
+        if (!IsWordClickedOn(out WordBehaviour foundWord)) return;
+
+        Debug.Log("Found WordData: " + foundWord.wordData.presentedWord);
+        if (currentSentence.Contains(foundWord))
+        {
+            currentSentence.Remove(foundWord);
+            Destroy(foundWord.gameObject);
+        }
+        else
+        {
+            currentSentence.Add(Instantiate(foundWord, sentenceContainerRectangle));
+        }
+
+        // TODO: check if its a verb and conjugate the verb
+
+        WordPositionsInSentence();
+    }
+
     private bool IsWordClickedOn(out WordBehaviour foundWord)
     {
         foundWord = null;
         Vector2 mousePosition = Mouse.current.position.value;
-        
-        PointerEventData pointerEventData = new (EventSystem.current)
+
+        PointerEventData pointerEventData = new(EventSystem.current)
         {
             position = mousePosition
         };
-        
-        List<RaycastResult> results = new ();
+
+        List<RaycastResult> results = new();
         EventSystem.current.RaycastAll(pointerEventData, results);
 
         foreach (RaycastResult raycastResult in results)
         {
-            if (!raycastResult.gameObject.TryGetComponent<WordBehaviour>(out WordBehaviour word)) continue;
-            
+            if (!raycastResult.gameObject.TryGetComponent(out WordBehaviour word)) continue;
+
             foundWord = word;
             return true;
         }
@@ -153,22 +152,19 @@ public class StateTalkingAction : MonoBehaviour, IControlTypeState
         {
             if (wordBehaviour.wordData is not VerbData verbData) continue;
             if (wordBehaviour.TryGetComponent(out TextMeshProUGUI tmpUGUI))
-            {
                 tmpUGUI.text = VerbConjugator.Conjugate(verbData, solutionTense, solutionPronoun);
-            }
         }
+
         LayoutRebuilder.ForceRebuildLayoutImmediate(sentenceContainerRectangle);
     }
 
     public void SetIConversable(IConversable conversable)
     {
         currentConversable = conversable;
-        
     }
 
     public void OnTimeRunOut()
     {
-        
     }
 
     public void OnRespond()
@@ -181,6 +177,8 @@ public class StateTalkingAction : MonoBehaviour, IControlTypeState
             ActorControlTypeStateMachine.ChangeStateToListening(currentConversable);
         }
         else
+        {
             Debug.Log("Words are wrong");
+        }
     }
 }

@@ -41,8 +41,8 @@ public class StateCraftingWordsAction : MonoBehaviour, IControlTypeState
 
         inputClickOnThings.action.performed += OnInputActionPerformedClickOnThings;
 
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
+        ActorControlTypeStateMachine.SetCursorModes(true, CursorLockMode.None);
+
         wordsThatCanBeSelected = new List<WordBehaviour>();
         toBeCrafted = new List<WordBehaviour>();
 
@@ -59,8 +59,7 @@ public class StateCraftingWordsAction : MonoBehaviour, IControlTypeState
 
     private void OnDisable()
     {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        ActorControlTypeStateMachine.SetCursorModes(false, CursorLockMode.Locked);
 
         inputClickOnThings.action.performed -= OnInputActionPerformedClickOnThings;
 
@@ -146,7 +145,12 @@ public class StateCraftingWordsAction : MonoBehaviour, IControlTypeState
         CraftableManager instance = CraftableManager.Instance();
 
         List<NounData> nouns = new();
+        string message;
         toBeCrafted.ForEach(behaviour => nouns.Add(behaviour.wordData as NounData));
-        instance.TryCraftWords(nouns);
+        if (instance.TryCraftWords(nouns, out VerbData verb) && ActorManager.TryAddWordToWordsCollected(verb))
+            message = $"You learned the word '{verb.presentedWord}'!\n\nCongratulations!";
+        else
+            message = "You couldn't craft a new word";
+        ActorControlTypeStateMachine.PushStateToPopUpNotif(message);
     }
 }

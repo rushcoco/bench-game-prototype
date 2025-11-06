@@ -10,6 +10,7 @@ public class UIController : MonoBehaviour
     [SerializeField] private GameObject highlightTalk;
     [SerializeField] private TextMeshProUGUI tmpChitChat;
     [SerializeField] private TextMeshProUGUI tmpPrompt;
+    [SerializeField] private TextMeshProUGUI tmpNotificationMessage;
     public RectTransform uiHighlighter;
     public static UIController instance { get; private set; }
 
@@ -91,5 +92,10 @@ public class UIController : MonoBehaviour
     public static void InsertPromptTextForTMP(string followingText)
     {
         instance.tmpPrompt.text = followingText;
+    }
+
+    public static void InsertNotificationMessagePopText(string followingText)
+    {
+        instance.tmpNotificationMessage.text = followingText;
     }
 }

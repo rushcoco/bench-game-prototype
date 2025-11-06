@@ -1,6 +1,4 @@
-using System;
 using System.Collections.Generic;
-using Mono.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -21,20 +19,18 @@ public class ActorManager : MonoBehaviour
 
         if (wordsCollected == null)
             wordsCollected = new List<WordData>();
-            
-        VerbConjugator.SetAuxiliaryVerbs(toHave,toBe,will);
+
+        VerbConjugator.SetAuxiliaryVerbs(toHave, toBe, will);
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
-        
     }
 
     // Update is called once per frame
     private void Update()
     {
-        
     }
 
     public static IReadOnlyCollection<WordData> GetAllWordsPlayerHasCollected()
@@ -44,15 +40,18 @@ public class ActorManager : MonoBehaviour
 
     public static IReadOnlyCollection<NounData> GetAllNounsPlayerHasCollected()
     {
-        List<NounData> playerNouns = new List<NounData>();
-        instance.wordsCollected.ForEach(x => {if (x is NounData y)  playerNouns.Add(y);});
+        List<NounData> playerNouns = new();
+        instance.wordsCollected.ForEach(x =>
+        {
+            if (x is NounData y) playerNouns.Add(y);
+        });
         return playerNouns;
     }
 
-    public static bool AddWordToWordsCollected(WordData localWord)
+    public static bool TryAddWordToWordsCollected(WordData localWord)
     {
         if (instance.wordsCollected.Contains(localWord)) return false;
-        
+
         instance.wordsCollected.Add(localWord);
         return true;
     }

@@ -9,6 +9,9 @@ public class ActorControlTypeStateMachine : MonoBehaviour
     [SerializeField] private StateListeningAction listeningAction;
     [SerializeField] private StateTalkingAction talkingAction;
     [SerializeField] private StateCraftingWordsAction craftingWordsAction;
+    [SerializeField] private StatePopUpNotificationAction popUpNotificationAction;
+    public bool actorCurserVisible;
+    public CursorLockMode actorCursorLock;
     private readonly Stack<IControlTypeState> stateStack = new();
     private IControlTypeState currentState;
 
@@ -23,14 +26,13 @@ public class ActorControlTypeStateMachine : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-
         overworldMovement.enabled = false;
         listeningAction.enabled = false;
         talkingAction.enabled = false;
         craftingWordsAction.enabled = false;
+        popUpNotificationAction.enabled = false;
 
+        SetCursorModes(false, CursorLockMode.Locked);
         ChangeStateToOverworldMovement();
     }
 
@@ -39,12 +41,19 @@ public class ActorControlTypeStateMachine : MonoBehaviour
     {
     }
 
+    private void ApplyCursorSettings()
+    {
+        Cursor.visible = actorCurserVisible;
+        Cursor.lockState = actorCursorLock;
+    }
+
     private void SetState(IControlTypeState newState)
     {
         if (currentState == newState) return;
         currentState?.ExitState();
         currentState = newState;
         currentState.EnterState();
+        ApplyCursorSettings();
         Debug.Log("current State: " + currentState.GetType());
     }
 
@@ -85,5 +94,17 @@ public class ActorControlTypeStateMachine : MonoBehaviour
     public static void PopStateToPrevious()
     {
         instance.PopState();
+    }
+
+    public static void PushStateToPopUpNotif(string notifMessage)
+    {
+        instance.popUpNotificationAction.notificationMessage = notifMessage;
+        instance.PushState(instance.popUpNotificationAction);
+    }
+
+    public static void SetCursorModes(bool cursorVisible, CursorLockMode cursorLockMode)
+    {
+        instance.actorCurserVisible = cursorVisible;
+        instance.actorCursorLock = cursorLockMode;
     }
 }

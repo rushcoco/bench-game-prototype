@@ -34,15 +34,44 @@ public class CraftableManager
         return true;
     }
 
-    public bool TryCraftWords(List<NounData> nouns)
+    public bool TryCraftWords(List<NounData> nouns, out VerbData verb)
     {
+        foreach (CraftData craftData in allCraftableData)
+        {
+            foreach (NounData craftDataCraftWord in craftData.craftWords)
+                Debug.Log("Found Word: " + craftDataCraftWord.presentedWord);
+            Debug.Log("Fouond Verb: " + craftData.craftedWord.presentedWord);
+        }
+
+        verb = null;
         // TODO:
         // Check if the List of Words/ Words Combination exist
         // return true and push stack to "learned word"
         // return false and push stack to "wrong"
-        
-        
-        return true;
+        List<NounData> throwAwayList = new();
+        foreach (NounData nounData in nouns)
+        {
+            if (throwAwayList.Contains(nounData))
+                return false;
+
+            throwAwayList.Add(nounData);
+        }
+
+        throwAwayList.Clear();
+        throwAwayList.TrimExcess();
+
+        foreach (CraftData data in allCraftableData)
+            for (int i = 0; i < nouns.Count; i++)
+            {
+                if (!data.craftWords.Contains(nouns[i])) break;
+                if (i < nouns.Count - 1) continue;
+
+                verb = data.craftedWord;
+                return true;
+            }
+
+
+        return false;
     }
 
     public static CraftableManager Instance()
