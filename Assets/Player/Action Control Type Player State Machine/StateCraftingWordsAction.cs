@@ -143,10 +143,10 @@ public class StateCraftingWordsAction : MonoBehaviour, IControlTypeState
 
     public void TryCraftWords()
     {
-        foreach (WordBehaviour wordBehaviour in toBeCrafted) Debug.Log(wordBehaviour.wordData.presentedWord);
         CraftableManager instance = CraftableManager.Instance();
-        foreach (CraftData craftData in instance.getCraftData)
-            Debug.Log(
-                $"{craftData.craftWords[0].presentedWord} and {craftData.craftWords[1].presentedWord} is {craftData.craftedWord.presentedWord}");
+
+        List<NounData> nouns = new();
+        toBeCrafted.ForEach(behaviour => nouns.Add(behaviour.wordData as NounData));
+        instance.TryCraftWords(nouns);
     }
 }

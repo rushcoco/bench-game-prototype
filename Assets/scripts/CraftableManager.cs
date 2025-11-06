@@ -34,6 +34,17 @@ public class CraftableManager
         return true;
     }
 
+    public bool TryCraftWords(List<NounData> nouns)
+    {
+        // TODO:
+        // Check if the List of Words/ Words Combination exist
+        // return true and push stack to "learned word"
+        // return false and push stack to "wrong"
+        
+        
+        return true;
+    }
+
     public static CraftableManager Instance()
     {
         if (instance == null)
