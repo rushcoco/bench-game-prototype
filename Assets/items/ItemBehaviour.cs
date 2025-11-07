@@ -4,16 +4,6 @@ public class ItemBehaviour : MonoBehaviour, IInspectable
 {
     [SerializeField] private ItemData itemData;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private void Start()
-    {
-    }
-
-    // Update is called once per frame
-    private void Update()
-    {
-    }
-
     public void Inspect()
     {
         // Player should learn this word

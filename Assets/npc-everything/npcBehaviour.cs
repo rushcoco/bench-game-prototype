@@ -6,10 +6,10 @@ using UnityEngine.Events;
 public class NpcBehaviour : MonoBehaviour, IConversable
 {
     [SerializeField] private List<PuzzleData> puzzles;
+    [SerializeField] private UnityEvent rair;
     private PuzzleData currentPuzzleData;
     private float currentTimeInSeconds;
     private int indexChitChat;
-    [SerializeField] private UnityEvent onAfterPuzzleSolved;
 
 
     // delegate of function?
@@ -106,9 +106,6 @@ public class NpcBehaviour : MonoBehaviour, IConversable
     {
         indexChitChat = 0;
         PlayChitChat(currentPuzzleData.GetTextForWhenPuzzleIsSolved()[indexChitChat]);
-        
-        if(GetCurrentPuzzle(puzzles) == null)
-            onAfterPuzzleSolved?.Invoke();
     }
 
     public void StartWrongResponseChitChat()

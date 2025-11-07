@@ -16,6 +16,7 @@ public class PuzzleData : ScriptableObject
     [SerializeField] public string dialogResponseFalse;
     [SerializeField] public string dialogTimeRunOut;
     [SerializeField] public string dialogPuzzlePrompt;
+    [SerializeField] private UnityEvent rewardForThePlayer;
 
     // isPuzzleSolved?
     [SerializeField] private bool isActuallySolved;
@@ -61,6 +62,8 @@ public class PuzzleData : ScriptableObject
 
     public void SetIsSolved(bool value)
     {
+        if (value)
+            rewardForThePlayer?.Invoke();
         isActuallySolved = value;
     }
 }
