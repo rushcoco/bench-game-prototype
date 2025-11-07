@@ -18,7 +18,6 @@ MonoBehaviour:
   - Come one youngster!
   - Help me find the key!
   timelimitForPuzzleInSeconds: 0
-  isSolved: 0
   dialogPuzzleSolved:
   - Oh
   - ' of course.'
@@ -30,3 +29,4 @@ MonoBehaviour:
   dialogResponseFalse: '"Stop wasting time! The key'
   dialogTimeRunOut: ' we need to find it!"'
   dialogPuzzlePrompt: '"Stop wasting time! The key'
+  isActuallySolved: 0

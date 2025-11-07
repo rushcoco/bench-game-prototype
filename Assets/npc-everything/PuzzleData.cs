@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using UnityEngine;
+using UnityEngine.Events;
 
 [CreateAssetMenu(fileName = "PuzzleData", menuName = "Scriptable Objects/PuzzleData")]
 public class PuzzleData : ScriptableObject
@@ -11,13 +12,14 @@ public class PuzzleData : ScriptableObject
     [SerializeField] public List<string> dialogChitChat;
 
     [SerializeField] public float timelimitForPuzzleInSeconds;
-
-    // isPuzzleSolved?
-    public bool isSolved;
     [SerializeField] public List<string> dialogPuzzleSolved;
     [SerializeField] public string dialogResponseFalse;
     [SerializeField] public string dialogTimeRunOut;
     [SerializeField] public string dialogPuzzlePrompt;
+
+    // isPuzzleSolved?
+    [SerializeField] private bool isActuallySolved;
+    public bool isSolved => isActuallySolved;
     public float timeLimit => timelimitForPuzzleInSeconds;
 
     public IReadOnlyList<WordData> GetSolutionWords()
@@ -55,5 +57,10 @@ public class PuzzleData : ScriptableObject
     public string GetPuzzlePrompt()
     {
         return dialogPuzzlePrompt;
+    }
+
+    public void SetIsSolved(bool value)
+    {
+        isActuallySolved = value;
     }
 }

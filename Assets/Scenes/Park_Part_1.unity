@@ -1430,6 +1430,7 @@ GameObject:
   - component: {fileID: 1079042221}
   - component: {fileID: 1079042220}
   - component: {fileID: 1079042216}
+  - component: {fileID: 1079042222}
   m_Layer: 0
   m_Name: Gate
   m_TagString: Untagged
@@ -1560,6 +1561,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   message: It seems the gate is blocked off.\n\nMaybe someone can open the gate...?
+--- !u!114 &1079042222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079042215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c54f388acf54e93488f62ef9b8cf6ffc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1087662800 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 487538bf722733a4f82f6866bf7e2bbc, type: 3}
@@ -2261,6 +2274,34 @@ PrefabInstance:
     - target: {fileID: 1969219812619983144, guid: 3b95a0b4fd40c0c49ba1c8d5350294a5, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614940094963100265, guid: 3b95a0b4fd40c0c49ba1c8d5350294a5, type: 3}
+      propertyPath: onAfterPuzzleSolved.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614940094963100265, guid: 3b95a0b4fd40c0c49ba1c8d5350294a5, type: 3}
+      propertyPath: onAfterPuzzleSolved.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614940094963100265, guid: 3b95a0b4fd40c0c49ba1c8d5350294a5, type: 3}
+      propertyPath: onAfterPuzzleSolved.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1079042222}
+    - target: {fileID: 2614940094963100265, guid: 3b95a0b4fd40c0c49ba1c8d5350294a5, type: 3}
+      propertyPath: onAfterPuzzleSolved.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614940094963100265, guid: 3b95a0b4fd40c0c49ba1c8d5350294a5, type: 3}
+      propertyPath: onAfterPuzzleSolved.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: InvokeReward
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614940094963100265, guid: 3b95a0b4fd40c0c49ba1c8d5350294a5, type: 3}
+      propertyPath: onAfterPuzzleSolved.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GateBehaviour, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614940094963100265, guid: 3b95a0b4fd40c0c49ba1c8d5350294a5, type: 3}
+      propertyPath: onAfterPuzzleSolved.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5739190617577880409, guid: 3b95a0b4fd40c0c49ba1c8d5350294a5, type: 3}
       propertyPath: m_IsActive

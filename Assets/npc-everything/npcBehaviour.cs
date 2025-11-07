@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class NpcBehaviour : MonoBehaviour, IConversable
 {
@@ -8,6 +9,7 @@ public class NpcBehaviour : MonoBehaviour, IConversable
     private PuzzleData currentPuzzleData;
     private float currentTimeInSeconds;
     private int indexChitChat;
+    [SerializeField] private UnityEvent onAfterPuzzleSolved;
 
 
     // delegate of function?
@@ -94,7 +96,7 @@ public class NpcBehaviour : MonoBehaviour, IConversable
         currentPuzzleData.GetSolutionSentence().SetSentence();
         Debug.Log(currentPuzzleData.GetSolutionSentence().finalSentence);
 
-        currentPuzzleData.isSolved = true;
+        currentPuzzleData.SetIsSolved(true);
         UIController.InsertPromptTextForTMP("");
         Debug.Log("Words are correct");
         return true;
@@ -104,6 +106,9 @@ public class NpcBehaviour : MonoBehaviour, IConversable
     {
         indexChitChat = 0;
         PlayChitChat(currentPuzzleData.GetTextForWhenPuzzleIsSolved()[indexChitChat]);
+        
+        if(GetCurrentPuzzle(puzzles) == null)
+            onAfterPuzzleSolved?.Invoke();
     }
 
     public void StartWrongResponseChitChat()

@@ -19,7 +19,6 @@ MonoBehaviour:
   - " if it isn\u2019t the newcomer!"
   - Make yourself useful instead of dozing off on that bench!
   timelimitForPuzzleInSeconds: 60
-  isSolved: 0
   dialogPuzzleSolved:
   - "Of course it\u2019s locked!"
   - "I always lock this zone when I\u2019m cleaning it."
@@ -35,3 +34,4 @@ MonoBehaviour:
   dialogResponseFalse: If you wanna talk at least find something to talk about!
   dialogTimeRunOut: If you wanna talk at least find something to talk about!
   dialogPuzzlePrompt: "What do you want now? Don\u2019t you see I\u2019m working?"
+  isActuallySolved: 0
