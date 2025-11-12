@@ -50,6 +50,7 @@ public class ActorManager : MonoBehaviour
 
     public static bool TryAddWordToWordsCollected(WordData localWord)
     {
+        if (localWord == null) return false;
         if (instance.wordsCollected.Contains(localWord)) return false;
 
         instance.wordsCollected.Add(localWord);

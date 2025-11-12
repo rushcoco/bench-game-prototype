@@ -39,7 +39,7 @@ public class NpcBehaviour : MonoBehaviour, IConversable
 
     public bool NextChitChat()
     {
-        if (currentPuzzleData.isSolved)
+        if (currentPuzzleData.IsPuzzleSolved())
         {
             if (indexChitChat + 1 >= currentPuzzleData.GetCountDialogPuzzleSolved())
             {
@@ -128,7 +128,7 @@ public class NpcBehaviour : MonoBehaviour, IConversable
     {
         if (index >= localPuzzles.Count) return null;
 
-        return localPuzzles[index].isSolved ? GetCurrentPuzzle(localPuzzles, index + 1) : localPuzzles[index];
+        return localPuzzles[index].IsPuzzleSolved() ? GetCurrentPuzzle(localPuzzles, index + 1) : localPuzzles[index];
     }
 
     private void PlayChitChat(string playThis)

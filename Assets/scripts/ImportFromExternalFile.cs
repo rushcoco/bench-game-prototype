@@ -2,12 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using Unity;
-using Unity.VisualScripting;
-using Object = UnityEngine.Object;
 #if UNITY_EDITOR
 using UnityEditor;
-using UnityEngine.UIElements;
 #endif
 
 public static class ImportFromExternalFile
@@ -272,7 +268,7 @@ public static class ImportFromExternalFile
             puzzleData.dialogPuzzlePrompt = values[6];
 
             if (int.TryParse(values[7], out int result))
-                puzzleData.timelimitForPuzzleInSeconds = result;
+                puzzleData.timeLimitInSeconds = result;
 
 
             string assetPath = $"{pathFolder}/{puzzleData.id}.asset";
