@@ -1350,8 +1350,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcaa3a0cd03f0bc4b810ffa2e0c46f60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  message: Throughout the world you will encounter words.\n\nHowever, did you know
-    you can craft new words with 'C'?
+  message:
+  - Did you know you can craft new verbs with nouns you already know?
+  - Just press the 'C' Button to open the crafting window.
+  - Pretty neat, right?
 --- !u!1 &1001627241
 GameObject:
   m_ObjectHideFlags: 0
@@ -1466,7 +1468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcaa3a0cd03f0bc4b810ffa2e0c46f60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  message: 
+  message: []
 --- !u!1001 &1176251133
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2857,6 +2859,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1891716963387880080, guid: e9d81d1173f496c448873e1145347b93, type: 3}
+      propertyPath: message.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1891716963387880080, guid: e9d81d1173f496c448873e1145347b93, type: 3}
+      propertyPath: 'message.Array.data[0]'
+      value: It seems this gate is locked
+      objectReference: {fileID: 0}
+    - target: {fileID: 1891716963387880080, guid: e9d81d1173f496c448873e1145347b93, type: 3}
+      propertyPath: 'message.Array.data[1]'
+      value: Maybe there is someone that can open it?
+      objectReference: {fileID: 0}
     - target: {fileID: 2108660437111126785, guid: e9d81d1173f496c448873e1145347b93, type: 3}
       propertyPath: m_Name
       value: Gate

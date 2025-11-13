@@ -11,8 +11,8 @@ public class ItemBehaviour : MonoBehaviour, IInspectable
         {
             ActorControlTypeStateMachine.PushStateToPopUpNotif(
                 $"You have learned the word '{itemData.learnThisWord.presentedWord}'.");
-            Renderer thisrend = GetComponent<Renderer>();
-            thisrend.enabled = false;
+            Renderer render = GetComponent<Renderer>();
+            render.enabled = false;
             return;
         }
 

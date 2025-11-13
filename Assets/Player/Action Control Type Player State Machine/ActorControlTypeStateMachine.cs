@@ -99,7 +99,13 @@ public class ActorControlTypeStateMachine : MonoBehaviour
 
     public static void PushStateToPopUpNotif(string notifMessage)
     {
-        instance.popUpNotificationAction.notificationMessage = notifMessage;
+        instance.popUpNotificationAction.AddNotificationMessage(notifMessage);
+        instance.PushState(instance.popUpNotificationAction);
+    }
+
+    public static void PushStateToPopUpNotif(IReadOnlyCollection<string> notifMessage)
+    {
+        foreach (string s in notifMessage) instance.popUpNotificationAction.AddNotificationMessage(s);
         instance.PushState(instance.popUpNotificationAction);
     }
 

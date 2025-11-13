@@ -1,23 +1,10 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class StatePopUpNotificationAction : MonoBehaviour, IControlTypeState
 {
     [SerializeField] private RectTransform popUpCanvas;
-    public string notificationMessage;
-
-    private void Awake()
-    {
-    }
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private void Start()
-    {
-    }
-
-    // Update is called once per frame
-    private void Update()
-    {
-    }
+    private readonly Queue<string> notificationMessage = new();
 
     private void OnEnable()
     {
@@ -46,11 +33,20 @@ public class StatePopUpNotificationAction : MonoBehaviour, IControlTypeState
 
     private void SetMessageStringToUIElement()
     {
-        UIController.InsertNotificationMessagePopText(notificationMessage);
+        UIController.InsertNotificationMessagePopText(notificationMessage.Dequeue());
     }
 
     public void OnContinue()
     {
-        ActorControlTypeStateMachine.PopStateToPrevious();
+        if (notificationMessage.Count > 0)
+            SetMessageStringToUIElement();
+        else
+            ActorControlTypeStateMachine.PopStateToPrevious();
+    }
+
+    public void AddNotificationMessage(string message)
+    {
+        // Add Notification Message to a list or stack or smth
+        notificationMessage.Enqueue(message);
     }
 }
