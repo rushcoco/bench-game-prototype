@@ -27,18 +27,17 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
     private IInspectable currentInspectable;
 
     private IInteractable currentInteractable;
-    private bool jumpAppliedThisFrame = false;
     private float jumpBufferTimer;
     private float jumpForce;
     private bool jumpQueued;
 
-    private CharacterController thisCharacterController;
+    private CharacterController character;
 
     private UIController uiController;
 
     private void Awake()
     {
-        if (!TryGetComponent(out thisCharacterController))
+        if (!TryGetComponent(out character))
             throw new NullReferenceException();
         jumpForce = 0;
         jumpQueued = false;
@@ -51,10 +50,7 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
 
     private void Update()
     {
-        if (thisCharacterController.isGrounded)
-            coyoteTimer = coyoteTime;
-        else
-            coyoteTimer = Mathf.Max(0f, coyoteTimer - Time.deltaTime);
+        coyoteTimer = character.isGrounded ? coyoteTime : Mathf.Max(0f, coyoteTimer - Time.deltaTime);
 
         jumpBufferTimer = Mathf.Max(0f, jumpBufferTimer - Time.deltaTime);
 
@@ -66,13 +62,13 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
             coyoteTimer = 0f;
         }
 
-        if (!thisCharacterController.isGrounded)
+        if (!character.isGrounded)
             jumpForce -= rateAtWhichForceOfJumpDiminishes * Time.deltaTime;
         else if (jumpForce < 0) jumpForce = 0;
 
         Vector2 inputDirectionVector = inputWalking.action.ReadValue<Vector2>().normalized * walkingSpeed;
         Vector3 movementVector = new(inputDirectionVector.x, jumpForce, inputDirectionVector.y);
-        thisCharacterController.Move(movementVector * Time.deltaTime);
+        character.Move(movementVector * Time.deltaTime);
     }
 
     private void OnEnable()
