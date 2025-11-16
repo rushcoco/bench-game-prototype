@@ -351,7 +351,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 153a49e70d32c9a408348b4d4ff14a9d, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 2f7bd174fa12ad84aa431a1ed68d4af6, type: 2}
+      objectReference: {fileID: -6478536213147159724, guid: 487538bf722733a4f82f6866bf7e2bbc, type: 3}
     - target: {fileID: 919132149155446097, guid: 153a49e70d32c9a408348b4d4ff14a9d, type: 3}
       propertyPath: m_Name
       value: fence_back
@@ -1095,7 +1095,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: abeaff6f03d603d4b8e2601903106471, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 2f7bd174fa12ad84aa431a1ed68d4af6, type: 2}
+      objectReference: {fileID: -6478536213147159724, guid: 487538bf722733a4f82f6866bf7e2bbc, type: 3}
     - target: {fileID: 919132149155446097, guid: abeaff6f03d603d4b8e2601903106471, type: 3}
       propertyPath: m_Name
       value: fence_e_1
@@ -2023,7 +2023,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 6d29c61c2db78c64fb98411f55f2ad99, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 2f7bd174fa12ad84aa431a1ed68d4af6, type: 2}
+      objectReference: {fileID: -6478536213147159724, guid: 487538bf722733a4f82f6866bf7e2bbc, type: 3}
     - target: {fileID: 919132149155446097, guid: 6d29c61c2db78c64fb98411f55f2ad99, type: 3}
       propertyPath: m_Name
       value: hut
@@ -2854,10 +2854,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1713692789304538597, guid: 35aadeb5ded45ac408284a622c521726, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 2f7bd174fa12ad84aa431a1ed68d4af6, type: 2}
     - target: {fileID: 6928105250303164206, guid: 35aadeb5ded45ac408284a622c521726, type: 3}
       propertyPath: m_Name
       value: TestPlayer
