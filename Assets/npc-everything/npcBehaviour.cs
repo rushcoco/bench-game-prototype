@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
@@ -7,6 +8,7 @@ public class NpcBehaviour : MonoBehaviour, IConversable
 {
     [SerializeField] private List<PuzzleData> puzzles;
     [SerializeField] private UnityEvent rair;
+    private ReadOnlyCollection<string> currentChitChat;
     private PuzzleData currentPuzzleData;
     private float currentTimeInSeconds;
     private int indexChitChat;
@@ -32,35 +34,45 @@ public class NpcBehaviour : MonoBehaviour, IConversable
             return false;
         }
 
+        currentChitChat = currentPuzzleData.GetDialogNormalChitChat();
 
-        PlayChitChat(currentPuzzleData.GetChitChat(indexChitChat));
+
+        PlayChitChat(currentChitChat[indexChitChat]);
         return true;
     }
 
+    public void StartResponseIsCorrectChitChat()
+    {
+        indexChitChat = 0;
+        currentChitChat = currentPuzzleData.GetDialogPuzzleSolvedChitChat();
+        PlayChitChat(currentChitChat[indexChitChat]);
+    }
+
+    public void StartResponseIsWrongChitChat()
+    {
+        indexChitChat = 0;
+        currentChitChat = currentPuzzleData.GetDialogResponseFalseChitChat();
+        PlayChitChat(currentChitChat[indexChitChat]);
+    }
+
+    public void StartTimeRanOutChitChat()
+    {
+        indexChitChat = 0;
+        currentChitChat = currentPuzzleData.GetDialogTimeRunOutChitChat();
+        PlayChitChat(currentChitChat[indexChitChat]);
+    }
+
+
     public bool NextChitChat()
     {
-        if (currentPuzzleData.IsPuzzleSolved())
+        if (indexChitChat + 1 >= currentChitChat.Count)
         {
-            if (indexChitChat + 1 >= currentPuzzleData.GetCountDialogPuzzleSolved())
-            {
-                PlayChitChat("");
-                return false;
-            }
-
-            indexChitChat += 1;
-            PlayChitChat(currentPuzzleData.GetTextForWhenPuzzleIsSolved()[indexChitChat]);
+            PlayChitChat("");
+            return false;
         }
-        else
-        {
-            if (indexChitChat + 1 >= currentPuzzleData.GetChitChatCount())
-            {
-                PlayChitChat("");
-                return false;
-            }
 
-            indexChitChat += 1;
-            PlayChitChat(currentPuzzleData.GetChitChat(indexChitChat));
-        }
+        indexChitChat += 1;
+        PlayChitChat(currentChitChat[indexChitChat]);
 
         return true;
     }
@@ -78,6 +90,8 @@ public class NpcBehaviour : MonoBehaviour, IConversable
 
         UIController.InsertPromptTextForTMP(currentPuzzleData.GetPuzzlePrompt());
         currentTimeInSeconds = currentPuzzleData.timeLimit;
+        // TODO:
+        // - Activate time limit?
         return true;
     }
 
@@ -102,21 +116,15 @@ public class NpcBehaviour : MonoBehaviour, IConversable
         return true;
     }
 
-    public void StartSolutionChitChat()
-    {
-        indexChitChat = 0;
-        PlayChitChat(currentPuzzleData.GetTextForWhenPuzzleIsSolved()[indexChitChat]);
-    }
-
-    public void StartWrongResponseChitChat()
-    {
-        ActorControlTypeStateMachine.PushStateToPopUpNotif(currentPuzzleData.dialogResponseFalse);
-    }
-
     public SentenceData GetSolutionSentence()
     {
         Debug.Log(currentPuzzleData.GetSolutionSentence().tense);
         return currentPuzzleData.GetSolutionSentence();
+    }
+
+    public float GetTimeLimitCurrentPuzzle()
+    {
+        return currentPuzzleData.timeLimit;
     }
 
     public void Inspect()

@@ -18,7 +18,7 @@ MonoBehaviour:
   - Well well
   - " if it isn\u2019t the newcomer!"
   - Make yourself useful instead of dozing off on that bench!
-  timeLimitInSeconds: 0
+  timeLimitInSeconds: 10
   dialogPuzzleSolved:
   - "Of course it\u2019s locked!"
   - "I always lock this zone when I\u2019m cleaning it."

@@ -33,14 +33,24 @@ public class StateTalkingAction : MonoBehaviour, IControlTypeState
     {
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
     }
 
-    // Update is called once per frame
     private void Update()
     {
+        if (currentTimeInSeconds <= 0f)
+        {
+            // TODO:
+            // - Switch State to Dialog State
+            // - Have the Dialog play the time run out dialog
+            currentConversable.StartTimeRanOutChitChat();
+            ActorControlTypeStateMachine.ChangeStateToListening(currentConversable);
+        }
+        else
+        {
+            currentTimeInSeconds -= Time.deltaTime;
+        }
     }
 
     private void OnEnable()
@@ -161,6 +171,7 @@ public class StateTalkingAction : MonoBehaviour, IControlTypeState
     public void SetIConversable(IConversable conversable)
     {
         currentConversable = conversable;
+        currentTimeInSeconds = conversable.GetTimeLimitCurrentPuzzle();
     }
 
     public void OnTimeRunOut()
@@ -173,12 +184,13 @@ public class StateTalkingAction : MonoBehaviour, IControlTypeState
         // currentSentence.ConvertAll(x => x.wordData).ForEach(x => Debug.Log(x.presentedWord));
         if (currentConversable.TryResponse(currentSentence.ConvertAll(x => x.wordData)))
         {
-            currentConversable.StartSolutionChitChat();
+            currentConversable.StartResponseIsCorrectChitChat();
             ActorControlTypeStateMachine.ChangeStateToListening(currentConversable);
         }
         else
         {
-            currentConversable.StartWrongResponseChitChat();
+            currentConversable.StartResponseIsWrongChitChat();
+            ActorControlTypeStateMachine.PushStateToListening(currentConversable);
             Debug.Log("Words are wrong");
         }
     }

@@ -33,7 +33,7 @@ public class ActorControlTypeStateMachine : MonoBehaviour
         popUpNotificationAction.enabled = false;
 
         SetCursorModes(false, CursorLockMode.Locked);
-        ChangeStateToOverworldMovement();
+        PushState(overworldMovement);
     }
 
     // Update is called once per frame
@@ -54,7 +54,6 @@ public class ActorControlTypeStateMachine : MonoBehaviour
         currentState = newState;
         currentState.EnterState();
         ApplyCursorSettings();
-        Debug.Log("current State: " + currentState.GetType());
     }
 
     private void PushState(IControlTypeState newState)
@@ -67,24 +66,6 @@ public class ActorControlTypeStateMachine : MonoBehaviour
     private void PopState()
     {
         SetState(stateStack.Count > 0 ? stateStack.Pop() : overworldMovement);
-    }
-
-    public static void ChangeStateToListening(IConversable currentConversable)
-    {
-        instance.listeningAction.SetIConversable(currentConversable);
-        instance.SetState(instance.listeningAction);
-    }
-
-    public static void ChangeStateToOverworldMovement()
-    {
-        instance.SetState(instance.overworldMovement);
-        // UIController.instance.EditUIHighlighters(true);
-    }
-
-    public static void ChangeStateToTalking(IConversable currentConversable)
-    {
-        instance.talkingAction.SetIConversable(currentConversable);
-        instance.SetState(instance.talkingAction);
     }
 
     public static void PushStateToCrafting()
@@ -107,6 +88,24 @@ public class ActorControlTypeStateMachine : MonoBehaviour
     {
         foreach (string s in notifMessage) instance.popUpNotificationAction.AddNotificationMessage(s);
         instance.PushState(instance.popUpNotificationAction);
+    }
+
+    public static void PushStateToListening(IConversable currentConversable)
+    {
+        instance.listeningAction.SetIConversable(currentConversable);
+        instance.PushState(instance.listeningAction);
+    }
+
+    public static void PushStateToTalking(IConversable currentConversable)
+    {
+        instance.talkingAction.SetIConversable(currentConversable);
+        instance.PushState(instance.talkingAction);
+    }
+
+    public static void ChangeStateToListening(IConversable currentConversable)
+    {
+        PopStateToPrevious();
+        PushStateToListening(currentConversable);
     }
 
     public static void SetCursorModes(bool cursorVisible, CursorLockMode cursorLockMode)

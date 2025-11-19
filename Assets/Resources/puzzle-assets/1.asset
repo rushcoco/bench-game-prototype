@@ -17,7 +17,7 @@ MonoBehaviour:
   dialogChitChat:
   - Come one youngster!
   - Help me find the key!
-  timelimitForPuzzleInSeconds: 0
+  timeLimitInSeconds: 60
   dialogPuzzleSolved:
   - Oh
   - ' of course.'
@@ -29,7 +29,4 @@ MonoBehaviour:
   dialogResponseFalse: '"Stop wasting time! The key'
   dialogTimeRunOut: ' we need to find it!"'
   dialogPuzzlePrompt: '"Stop wasting time! The key'
-  rewardForThePlayer:
-    m_PersistentCalls:
-      m_Calls: []
-  isActuallySolved: 0
+  isPuzzleSolved: 0

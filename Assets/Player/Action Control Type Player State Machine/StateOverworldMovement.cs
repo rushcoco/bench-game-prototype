@@ -22,6 +22,8 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
     [SerializeField] private float rateAtWhichForceOfJumpDiminishes;
     [SerializeField] private float coyoteTime;
     [SerializeField] private float jumpBufferTime;
+
+    private CharacterController character;
     private float coyoteTimer;
     private IConversable currentConversable;
     private IInspectable currentInspectable;
@@ -30,8 +32,6 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
     private float jumpBufferTimer;
     private float jumpForce;
     private bool jumpQueued;
-
-    private CharacterController character;
 
     private UIController uiController;
 
@@ -202,12 +202,12 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
         if (currentConversable.IsUnityNull()) return;
 
         if (!currentConversable.StartChitChat())
-            currentConversable.StartSolutionChitChat();
+            currentConversable.StartResponseIsCorrectChitChat();
 
         // TODO Delegate a function that shows all the correct UI Elements
         uiController.ShowSpeechBubble();
 
-        ActorControlTypeStateMachine.ChangeStateToListening(currentConversable);
+        ActorControlTypeStateMachine.PushStateToListening(currentConversable);
     }
 
     private void OnInputActionPerformedInputTalking(InputAction.CallbackContext context)
@@ -218,6 +218,6 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
 
         uiController.ShowSpeechBubble();
 
-        ActorControlTypeStateMachine.ChangeStateToTalking(currentConversable);
+        ActorControlTypeStateMachine.PushStateToTalking(currentConversable);
     }
 }

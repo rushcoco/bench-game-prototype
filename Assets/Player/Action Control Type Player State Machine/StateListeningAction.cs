@@ -62,7 +62,7 @@ public class StateListeningAction : MonoBehaviour, IControlTypeState
     {
         if (currentConversable.NextChitChat()) return;
         UIController.instance.HideSpeechBubble();
-        ActorControlTypeStateMachine.ChangeStateToOverworldMovement();
+        ActorControlTypeStateMachine.PopStateToPrevious();
     }
 
     private void OnInputActionCanceledSpeedUpText(InputAction.CallbackContext context)

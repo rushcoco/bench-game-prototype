@@ -34,19 +34,31 @@ public class PuzzleData : ScriptableObject
         return correctSentenceData;
     }
 
-    public ReadOnlyCollection<string> GetTextForWhenPuzzleIsSolved()
+    public ReadOnlyCollection<string> GetDialogPuzzleSolvedChitChat()
     {
         return dialogPuzzleSolved.AsReadOnly();
+    }
+
+    public ReadOnlyCollection<string> GetDialogResponseFalseChitChat()
+    {
+        List<string> dialogResponseFalseChitChats = new() { dialogResponseFalse };
+        return dialogResponseFalseChitChats.AsReadOnly();
+    }
+
+    public ReadOnlyCollection<string> GetDialogTimeRunOutChitChat()
+    {
+        List<string> dialogResponseFalseChitChats = new() { dialogTimeRunOut };
+        return dialogResponseFalseChitChats.AsReadOnly();
+    }
+
+    public ReadOnlyCollection<string> GetDialogNormalChitChat()
+    {
+        return dialogChitChat.AsReadOnly();
     }
 
     public int GetCountDialogPuzzleSolved()
     {
         return dialogPuzzleSolved.Count;
-    }
-
-    public string GetChitChat(int index)
-    {
-        return dialogChitChat[index];
     }
 
     public int GetChitChatCount()
