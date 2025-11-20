@@ -1555,6 +1555,11 @@ MonoBehaviour:
   toHave: {fileID: 11400000, guid: 5e70cad20b212c5ffadaa02e5c936f7f, type: 2}
   toBe: {fileID: 11400000, guid: 84425fec3c9a33043a0bb76d77864f82, type: 2}
   will: {fileID: 11400000, guid: e07e3b9c6217cba0cae8535aad701f48, type: 2}
+  soundClickOnWord: {fileID: 0}
+  soundClickOnCancelButton: {fileID: 0}
+  soundEnterCraftingMenu: {fileID: 0}
+  soundClickOnCraftButton: {fileID: 0}
+  soundOnInspect: {fileID: 0}
 --- !u!1 &4532051610884197933
 GameObject:
   m_ObjectHideFlags: 0
@@ -3176,6 +3181,18 @@ MonoBehaviour:
       - m_Target: {fileID: 5824944532730939075}
         m_TargetAssemblyTypeName: ActorControlTypeStateMachine, Assembly-CSharp
         m_MethodName: PopStateToPrevious
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 9028817651988108542}
+        m_TargetAssemblyTypeName: ActorManager, Assembly-CSharp
+        m_MethodName: PlayOneShotOnClickOnCancelButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

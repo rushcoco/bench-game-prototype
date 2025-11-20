@@ -36,6 +36,8 @@ public class StateCraftingWordsAction : MonoBehaviour, IControlTypeState
     {
         craftingWordsCanvas.gameObject.SetActive(true);
 
+        ActorManager.PlayOneShotOnEnterCraftingMenu();
+
         inputClickOnThings.action.Enable();
         inputCursorPosition.action.Enable();
 

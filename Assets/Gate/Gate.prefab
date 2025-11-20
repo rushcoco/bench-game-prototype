@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcaa3a0cd03f0bc4b810ffa2e0c46f60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  message: It seems the gate is blocked off.\n\nMaybe someone can open the gate...?
+  message: []
 --- !u!135 &3270929781642209310
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -157,4 +157,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c54f388acf54e93488f62ef9b8cf6ffc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 11400000, guid: 818ad23538abf844e98b7bbd8d1d99fa, type: 2}
+  target: {fileID: 11400000, guid: ad0daa4c23ab2324eaaa38c494ef20e9, type: 2}

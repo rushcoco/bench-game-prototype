@@ -9,6 +9,11 @@ public class ActorManager : MonoBehaviour
     [SerializeField] private VerbData toHave;
     [SerializeField] private VerbData toBe;
     [SerializeField] private VerbData will;
+    [SerializeField] private AudioSource soundClickOnWord;
+    [SerializeField] private AudioSource soundClickOnCancelButton;
+    [SerializeField] private AudioSource soundEnterCraftingMenu;
+    [SerializeField] private AudioSource soundClickOnCraftButton;
+    [SerializeField] private AudioSource soundOnInspect;
 
     private void Awake()
     {
@@ -55,5 +60,20 @@ public class ActorManager : MonoBehaviour
 
         instance.wordsCollected.Add(localWord);
         return true;
+    }
+
+    public static void PlayOneShotOnEnterCraftingMenu()
+    {
+        instance.soundEnterCraftingMenu.Play();
+    }
+
+    public static void PlayOneShotOnClickOnWord()
+    {
+        instance.soundClickOnWord.Play();
+    }
+
+    public static void PlayOneShotOnClickOnCancelButton()
+    {
+        instance.soundClickOnCancelButton.Play();
     }
 }
