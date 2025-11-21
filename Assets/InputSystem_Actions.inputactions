@@ -527,10 +527,10 @@
                 {
                     "name": "",
                     "id": "00af2660-4b83-4f3d-9ad5-73bf2dcb4927",
-                    "path": "<Mouse>/rightButton",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Keyboard&Mouse",
                     "action": "Undo",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -541,7 +541,7 @@
                     "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Gamepad",
                     "action": "Undo",
                     "isComposite": false,
                     "isPartOfComposite": false

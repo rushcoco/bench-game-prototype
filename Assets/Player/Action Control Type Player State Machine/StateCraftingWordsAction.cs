@@ -9,6 +9,7 @@ public class StateCraftingWordsAction : MonoBehaviour, IControlTypeState
 {
     [SerializeField] private InputActionReference inputClickOnThings;
     [SerializeField] private InputActionReference inputCursorPosition;
+
     [SerializeField] private RectTransform craftingWordsCanvas;
     [SerializeField] private RectTransform craftingWordsTablePanel;
     [SerializeField] private RectTransform craftWordsSelectorPanel;
@@ -17,20 +18,6 @@ public class StateCraftingWordsAction : MonoBehaviour, IControlTypeState
     [SerializeField] private GameObject emptyUIGameObject;
     private List<WordBehaviour> toBeCrafted;
     private List<WordBehaviour> wordsThatCanBeSelected;
-
-    private void Awake()
-    {
-    }
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private void Start()
-    {
-    }
-
-    // Update is called once per frame
-    private void Update()
-    {
-    }
 
     private void OnEnable()
     {
@@ -67,6 +54,7 @@ public class StateCraftingWordsAction : MonoBehaviour, IControlTypeState
 
         inputClickOnThings.action.Disable();
         inputCursorPosition.action.Disable();
+
 
         toBeCrafted.ForEach(data => Destroy(data.gameObject));
         toBeCrafted.Clear();

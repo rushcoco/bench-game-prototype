@@ -173,7 +173,6 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
 
     private void OnInputActionPerformedChangeToCraftingState(InputAction.CallbackContext context)
     {
-        ActorControlTypeStateMachine.PushStateToCrafting();
     }
 
     private void OnInputActionPerformedInputJumping(InputAction.CallbackContext context)
@@ -185,16 +184,13 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
     private void OnInputActionPerformedInputInteracting(InputAction.CallbackContext context)
     {
         if (currentInteractable.IsUnityNull()) return;
-        // Enter Interact State
-        // Action Depends on THIS interact object
+        currentInteractable.Interact();
     }
 
     private void OnInputActionPerformedInputInspecting(InputAction.CallbackContext context)
     {
         if (currentInspectable.IsUnityNull()) return;
-        // Inspect Object -> Gain new wordData in dictionary
         currentInspectable.Inspect();
-        // Should
     }
 
     private void OnInputActionPerformedInputListening(InputAction.CallbackContext context)

@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using System.Data;
+using System.Linq;
 using UnityEngine;
 
 public class CraftableManager
@@ -16,13 +16,12 @@ public class CraftableManager
 
     public IReadOnlyCollection<CraftData> getCraftData => allCraftableData;
 
-    public void AddCraftable(NounData word1, NounData word2, VerbData resultWord)
+    public static CraftableManager Instance()
     {
-        Hash128 keyCombo = Hash128.Compute(word1.presentedWord + word2.presentedWord);
-        if (keyCombo.isValid)
-            craftedWords.Add(keyCombo, resultWord);
-        else
-            throw new EvaluateException();
+        if (instance == null)
+            instance = new CraftableManager();
+
+        return instance;
     }
 
     public bool AddCraftable(CraftData craftData)
@@ -36,29 +35,15 @@ public class CraftableManager
 
     public bool TryCraftWords(List<NounData> nouns, out VerbData verb)
     {
-        foreach (CraftData craftData in allCraftableData)
-        {
-            foreach (NounData craftDataCraftWord in craftData.craftWords)
-                Debug.Log("Found Word: " + craftDataCraftWord.presentedWord);
-            Debug.Log("Fouond Verb: " + craftData.craftedWord.presentedWord);
-        }
-
         verb = null;
-        // TODO:
-        // Check if the List of Words/ Words Combination exist
-        // return true and push stack to "learned word"
-        // return false and push stack to "wrong"
-        List<NounData> throwAwayList = new();
-        foreach (NounData nounData in nouns)
-        {
-            if (throwAwayList.Contains(nounData))
-                return false;
 
-            throwAwayList.Add(nounData);
-        }
+        HashSet<NounData> hashSetToCheckIfSomeNounsAreDuplicated = new();
 
-        throwAwayList.Clear();
-        throwAwayList.TrimExcess();
+        if (nouns.Any(noun => !hashSetToCheckIfSomeNounsAreDuplicated.Add(noun)))
+            return false;
+
+        hashSetToCheckIfSomeNounsAreDuplicated.Clear();
+        hashSetToCheckIfSomeNounsAreDuplicated.TrimExcess();
 
         foreach (CraftData data in allCraftableData)
             for (int i = 0; i < nouns.Count; i++)
@@ -72,13 +57,5 @@ public class CraftableManager
 
 
         return false;
-    }
-
-    public static CraftableManager Instance()
-    {
-        if (instance == null)
-            instance = new CraftableManager();
-
-        return instance;
     }
 }

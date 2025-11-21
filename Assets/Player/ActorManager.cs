@@ -14,6 +14,8 @@ public class ActorManager : MonoBehaviour
     [SerializeField] private AudioSource soundEnterCraftingMenu;
     [SerializeField] private AudioSource soundClickOnCraftButton;
     [SerializeField] private AudioSource soundOnInspect;
+    [SerializeField] private GameObject actorGameObject;
+    private ISittable actorIsSittingOn;
 
     private void Awake()
     {
@@ -75,5 +77,17 @@ public class ActorManager : MonoBehaviour
     public static void PlayOneShotOnClickOnCancelButton()
     {
         instance.soundClickOnCancelButton.Play();
+    }
+
+    public static void PlaySittingOnSittableAnimation(ISittable sittable)
+    {
+        instance.actorIsSittingOn = sittable;
+        instance.actorIsSittingOn.OnSitStart(instance.actorGameObject.transform);
+    }
+
+    public static void StandUpFromSittable()
+    {
+        instance.actorIsSittingOn.OnSitEnd(instance.actorGameObject.transform);
+        instance.actorIsSittingOn = null;
     }
 }

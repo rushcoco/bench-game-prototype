@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -9,6 +10,7 @@ public class StateTalkingAction : MonoBehaviour, IControlTypeState
 {
     [SerializeField] private InputActionReference inputClickOnThings;
     [SerializeField] private InputActionReference inputCursorPosition;
+    [SerializeField] private InputActionReference inputRemoveLastWordFromSentence;
     [SerializeField] private RectTransform sentenceContainerRectangle;
     [SerializeField] private RectTransform wordSelectorRectangle;
     [SerializeField] private GameObject emptyUIGameObject;
@@ -42,7 +44,6 @@ public class StateTalkingAction : MonoBehaviour, IControlTypeState
         if (currentTimeInSeconds <= 0f)
         {
             // TODO:
-            // - Switch State to Dialog State
             // - Have the Dialog play the time run out dialog
             currentConversable.StartTimeRanOutChitChat();
             ActorControlTypeStateMachine.ChangeStateToListening(currentConversable);
@@ -59,6 +60,9 @@ public class StateTalkingAction : MonoBehaviour, IControlTypeState
 
         inputClickOnThings.action.Enable();
         inputCursorPosition.action.Enable();
+        inputRemoveLastWordFromSentence.action.Enable();
+
+        inputRemoveLastWordFromSentence.action.performed += OnInputActionPerformedRemoveLastWordFromTheSentence;
         inputClickOnThings.action.performed += OnInputActionClickOnThings;
 
         currentSentence = new List<WordBehaviour>();
@@ -96,6 +100,9 @@ public class StateTalkingAction : MonoBehaviour, IControlTypeState
         currentSentence.TrimExcess();
 
         inputClickOnThings.action.performed -= OnInputActionClickOnThings;
+        inputRemoveLastWordFromSentence.action.performed -= OnInputActionPerformedRemoveLastWordFromTheSentence;
+
+        inputRemoveLastWordFromSentence.action.Disable();
         inputClickOnThings.action.Disable();
         inputCursorPosition.action.Disable();
 
@@ -127,9 +134,22 @@ public class StateTalkingAction : MonoBehaviour, IControlTypeState
             currentSentence.Add(Instantiate(foundWord, sentenceContainerRectangle));
         }
 
-        // TODO: check if its a verb and conjugate the verb
-
         WordPositionsInSentence();
+    }
+
+    private void OnInputActionPerformedRemoveLastWordFromTheSentence(InputAction.CallbackContext context)
+    {
+        /* TODO:
+         * - Check if there are Words in Sentences
+         * - Remove the Last Word from the Sentence
+         * - If there is no word in the sentence then dont remove it
+         */
+        if (currentSentence.IsUnityNull()) return;
+        if (currentSentence.Count < 1) return;
+
+        WordBehaviour word = currentSentence[^1];
+        currentSentence.RemoveAt(currentSentence.Count - 1);
+        Destroy(word.gameObject);
     }
 
     private bool IsWordClickedOn(out WordBehaviour foundWord)
