@@ -15,9 +15,9 @@ MonoBehaviour:
   id: 7
   correctSentenceData: {fileID: 0}
   dialogChitChat: []
-  timelimitForPuzzleInSeconds: 0
-  isSolved: 0
+  timeLimitInSeconds: 0
   dialogPuzzleSolved: []
   dialogResponseFalse: 
   dialogTimeRunOut: 
   dialogPuzzlePrompt: 
+  isPuzzleSolved: 0

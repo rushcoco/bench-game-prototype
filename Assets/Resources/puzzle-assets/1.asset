@@ -15,18 +15,22 @@ MonoBehaviour:
   id: 1
   correctSentenceData: {fileID: 11400000, guid: 3b443e4315004d3469e41d47eb17ea90, type: 2}
   dialogChitChat:
-  - Come one youngster!
-  - Help me find the key!
+  - So, what did you want to tell me?
+  - Something about the gate, am I right?
   timeLimitInSeconds: 60
   dialogPuzzleSolved:
-  - Oh
-  - ' of course.'
-  - Here
-  - ' you are free to go.'
-  - I will leave the gate open for today.
-  - I still need to finish my work
-  - ' if you need me you know where to find me.'
-  dialogResponseFalse: '"Stop wasting time! The key'
-  dialogTimeRunOut: ' we need to find it!"'
-  dialogPuzzlePrompt: '"Stop wasting time! The key'
+  - "Of course it\u2019s locked!"
+  - "I always lock this zone when I\u2019m cleaning it."
+  - "I don\u2019t want people to mess it up while I\u2019m trying to do my job!"
+  - Next time think twice before taking a nap on that bench.
+  - Anyhow, let me get the key for you.
+  - ...
+  - Wait... Where is the key?
+  - I had it in my pocket!
+  - Oh no! It must have fallen on the ground while I was working!
+  - Quick! Help me find it!
+  dialogResponseFalse: Speak up youngster! Don't you see how old I am?
+  dialogTimeRunOut: Nobody told you that you need to put a word aftern another to
+    talk?
+  dialogPuzzlePrompt: So what did you want to tell me about the gate?
   isPuzzleSolved: 0

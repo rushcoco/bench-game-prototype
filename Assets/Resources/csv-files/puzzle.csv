@@ -1,10 +1,10 @@
 id,sentenceId,chitchatId,dialogPuzzleSolvedId,dialogResponseFalse,dialogTimeRunOut,dialogPuzzlePrompt,timelimitSeconds
-0,0,0,0,If you wanna talk at least find something to talk about!,If you wanna talk at least find something to talk about!,What do you want now? Don’t you see I’m working?,60
-1,1,1,1,"Stop wasting time! The key, we need to find it!","Stop wasting time! The key, we need to find it!",What is it? Did you find the key yet?,30
-2,,,,,,,60
-3,,,,,,,45
-4,,,,,,,120
-5,,,,,,,30
-6,,,,,,,
+0,0,0,0,Speak up youngster! Don't you see how old I am?,If you wanna talk at least find something to talk about!,What do you want now? Don’t you see I’m working?,60
+1,1,1,1,Speak up youngster! Don't you see how old I am?,Nobody told you that you need to put a word aftern another to talk?,"So, what did you want to tell me about the gate?",60
+2,2,2,2,"Stop wasting time! The key, we need to find it!","Stop wasting time! The key, we need to find it!",What is it? Did you find the key yet?,60
+3,3,3,3,Speak up youngster! Don't you see how old I am?,Nobody told you that you need to put a word aftern another to talk?,You said that the gate is locked. What’s wrong with it?,60
+4,4,4,4,Speak up youngster! Don't you see how old I am?,Nobody told you that you need to put a word aftern another to talk?,You again? What is it now?,60
+5,,,,,,,120
+6,,,,,,,30
 7,,,,,,,
 8,,,,,,,

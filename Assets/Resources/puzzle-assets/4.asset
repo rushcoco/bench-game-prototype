@@ -13,11 +13,14 @@ MonoBehaviour:
   m_Name: 4
   m_EditorClassIdentifier: 
   id: 4
-  correctSentenceData: {fileID: 0}
-  dialogChitChat: []
-  timelimitForPuzzleInSeconds: 120
-  isSolved: 0
+  correctSentenceData: {fileID: 11400000, guid: a5f6e5cd10e62314ba6d0dfb0b7564eb, type: 2}
+  dialogChitChat:
+  - "Hey! Don\u2019t step there!"
+  - "I\u2019m cleaning, don\u2019t you see?"
+  timeLimitInSeconds: 60
   dialogPuzzleSolved: []
-  dialogResponseFalse: 
-  dialogTimeRunOut: 
-  dialogPuzzlePrompt: 
+  dialogResponseFalse: Speak up youngster! Don't you see how old I am?
+  dialogTimeRunOut: Nobody told you that you need to put a word aftern another to
+    talk?
+  dialogPuzzlePrompt: You again? What is it now?
+  isPuzzleSolved: 0

@@ -102,7 +102,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcaa3a0cd03f0bc4b810ffa2e0c46f60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  message: []
+  message:
+  - It seems this gate is locked
+  - Maybe there is someone that can open it?
 --- !u!135 &3270929781642209310
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -157,4 +159,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c54f388acf54e93488f62ef9b8cf6ffc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 11400000, guid: ad0daa4c23ab2324eaaa38c494ef20e9, type: 2}
+  target: {fileID: 11400000, guid: 48a18c9f5424b994ca7467d13029cb18, type: 2}

@@ -7,7 +7,6 @@ using UnityEngine.Events;
 public class NpcBehaviour : MonoBehaviour, IConversable
 {
     [SerializeField] private List<PuzzleData> puzzles;
-    [SerializeField] private UnityEvent rair;
     private ReadOnlyCollection<string> currentChitChat;
     private PuzzleData currentPuzzleData;
     private float currentTimeInSeconds;

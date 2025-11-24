@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: 3
   m_EditorClassIdentifier: 
   id: 3
-  words: []
+  words:
+  - {fileID: 11400000, guid: 27531e95f437e0b4e928d9f51ef62c7e, type: 2}
+  - {fileID: 11400000, guid: 469f5ebad279eb14ca2ec1aa0fc43452, type: 2}
+  - {fileID: 11400000, guid: b3481f51debeeda42abaf90a6e3006a8, type: 2}
   tense: 0
-  pronoun: 0
+  pronoun: 1

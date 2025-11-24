@@ -1539,20 +1539,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wordsCollected:
-  - {fileID: 11400000, guid: baecc60cd8c46b74fa926686133bdaa2, type: 2}
-  - {fileID: 11400000, guid: ebd7a2fde22681a40aeec883e7888b8f, type: 2}
-  - {fileID: 11400000, guid: b3481f51debeeda42abaf90a6e3006a8, type: 2}
-  - {fileID: 11400000, guid: 84425fec3c9a33043a0bb76d77864f82, type: 2}
-  - {fileID: 11400000, guid: 93c0d4c622ee01742b9bb5c38e958a21, type: 2}
-  - {fileID: 11400000, guid: ecc0a628de18b4444a8e844539691d08, type: 2}
-  - {fileID: 11400000, guid: 7df2abf8281d8a748b7a7a5c36d71b77, type: 2}
-  - {fileID: 11400000, guid: c3c264bc9821ed94eababc4a7000ec77, type: 2}
-  - {fileID: 11400000, guid: 54286a1be501a6d478afb1f518f31f70, type: 2}
-  - {fileID: 11400000, guid: 32254c790965e1d428503fbc83849727, type: 2}
-  - {fileID: 11400000, guid: 3ae6d2df47941764ea7202380e8d74d6, type: 2}
-  - {fileID: 11400000, guid: cc71945099e8e584aa3c554dbedeaf10, type: 2}
   - {fileID: 11400000, guid: 765017052a9f8514e8c87821eae44aad, type: 2}
-  - {fileID: 11400000, guid: 469f5ebad279eb14ca2ec1aa0fc43452, type: 2}
+  - {fileID: 11400000, guid: 93c0d4c622ee01742b9bb5c38e958a21, type: 2}
+  - {fileID: 11400000, guid: 54286a1be501a6d478afb1f518f31f70, type: 2}
   toHave: {fileID: 11400000, guid: 5e70cad20b212c5ffadaa02e5c936f7f, type: 2}
   toBe: {fileID: 11400000, guid: 84425fec3c9a33043a0bb76d77864f82, type: 2}
   will: {fileID: 11400000, guid: e07e3b9c6217cba0cae8535aad701f48, type: 2}

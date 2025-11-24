@@ -11,7 +11,6 @@ public static class ImportFromExternalFile
     private const string ROOT_PATH = "Assets/Resources/";
     private static List<WordData> listWordData;
     private static List<SentenceData> listSentenceData;
-    private static List<PuzzleData> listPuzzleData;
     private static Dictionary<int, List<string>> chitChats;
     private static Dictionary<int, List<string>> solvedPuzzleDialogues;
 
@@ -29,17 +28,6 @@ public static class ImportFromExternalFile
     [MenuItem("Tools/Import Sentences")]
     public static void ImportSentences()
     {
-        // What do i need?
-        // - path to csv file
-        // - read content of the file
-        // - make sure the file is built correctly
-        // - create puzzle scriptableobject assets based on the values
-        // - set these assets to npc
-        // - puzzle needs correct sentence
-        // - correct sentence need word assets and references to those words
-        // - do that with id?
-        // ---------------------------------------------------------
-
         string pathFile = EditorUtility.OpenFilePanel("Select SentenceData CSV", "", "csv");
         if (string.IsNullOrEmpty(pathFile)) return;
 
@@ -118,31 +106,31 @@ public static class ImportFromExternalFile
             {
                 case 0:
                 {
-                    if (AssetDatabase.AssetPathExists($"{pathFolderVerb}/{values[1]}.asset")) continue;
+                    // if (AssetDatabase.AssetPathExists($"{pathFolderVerb}/{values[1]}.asset")) continue;
                     ImportVerb(values, pathFolderVerb);
                     break;
                 }
                 case 1:
                 {
-                    if (AssetDatabase.AssetPathExists($"{pathFolderNoun}/{values[1]}.asset")) continue;
+                    // if (AssetDatabase.AssetPathExists($"{pathFolderNoun}/{values[1]}.asset")) continue;
                     ImportNoun(values, pathFolderNoun);
                     break;
                 }
                 case 2:
                 {
-                    if (AssetDatabase.AssetPathExists($"{pathFolderAdj}/{values[1]}.asset")) continue;
+                    // if (AssetDatabase.AssetPathExists($"{pathFolderAdj}/{values[1]}.asset")) continue;
                     ImportAdjective(values, pathFolderAdj);
                     break;
                 }
                 case 3:
                 {
-                    if (AssetDatabase.AssetPathExists($"{pathFolderPro}/{values[1]}.asset")) continue;
+                    // if (AssetDatabase.AssetPathExists($"{pathFolderPro}/{values[1]}.asset")) continue;
                     ImportPronoun(values, pathFolderPro);
                     break;
                 }
                 case 4:
                 {
-                    if (AssetDatabase.AssetPathExists($"{pathFolderOth}/{values[1]}.asset")) continue;
+                    // if (AssetDatabase.AssetPathExists($"{pathFolderOth}/{values[1]}.asset")) continue;
                     ImportOtherWord(values, pathFolderOth);
                     break;
                 }
@@ -237,7 +225,7 @@ public static class ImportFromExternalFile
     [MenuItem("Tools/Import Puzzles")]
     public static void ImportPuzzle()
     {
-        listPuzzleData = new List<PuzzleData>();
+        // listPuzzleData = new List<PuzzleData>();
 
         string pathFile = EditorUtility.OpenFilePanel("Select PuzzleData CSV", "", "csv");
         if (string.IsNullOrEmpty(pathFile)) return;
@@ -263,8 +251,14 @@ public static class ImportFromExternalFile
             if (int.TryParse(values[3], out int solvedDialoguesKey))
                 puzzleData.dialogPuzzleSolved = solvedPuzzleDialogues[solvedDialoguesKey];
 
+            if (values[4].Contains('"'))
+                values[4] = values[4].Trim('"');
             puzzleData.dialogResponseFalse = values[4];
+            if (values[5].Contains('"'))
+                values[5] = values[5].Trim('"');
             puzzleData.dialogTimeRunOut = values[5];
+            if (values[6].Contains('"'))
+                values[6] = values[6].Trim('"');
             puzzleData.dialogPuzzlePrompt = values[6];
 
             if (int.TryParse(values[7], out int result))
@@ -273,7 +267,7 @@ public static class ImportFromExternalFile
 
             string assetPath = $"{pathFolder}/{puzzleData.id}.asset";
             AssetDatabase.CreateAsset(puzzleData, assetPath);
-            listPuzzleData.Add(puzzleData);
+            // listPuzzleData.Add(puzzleData);
         }
 
         AssetDatabase.SaveAssets();

@@ -930,9 +930,49 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1967908247}
     - target: {fileID: 9028817651988108542, guid: b5d6af6717a23704bb31fb9e0f265e0e, type: 3}
+      propertyPath: 'wordsCollected.Array.data[3]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9028817651988108542, guid: b5d6af6717a23704bb31fb9e0f265e0e, type: 3}
+      propertyPath: 'wordsCollected.Array.data[4]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9028817651988108542, guid: b5d6af6717a23704bb31fb9e0f265e0e, type: 3}
+      propertyPath: 'wordsCollected.Array.data[5]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9028817651988108542, guid: b5d6af6717a23704bb31fb9e0f265e0e, type: 3}
+      propertyPath: 'wordsCollected.Array.data[6]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9028817651988108542, guid: b5d6af6717a23704bb31fb9e0f265e0e, type: 3}
+      propertyPath: 'wordsCollected.Array.data[7]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9028817651988108542, guid: b5d6af6717a23704bb31fb9e0f265e0e, type: 3}
+      propertyPath: 'wordsCollected.Array.data[8]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9028817651988108542, guid: b5d6af6717a23704bb31fb9e0f265e0e, type: 3}
+      propertyPath: 'wordsCollected.Array.data[9]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9028817651988108542, guid: b5d6af6717a23704bb31fb9e0f265e0e, type: 3}
+      propertyPath: 'wordsCollected.Array.data[10]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9028817651988108542, guid: b5d6af6717a23704bb31fb9e0f265e0e, type: 3}
+      propertyPath: 'wordsCollected.Array.data[11]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9028817651988108542, guid: b5d6af6717a23704bb31fb9e0f265e0e, type: 3}
+      propertyPath: 'wordsCollected.Array.data[12]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9028817651988108542, guid: b5d6af6717a23704bb31fb9e0f265e0e, type: 3}
       propertyPath: 'wordsCollected.Array.data[14]'
       value: 
-      objectReference: {fileID: 11400000, guid: 9d4b25204ffd1424fbf2fbde56d57e3e, type: 2}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -2224,6 +2264,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2614940094963100265, guid: 3b95a0b4fd40c0c49ba1c8d5350294a5, type: 3}
+      propertyPath: 'puzzles.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 818ad23538abf844e98b7bbd8d1d99fa, type: 2}
+    - target: {fileID: 2614940094963100265, guid: 3b95a0b4fd40c0c49ba1c8d5350294a5, type: 3}
+      propertyPath: 'puzzles.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: ad0daa4c23ab2324eaaa38c494ef20e9, type: 2}
+    - target: {fileID: 2614940094963100265, guid: 3b95a0b4fd40c0c49ba1c8d5350294a5, type: 3}
       propertyPath: onAfterPuzzleSolved.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -3313,18 +3361,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1891716963387880080, guid: e9d81d1173f496c448873e1145347b93, type: 3}
-      propertyPath: message.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1891716963387880080, guid: e9d81d1173f496c448873e1145347b93, type: 3}
-      propertyPath: 'message.Array.data[0]'
-      value: It seems this gate is locked
-      objectReference: {fileID: 0}
-    - target: {fileID: 1891716963387880080, guid: e9d81d1173f496c448873e1145347b93, type: 3}
-      propertyPath: 'message.Array.data[1]'
-      value: Maybe there is someone that can open it?
-      objectReference: {fileID: 0}
     - target: {fileID: 2108660437111126785, guid: e9d81d1173f496c448873e1145347b93, type: 3}
       propertyPath: m_Name
       value: Gate

@@ -15,23 +15,22 @@ MonoBehaviour:
   id: 0
   correctSentenceData: {fileID: 11400000, guid: 31b7da23fd07a9541993a868c83a4b4b, type: 2}
   dialogChitChat:
-  - Well well
-  - " if it isn\u2019t the newcomer!"
+  - "Well well, if it isn\u2019t the newcomer!"
   - Make yourself useful instead of dozing off on that bench!
-  timeLimitInSeconds: 10
+  timeLimitInSeconds: 60
   dialogPuzzleSolved:
-  - "Of course it\u2019s locked!"
-  - "I always lock this zone when I\u2019m cleaning it."
-  - "I don\u2019t want people to mess it up while I\u2019m trying to do my job!"
-  - Next time think twice before taking a nap on that bench.
-  - Anyhow
-  - ' let me get the key for you.'
-  - ...
-  - Wait... Where is the key?
-  - I had it in my pocket!
-  - Oh no! It must have fallen on the ground while I was working!
-  - Quick! Help me find it!
-  dialogResponseFalse: If you wanna talk at least find something to talk about!
+  - Excuse me?
+  - Are you some kind of overgrown toddler?
+  - Speak like an adult!
+  - "Hold on\u2026 I\u2019ve never seen a vocabulary this empty before."
+  - "You don\u2019t even have the bare minimum to speak!"
+  - Unbelievable. Am I ever going to find someone competent to replace me?
+  - Here, take these words.
+  - "I\u2019m not babysitting another dead weight."
+  - "And I especially don\u2019t want another brat running around the park."
+  - Those two troublemakers are already more than enough.
+  - So what did you want to tell me?
+  dialogResponseFalse: Speak up youngster! Don't you see how old I am?
   dialogTimeRunOut: If you wanna talk at least find something to talk about!
   dialogPuzzlePrompt: "What do you want now? Don\u2019t you see I\u2019m working?"
   isPuzzleSolved: 0
