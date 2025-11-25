@@ -1,22 +1,22 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ItemBehaviour : MonoBehaviour, IInspectable
 {
-    [SerializeField] private ItemData itemData;
+    [SerializeField] private List<ItemData> itemData;
+    private List<string> messages;
 
     public void Inspect()
     {
+        messages = new List<string>();
         // Player should learn this word
-        if (ActorManager.TryAddWordToWordsCollected(itemData.learnThisWord))
-        {
-            ActorControlTypeStateMachine.PushStateToPopUpNotif(
-                $"You have learned the word '{itemData.learnThisWord.presentedWord}'.");
-            Renderer render = GetComponent<Renderer>();
-            render.enabled = false;
-            return;
-        }
-
-        ActorControlTypeStateMachine.PushStateToPopUpNotif(
-            $"You already learned the word '{itemData.learnThisWord.presentedWord}'");
+        foreach (ItemData data in itemData)
+            if (ActorManager.TryAddWordToWordsCollected(data.learnThisWord))
+                messages.Add($"You have learned the word '{data.learnThisWord.presentedWord}'.");
+            else
+                messages.Add($"You already learned the word '{data.learnThisWord.presentedWord}'");
+        ActorControlTypeStateMachine.PushStateToPopUpNotif(messages);
+        messages.Clear();
+        messages.TrimExcess();
     }
 }

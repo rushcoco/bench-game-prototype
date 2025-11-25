@@ -178,3 +178,5 @@ MonoBehaviour:
   puzzles:
   - {fileID: 11400000, guid: 818ad23538abf844e98b7bbd8d1d99fa, type: 2}
   - {fileID: 11400000, guid: ad0daa4c23ab2324eaaa38c494ef20e9, type: 2}
+  - {fileID: 11400000, guid: 240284ce75da0a94985b1d42af7256b9, type: 2}
+  - {fileID: 11400000, guid: 48a18c9f5424b994ca7467d13029cb18, type: 2}

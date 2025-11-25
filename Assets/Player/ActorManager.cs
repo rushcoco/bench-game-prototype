@@ -33,6 +33,8 @@ public class ActorManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
+        if (wordsCollected is null)
+            wordsCollected = new List<WordData>();
     }
 
     // Update is called once per frame

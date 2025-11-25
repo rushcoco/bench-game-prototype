@@ -27,6 +27,7 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
     private float coyoteTimer;
     private IConversable currentConversable;
     private IInspectable currentInspectable;
+    private IInspectable[] currentInspectables;
 
     private IInteractable currentInteractable;
     private float jumpBufferTimer;
@@ -46,6 +47,7 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
     private void Start()
     {
         uiController = UIController.instance;
+        currentInspectables = new[] { (IInspectable)null };
     }
 
     private void Update()
@@ -121,6 +123,8 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
             // >>>> set a bool check to true and show UI element to communicate to player
             uiController.ShowUIElementInspect();
             currentInspectable = inspectable;
+
+            currentInspectables = other.GetComponents<IInspectable>();
         }
 
         if (other.TryGetComponent(out IInteractable interactable))
@@ -145,6 +149,8 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
         {
             uiController.HideUIElementInspect();
             currentInspectable = null;
+
+            currentInspectables = new[] { (IInspectable)null };
         }
 
         if (other.TryGetComponent<IInteractable>(out _))
@@ -190,7 +196,18 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
     private void OnInputActionPerformedInputInspecting(InputAction.CallbackContext context)
     {
         if (currentInspectable.IsUnityNull()) return;
-        currentInspectable.Inspect();
+
+        if (currentInspectables.Length > 1)
+        {
+            Debug.Log(currentInspectables.Length);
+            foreach (IInspectable inspectable in currentInspectables)
+                if (!inspectable.IsUnityNull())
+                    inspectable.Inspect();
+        }
+        else
+        {
+            currentInspectable.Inspect();
+        }
     }
 
     private void OnInputActionPerformedInputListening(InputAction.CallbackContext context)
