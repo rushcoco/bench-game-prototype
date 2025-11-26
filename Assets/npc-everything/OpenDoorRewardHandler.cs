@@ -18,6 +18,7 @@ public class OpenDoorRewardHandler : RewardHandler
 
     protected override void HandlePuzzleSolved()
     {
+        GetComponent<Collider>().enabled = false;
         StartCoroutine(OpenDoor(transform.position));
         // Open the gardeners door aka this
     }
@@ -27,8 +28,8 @@ public class OpenDoorRewardHandler : RewardHandler
         float secondsLeft = 0f;
         while (secondsLeft < secondsOfDoorOpening)
         {
-            transform.Translate((Vector3.forward + Vector3.right) * Time.deltaTime / secondsOfDoorOpening);
-            transform.Rotate(Vector3.up, angleOfDoorOpened * Time.deltaTime / secondsOfDoorOpening);
+            // transform.Translate((Vector3.forward + Vector3.right) * Time.deltaTime / secondsOfDoorOpening);
+            transform.parent.Rotate(Vector3.up, angleOfDoorOpened * Time.deltaTime / secondsOfDoorOpening);
 
             secondsLeft += Time.deltaTime;
             yield return null;

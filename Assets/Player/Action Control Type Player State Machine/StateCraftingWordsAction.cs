@@ -132,10 +132,18 @@ public class StateCraftingWordsAction : MonoBehaviour, IControlTypeState
 
     public void TryCraftWords()
     {
+        string message;
+        if (toBeCrafted.Count != amountOfNounsThatCanBeCraftedInTotal)
+        {
+            message = $"You need {amountOfNounsThatCanBeCraftedInTotal} words in total to craft new words.";
+            ActorControlTypeStateMachine.PushStateToPopUpNotif(message);
+            return;
+        }
+
         CraftableManager instance = CraftableManager.Instance();
 
         List<NounData> nouns = new();
-        string message;
+
         toBeCrafted.ForEach(behaviour => nouns.Add(behaviour.wordData as NounData));
         if (instance.TryCraftWords(nouns, out VerbData verb) && ActorManager.TryAddWordToWordsCollected(verb))
             message = $"You learned the word '{verb.presentedWord}'!\n\nCongratulations!";
