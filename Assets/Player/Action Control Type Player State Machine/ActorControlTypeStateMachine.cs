@@ -59,7 +59,8 @@ public class ActorControlTypeStateMachine : MonoBehaviour
     private void PushState(IControlTypeState newState)
     {
         if (currentState != null)
-            stateStack.Push(currentState);
+            if (newState != currentState)
+                stateStack.Push(currentState);
         SetState(newState);
     }
 
