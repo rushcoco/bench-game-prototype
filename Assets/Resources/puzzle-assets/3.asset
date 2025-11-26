@@ -15,16 +15,23 @@ MonoBehaviour:
   id: 3
   correctSentenceData: {fileID: 11400000, guid: 030f8d80bf3257740b41a8954e363bc8, type: 2}
   dialogChitChat:
-  - You said that the gate is locked.
-  - "What\u2019s wrong with it?"
+  - Hm? Did i forget something?
+  - What do you want me to do with the key now?
   timeLimitInSeconds: 60
   dialogPuzzleSolved:
-  - Oh of course.
-  - Here you are free to go.
-  - I will leave the gate open for today.
-  - I still need to finish my work. If you need me you know where to find me.
-  dialogResponseFalse: Speak up youngster! Don't you see how old I am?
-  dialogTimeRunOut: Nobody told you that you need to put a word aftern another to
-    talk?
-  dialogPuzzlePrompt: "You said that the gate is locked. What\u2019s wrong with it?"
+  - Ohhh, that's right
+  - Harharhar excuse me and my brain, youngster.
+  - I'll leave the gate open for you.
+  - I still need to finish my work. The leaves aren't gonna remove themselves from
+    here.
+  - I hope they would *grumble*
+  - Anyways...
+  - If you need me you know where to find me.
+  dialogResponseFalse: Speak up youngster! I'm older than i look, you know. Even
+    though it looks convincing my mustache is actually white. i just dyed it brown.
+    In the old days, i had beautiful and lush brown hair. Wait, what were we talking
+    about again?
+  dialogTimeRunOut: Haaa? I can't hear you properly. Don't be shy, i'm not gonna
+    bite! Harharharhar.
+  dialogPuzzlePrompt: What do you want me to do with the key now?
   isPuzzleSolved: 0

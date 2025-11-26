@@ -15,17 +15,25 @@ MonoBehaviour:
   id: 2
   correctSentenceData: {fileID: 11400000, guid: 504f265f70d3b384abfba2d79af9f014, type: 2}
   dialogChitChat:
-  - Come one youngster!
-  - Help me find the key!
-  timeLimitInSeconds: 0
+  - Did you find my place?
+  - It's right next to me.
+  - Can you go check inside?
+  - There should be something in there.
+  - At least, i think.
+  timeLimitInSeconds: 60
   dialogPuzzleSolved:
-  - Oh! Thank you youngster.
+  - Oh, Thank you youngster
+  - The key is right here in my pockets.
   - "See? That\u2019s why I need young people like you here!"
   - Make sure to learn how to properly talk.
   - "You can\u2019t be the next gardener if you can\u2019t communicate with others."
-  - Anyway you said that the gate is locked.
-  - "What\u2019s wrong with it?"
-  dialogResponseFalse: Stop wasting time! The key, we need to find it!
-  dialogTimeRunOut: Stop wasting time! The key, we need to find it!
-  dialogPuzzlePrompt: What is it? Did you find the key yet?
+  - Harharharharhar.
+  - '*cough* *cough*'
+  - Hmm?
+  - Did i forget something?
+  - What do you want me to do with the key now?
+  dialogResponseFalse: I have no idea what you are talking about, youngster
+  dialogTimeRunOut: Hmm? What did you say? I can't hear properly. My ears aren't
+    exactly like how they used to be.
+  dialogPuzzlePrompt: So? Did you find something in my house?
   isPuzzleSolved: 0

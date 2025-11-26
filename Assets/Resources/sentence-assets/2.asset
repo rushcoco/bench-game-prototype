@@ -14,9 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   words:
-  - {fileID: 11400000, guid: c3c264bc9821ed94eababc4a7000ec77, type: 2}
   - {fileID: 11400000, guid: 7df2abf8281d8a748b7a7a5c36d71b77, type: 2}
-  - {fileID: 11400000, guid: 469f5ebad279eb14ca2ec1aa0fc43452, type: 2}
   - {fileID: 11400000, guid: 9d4b25204ffd1424fbf2fbde56d57e3e, type: 2}
   tense: 1
   pronoun: 0

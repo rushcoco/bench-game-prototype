@@ -139,11 +139,6 @@ public class StateTalkingAction : MonoBehaviour, IControlTypeState
 
     private void OnInputActionPerformedRemoveLastWordFromTheSentence(InputAction.CallbackContext context)
     {
-        /* TODO:
-         * - Check if there are Words in Sentences
-         * - Remove the Last Word from the Sentence
-         * - If there is no word in the sentence then dont remove it
-         */
         if (currentSentence.IsUnityNull()) return;
         if (currentSentence.Count < 1) return;
 
@@ -211,7 +206,6 @@ public class StateTalkingAction : MonoBehaviour, IControlTypeState
         {
             currentConversable.StartResponseIsWrongChitChat();
             ActorControlTypeStateMachine.PushStateToListening(currentConversable);
-            Debug.Log("Words are wrong");
         }
     }
 }

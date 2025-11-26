@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class NpcBehaviour : MonoBehaviour, IConversable
 {
@@ -97,16 +97,11 @@ public class NpcBehaviour : MonoBehaviour, IConversable
     public bool TryResponse(List<WordData> tryWords)
     {
         Debug.Log("Enter TryResponse(List<WordData>) of: " + gameObject.name);
-        if (tryWords.Count != currentPuzzleData.GetSolutionWords().Count) return false;
+        // if (tryWords.Count != currentPuzzleData.GetSolutionWords().Count) return false;
 
-        for (int i = 0; i < tryWords.Count; i++)
-        {
-            if (tryWords[i].Equals(currentPuzzleData.GetSolutionWords()[i])) continue;
-            Debug.Log("Words are false");
+        if (currentPuzzleData.GetSolutionWords().Any(word => !tryWords.Contains(word)))
             return false;
-        }
 
-        currentPuzzleData.GetSolutionSentence().SetSentence();
         Debug.Log(currentPuzzleData.GetSolutionSentence().finalSentence);
 
         currentPuzzleData.SetIsSolved(true);
@@ -124,11 +119,6 @@ public class NpcBehaviour : MonoBehaviour, IConversable
     public float GetTimeLimitCurrentPuzzle()
     {
         return currentPuzzleData.timeLimit;
-    }
-
-    public void Inspect()
-    {
-        Debug.Log("You inspected " + gameObject.name);
     }
 
     private PuzzleData GetCurrentPuzzle(List<PuzzleData> localPuzzles, int index = 0)
