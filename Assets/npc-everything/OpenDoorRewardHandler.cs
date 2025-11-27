@@ -8,14 +8,6 @@ public class OpenDoorRewardHandler : RewardHandler
     [SerializeField] private float angleOfDoorOpened;
     [SerializeField] private float secondsOfDoorOpening;
 
-    private void Start()
-    {
-    }
-
-    private void Update()
-    {
-    }
-
     protected override void HandlePuzzleSolved()
     {
         GetComponent<Collider>().enabled = false;

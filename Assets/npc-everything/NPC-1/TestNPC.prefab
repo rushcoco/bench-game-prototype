@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 727375842139763582}
   - component: {fileID: 458600091212332441}
   - component: {fileID: 2394942301833066255}
+  - component: {fileID: 5655072681820791954}
   m_Layer: 0
   m_Name: TestNPC
   m_TagString: Untagged
@@ -180,3 +181,26 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ad0daa4c23ab2324eaaa38c494ef20e9, type: 2}
   - {fileID: 11400000, guid: 240284ce75da0a94985b1d42af7256b9, type: 2}
   - {fileID: 11400000, guid: 48a18c9f5424b994ca7467d13029cb18, type: 2}
+--- !u!114 &5655072681820791954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9009980107026422012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a294151f75392347805763fbc287d3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 11400000, guid: 818ad23538abf844e98b7bbd8d1d99fa, type: 2}
+  learnThisWord:
+  - {fileID: 11400000, guid: 7df2abf8281d8a748b7a7a5c36d71b77, type: 2}
+  - {fileID: 11400000, guid: 84425fec3c9a33043a0bb76d77864f82, type: 2}
+  - {fileID: 11400000, guid: 469f5ebad279eb14ca2ec1aa0fc43452, type: 2}
+  - {fileID: 11400000, guid: c3c264bc9821ed94eababc4a7000ec77, type: 2}
+  - {fileID: 11400000, guid: 469f5ebad279eb14ca2ec1aa0fc43452, type: 2}
+  - {fileID: 11400000, guid: c30db8906e5110f4cacf9342fe530df6, type: 2}
+  - {fileID: 11400000, guid: baecc60cd8c46b74fa926686133bdaa2, type: 2}
+  - {fileID: 11400000, guid: ebd7a2fde22681a40aeec883e7888b8f, type: 2}
+  - {fileID: 11400000, guid: dd1edaf5c35e2fe43a2348c468538955, type: 2}

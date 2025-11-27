@@ -16,6 +16,7 @@ public class ActorManager : MonoBehaviour
     [SerializeField] private AudioSource soundOnInspect;
     [SerializeField] private GameObject actorGameObject;
     private ISittable actorIsSittingOn;
+    private CameraFollowTarget cameraFollowTarget;
 
     private void Awake()
     {
@@ -28,6 +29,7 @@ public class ActorManager : MonoBehaviour
             wordsCollected = new List<WordData>();
 
         VerbConjugator.SetAuxiliaryVerbs(toHave, toBe, will);
+        cameraFollowTarget = GetComponent<CameraFollowTarget>();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -91,5 +93,34 @@ public class ActorManager : MonoBehaviour
     {
         instance.actorIsSittingOn.OnSitEnd(instance.actorGameObject.transform);
         instance.actorIsSittingOn = null;
+    }
+
+    public static void OnEnterMoveCameraToCaptureActorWithConversable(IConversable conversable)
+    {
+        /* TODO:
+         * - Call "Camera Targets This" GameObject and move it between player and currentConversable
+         * - Call the same object /method in that object to then set y value to a specific height up
+         * - This would give space for the Dialog Box.
+         * - Get WorldToScreenPosition from currentConversable to then add the "Triangle" Dialog thingy.
+         */
+
+        if (conversable is NpcBehaviour npcBehaviour)
+        {
+            Vector3 positionNpc = npcBehaviour.transform.position;
+            Vector3 positionActor = instance.actorGameObject.transform.position;
+
+            Vector2 positionDifference = new(positionNpc.x - positionActor.x, positionNpc.z - positionActor.z);
+            float magnitude = positionDifference.magnitude * 0.5f;
+
+            positionDifference = positionDifference.normalized * magnitude;
+
+            instance.cameraFollowTarget.SetTargetTransformPosition(positionDifference.x, Vector3.up.y,
+                positionDifference.y);
+        }
+    }
+
+    public static void OnExitMoveCameraToCaptureActorWithConversable(IConversable conversable)
+    {
+        instance.cameraFollowTarget.SetTargetTransformPosition(Vector3.zero);
     }
 }

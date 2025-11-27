@@ -16,7 +16,12 @@ MonoBehaviour:
   correctSentenceData: {fileID: 11400000, guid: 31b7da23fd07a9541993a868c83a4b4b, type: 2}
   dialogChitChat:
   - "Well well, if it isn\u2019t the newcomer!"
-  - Make yourself useful instead of dozing off on that bench!
+  - You're looking...uhhh...alive, early in the morning.
+  - I'm busy with removing these leaves from the path.
+  - If you need something, feel free to talk to me.
+  - But speak clearly.
+  - I'm not the youngest after all, am i?
+  - Harharharharharhar
   timeLimitInSeconds: 60
   dialogPuzzleSolved:
   - Excuse me?
@@ -30,7 +35,7 @@ MonoBehaviour:
   - "And I especially don\u2019t want another brat running around the park."
   - Those two troublemakers are already more than enough.
   - So what did you want to tell me?
-  dialogResponseFalse: Speak up youngster! Don't you see how old I am?
+  dialogResponseFalse: I'm sorry youngster. I have no idea what you are talking about.
   dialogTimeRunOut: If you wanna talk at least find something to talk about!
   dialogPuzzlePrompt: "What do you want now? Don\u2019t you see I\u2019m working?"
   isPuzzleSolved: 0

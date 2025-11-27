@@ -1,9 +1,11 @@
+using System.Collections;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class UIController : MonoBehaviour
 {
+    [SerializeField] private float timePassPerLetterInDialogueInMilliSeconds;
     [SerializeField] private GameObject highlightInspect;
     [SerializeField] private GameObject highlightInteract;
     [SerializeField] private GameObject highlightListen;
@@ -86,22 +88,47 @@ public class UIController : MonoBehaviour
 
     public static void InsertTextForTMP(string followingText)
     {
-        instance.tmpChitChat.text = followingText;
+        instance.StopAllCoroutines();
+        instance.StartCoroutine(instance.ShowText(followingText, instance.tmpChitChat));
     }
 
     public static void InsertPromptTextForTMP(string followingText)
     {
-        instance.tmpPrompt.text = followingText;
+        instance.StopAllCoroutines();
+        instance.StartCoroutine(instance.ShowText(followingText, instance.tmpPrompt));
     }
 
     public static void InsertNotificationMessagePopText(string followingText)
     {
-        instance.tmpNotificationMessage.text = followingText;
+        instance.StopAllCoroutines();
+        instance.StartCoroutine(instance.ShowText(followingText, instance.tmpNotificationMessage));
     }
 
     public void EditUIHighlighters(bool value)
     {
         if (!uiHighlighter.IsUnityNull())
             uiHighlighter.SetActive(value);
+    }
+
+    private IEnumerator ShowText(string followingText, TextMeshProUGUI tmpGUI)
+    {
+        tmpGUI.text = "";
+        int amountChar = followingText.Length;
+        int currChar = 0;
+        float timePassed = 0f;
+        float timePassTotal = timePassPerLetterInDialogueInMilliSeconds * 0.001f;
+
+        while (currChar < amountChar)
+            if (timePassed >= timePassTotal)
+            {
+                timePassed = 0f;
+                tmpGUI.text += followingText[currChar];
+                currChar++;
+                yield return null;
+            }
+            else
+            {
+                timePassed += Time.deltaTime;
+            }
     }
 }

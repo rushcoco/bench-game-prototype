@@ -751,6 +751,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
       value: ActorManager, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 7698340426924817883, guid: b5d6af6717a23704bb31fb9e0f265e0e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8111950507492194374, guid: b5d6af6717a23704bb31fb9e0f265e0e, type: 3}
       propertyPath: targetTransform
       value: 
@@ -1501,34 +1505,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   message: []
---- !u!1 &1100927701 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8682738146901099930, guid: 3b95a0b4fd40c0c49ba1c8d5350294a5, type: 3}
-  m_PrefabInstance: {fileID: 1617174339}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1100927706
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1100927701}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a294151f75392347805763fbc287d3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 11400000, guid: 818ad23538abf844e98b7bbd8d1d99fa, type: 2}
-  learnThisWord:
-  - {fileID: 11400000, guid: 7df2abf8281d8a748b7a7a5c36d71b77, type: 2}
-  - {fileID: 11400000, guid: 84425fec3c9a33043a0bb76d77864f82, type: 2}
-  - {fileID: 11400000, guid: 469f5ebad279eb14ca2ec1aa0fc43452, type: 2}
-  - {fileID: 11400000, guid: c3c264bc9821ed94eababc4a7000ec77, type: 2}
-  - {fileID: 11400000, guid: 469f5ebad279eb14ca2ec1aa0fc43452, type: 2}
-  - {fileID: 11400000, guid: c30db8906e5110f4cacf9342fe530df6, type: 2}
-  - {fileID: 11400000, guid: baecc60cd8c46b74fa926686133bdaa2, type: 2}
-  - {fileID: 11400000, guid: ebd7a2fde22681a40aeec883e7888b8f, type: 2}
-  - {fileID: 11400000, guid: dd1edaf5c35e2fe43a2348c468538955, type: 2}
 --- !u!1001 &1176251133
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2676,10 +2652,7 @@ PrefabInstance:
     - {fileID: 1969219812619983144, guid: 3b95a0b4fd40c0c49ba1c8d5350294a5, type: 3}
     - {fileID: 1408349320308593534, guid: 3b95a0b4fd40c0c49ba1c8d5350294a5, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8682738146901099930, guid: 3b95a0b4fd40c0c49ba1c8d5350294a5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1100927706}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b95a0b4fd40c0c49ba1c8d5350294a5, type: 3}
 --- !u!1 &1645128725
 GameObject:

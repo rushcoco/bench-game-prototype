@@ -1,6 +1,4 @@
-using System;
 using UnityEngine;
-using UnityEngine.Assertions.Must;
 
 public class CameraFollowTarget : MonoBehaviour
 {
@@ -11,16 +9,7 @@ public class CameraFollowTarget : MonoBehaviour
     private Camera sceneMainCamera;
 
     private Vector3 targetToCamera;
-
-    private void OnEnable()
-    {
-        sceneMainCamera = Camera.main;
-    }
-
-    private void OnDisable()
-    {
-        
-    }
+    private Vector3 targetToCameraOffset;
 
     private void Awake()
     {
@@ -29,21 +18,42 @@ public class CameraFollowTarget : MonoBehaviour
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Start()
     {
         // Do once a rotation for camera to look at camera without doing "LookAt"
-        
-        sceneMainCamera.transform.localRotation = Quaternion.Euler(distanceBetweenTargetAndCamera*Mathf.Acos(directionFromTargetToCamera.z), 0f, 0f);
+
+        sceneMainCamera.transform.localRotation =
+            Quaternion.Euler(distanceBetweenTargetAndCamera * Mathf.Acos(directionFromTargetToCamera.z), 0f, 0f);
+        targetToCameraOffset = Vector3.zero;
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        Vector3 desiredCameraPosition = targetTransform.position + targetToCamera;
-        Vector3 smoothedCameraPosition = Vector3.Lerp(sceneMainCamera.transform.position, desiredCameraPosition, smoothedOutLerp);
+        Vector3 desiredCameraPosition = targetTransform.position + targetToCamera + targetToCameraOffset;
+        Vector3 smoothedCameraPosition =
+            Vector3.Lerp(sceneMainCamera.transform.position, desiredCameraPosition, smoothedOutLerp);
         Vector3 toTranslate = smoothedCameraPosition - sceneMainCamera.transform.position;
         sceneMainCamera.transform.Translate(toTranslate);
-        //sceneMainCamera.transform.LookAt(targetTransform);
-        
+    }
+
+    private void OnEnable()
+    {
+        sceneMainCamera = Camera.main;
+    }
+
+    private void OnDisable()
+    {
+        sceneMainCamera = null;
+    }
+
+    public void SetTargetTransformPosition(Vector3 vector3)
+    {
+        targetToCameraOffset = vector3;
+    }
+
+    public void SetTargetTransformPosition(float x, float y, float z)
+    {
+        SetTargetTransformPosition(new Vector3(x, y, z));
     }
 }

@@ -14,15 +14,12 @@ public class StateListeningAction : MonoBehaviour, IControlTypeState
     {
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
     }
 
-    // Update is called once per frame
     private void Update()
     {
-        //Debug.Log(inputToNextChitChat.action.ReadValue<float>());
     }
 
     private void OnEnable()
@@ -32,6 +29,9 @@ public class StateListeningAction : MonoBehaviour, IControlTypeState
         inputToNextChitChat.action.Enable();
 
         inputToNextChitChat.action.started += OnInputActionStartedToNextChitChat;
+
+
+        ActorManager.OnEnterMoveCameraToCaptureActorWithConversable(currentConversable);
     }
 
     private void OnDisable()
@@ -41,6 +41,8 @@ public class StateListeningAction : MonoBehaviour, IControlTypeState
         inputToNextChitChat.action.Disable();
 
         canvasDialogBox.gameObject.SetActive(false);
+
+        ActorManager.OnExitMoveCameraToCaptureActorWithConversable(currentConversable);
     }
 
     public void ExitState()
