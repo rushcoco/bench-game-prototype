@@ -44,6 +44,11 @@ public class ActorManager : MonoBehaviour
     {
     }
 
+    public static ActorManager Instance()
+    {
+        return instance;
+    }
+
     public static IReadOnlyCollection<WordData> GetAllWordsPlayerHasCollected()
     {
         return instance.wordsCollected;
@@ -122,5 +127,11 @@ public class ActorManager : MonoBehaviour
     public static void OnExitMoveCameraToCaptureActorWithConversable(IConversable conversable)
     {
         instance.cameraFollowTarget.SetTargetTransformPosition(Vector3.zero);
+    }
+
+    public static Vector2 GetActorXYPosition()
+    {
+        return new Vector2(instance.actorGameObject.transform.position.x,
+            instance.actorGameObject.transform.position.y);
     }
 }

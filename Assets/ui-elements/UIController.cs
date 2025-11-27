@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using Unity.VisualScripting;
@@ -6,6 +7,7 @@ using UnityEngine;
 public class UIController : MonoBehaviour
 {
     [SerializeField] private float timePassPerLetterInDialogueInMilliSeconds;
+    [SerializeField] private float offsetVerticalPlayerUIHighlight;
     [SerializeField] private GameObject highlightInspect;
     [SerializeField] private GameObject highlightInteract;
     [SerializeField] private GameObject highlightListen;
@@ -24,34 +26,34 @@ public class UIController : MonoBehaviour
             instance = this;
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
-    {
-    }
-
-    // Update is called once per frame
-    private void Update()
     {
     }
 
     public void ShowUIElementInspect()
     {
         highlightInspect.SetActive(true);
+        // TODO: Make The Element Follow the Player
+        ActorManager.GetActorXYPosition();
+        instance.StartCoroutine(ShowUIHighlighter(highlightInspect));
     }
 
     public void ShowUIElementInteract()
     {
         highlightInteract.SetActive(true);
+        // TODO: Make The Element Follow the Player
     }
 
     public void ShowUIElementListen()
     {
         highlightListen.SetActive(true);
+        // TODO: Make The Element Follow the Player
     }
 
     public void ShowUIElementTalk()
     {
         highlightTalk.SetActive(true);
+        // TODO: Make The Element Follow the Player
     }
 
     private void ShowUIElement()
@@ -130,5 +132,13 @@ public class UIController : MonoBehaviour
             {
                 timePassed += Time.deltaTime;
             }
+    }
+
+    private IEnumerator ShowUIHighlighter(GameObject highlightElement)
+    {
+        while (true)
+        {
+            yield return null;
+        }
     }
 }
