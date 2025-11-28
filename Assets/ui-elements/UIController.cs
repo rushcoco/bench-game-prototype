@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using TMPro;
 using Unity.VisualScripting;
@@ -16,6 +15,11 @@ public class UIController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI tmpPrompt;
     [SerializeField] private TextMeshProUGUI tmpNotificationMessage;
     [SerializeField] private GameObject uiHighlighter;
+    private RectTransform highlightInspectRect => highlightInspect.transform as RectTransform;
+    private RectTransform highlightInteractRect => highlightInteract.transform as RectTransform;
+    private RectTransform highlightListenRect => highlightListen.transform as RectTransform;
+    private RectTransform highlightTalkRect => highlightTalk.transform as RectTransform;
+
     public static UIController instance { get; private set; }
 
     private void Awake()
@@ -34,8 +38,8 @@ public class UIController : MonoBehaviour
     {
         highlightInspect.SetActive(true);
         // TODO: Make The Element Follow the Player
-        ActorManager.GetActorXYPosition();
         instance.StartCoroutine(ShowUIHighlighter(highlightInspect));
+        Debug.Log(highlightInspectRect.localPosition);
     }
 
     public void ShowUIElementInteract()
@@ -138,7 +142,9 @@ public class UIController : MonoBehaviour
     {
         while (true)
         {
+            float xPos = ActorManager.GetActorXYPosition().x;
             yield return null;
         }
+        
     }
 }
