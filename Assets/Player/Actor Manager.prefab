@@ -1103,7 +1103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timePassPerLetterInDialogueInMilliSeconds: 5
-  offsetVerticalPlayerUIHighlight: 200
+  offsetVerticalPlayerUIHighlight: 350
   highlightInspect: {fileID: 7629470198703718062}
   highlightInteract: {fileID: 7629470198703718062}
   highlightListen: {fileID: 1499050268439753976}
