@@ -333,6 +333,28 @@
                 },
                 {
                     "name": "",
+                    "id": "a4370724-d960-4785-861b-1f07d66d09f5",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "48ce86e7-9cb0-4b83-91b3-60fd0da75008",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "fe2c09e9-0b02-434e-bdab-992d2afcfe88",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
@@ -377,6 +399,28 @@
                 },
                 {
                     "name": "",
+                    "id": "6422ba2d-c7de-4cc4-a584-8c8caf9ccfed",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Inspect",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "83032761-1af8-4351-b549-58042474db9d",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Inspect",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "d1ca708b-d429-458e-bdc6-e96d3becb9b9",
                     "path": "<Keyboard>/c",
                     "interactions": "",
@@ -393,6 +437,28 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
+                    "action": "Craft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6b54ba5a-6ea1-4e0b-af45-c19cc136cfe2",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Craft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c76abc4a-3ff5-4252-9d44-9ff84db94eba",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
                     "action": "Craft",
                     "isComposite": false,
                     "isPartOfComposite": false

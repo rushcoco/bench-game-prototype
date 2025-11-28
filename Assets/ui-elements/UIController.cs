@@ -2,6 +2,7 @@ using System.Collections;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
@@ -15,10 +16,15 @@ public class UIController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI tmpPrompt;
     [SerializeField] private TextMeshProUGUI tmpNotificationMessage;
     [SerializeField] private GameObject uiHighlighter;
+    private Coroutine coroutineNotificationPopUpMessage;
+    private Coroutine coroutinePromptTextForTMP;
+    private Coroutine coroutineTextForTMP;
+    private Camera mainCamera;
+    private Vector2 referenceScalerUI;
     private RectTransform highlightInspectRect => highlightInspect.transform as RectTransform;
     private RectTransform highlightInteractRect => highlightInteract.transform as RectTransform;
     private RectTransform highlightListenRect => highlightListen.transform as RectTransform;
-    private RectTransform highlightTalkRect => highlightTalk.transform as RectTransform;
+    private RectTransform uiHighlightRect => uiHighlighter.transform as RectTransform;
 
     public static UIController instance { get; private set; }
 
@@ -30,34 +36,40 @@ public class UIController : MonoBehaviour
             instance = this;
     }
 
-    private void Start()
+    private void OnEnable()
     {
+        mainCamera = Camera.main;
+        referenceScalerUI = uiHighlighter.GetComponent<CanvasScaler>().referenceResolution;
+        coroutineTextForTMP = null;
+        coroutinePromptTextForTMP = null;
+        coroutineNotificationPopUpMessage = null;
+    }
+
+    private void OnDisable()
+    {
+        mainCamera = null;
+        referenceScalerUI = Vector2.zero;
+        coroutineTextForTMP = null;
+        coroutinePromptTextForTMP = null;
+        coroutineNotificationPopUpMessage = null;
     }
 
     public void ShowUIElementInspect()
     {
         highlightInspect.SetActive(true);
-        // TODO: Make The Element Follow the Player
-        instance.StartCoroutine(ShowUIHighlighter(highlightInspect));
-        Debug.Log(highlightInspectRect.localPosition);
+        instance.StartCoroutine(ShowUIHighlighter(highlightInspectRect));
     }
 
     public void ShowUIElementInteract()
     {
         highlightInteract.SetActive(true);
-        // TODO: Make The Element Follow the Player
+        instance.StartCoroutine(ShowUIHighlighter(highlightInteractRect));
     }
 
-    public void ShowUIElementListen()
+    public void ShowUIElementListenOrTalk()
     {
         highlightListen.SetActive(true);
-        // TODO: Make The Element Follow the Player
-    }
-
-    public void ShowUIElementTalk()
-    {
-        highlightTalk.SetActive(true);
-        // TODO: Make The Element Follow the Player
+        instance.StartCoroutine(ShowUIHighlighter(highlightListenRect));
     }
 
     private void ShowUIElement()
@@ -66,48 +78,46 @@ public class UIController : MonoBehaviour
 
     public void HideUIElementInspect()
     {
+        instance.StopCoroutine(nameof(ShowUIHighlighter));
         highlightInspect.SetActive(false);
     }
 
     public void HideUIElementInteract()
     {
+        instance.StopCoroutine(nameof(ShowUIHighlighter));
         highlightInteract.SetActive(false);
     }
 
-    public void HideUIElementListen()
+    public void HideUIElementListenOrTalk()
     {
+        instance.StopCoroutine(nameof(ShowUIHighlighter));
         highlightListen.SetActive(false);
-    }
-
-    public void HideUIElementTalk()
-    {
-        highlightTalk.SetActive(false);
-    }
-
-    public void ShowSpeechBubble()
-    {
-    }
-
-    public void HideSpeechBubble()
-    {
     }
 
     public static void InsertTextForTMP(string followingText)
     {
-        instance.StopAllCoroutines();
-        instance.StartCoroutine(instance.ShowText(followingText, instance.tmpChitChat));
+        if (instance.coroutineTextForTMP != null)
+            instance.StopCoroutine(instance.coroutineTextForTMP);
+
+        instance.coroutineTextForTMP = instance.StartCoroutine(instance.ShowText(followingText, instance.tmpChitChat));
     }
 
     public static void InsertPromptTextForTMP(string followingText)
     {
-        instance.StopAllCoroutines();
-        instance.StartCoroutine(instance.ShowText(followingText, instance.tmpPrompt));
+        if (instance.coroutinePromptTextForTMP != null)
+            instance.StopCoroutine(instance.coroutinePromptTextForTMP);
+
+        instance.coroutinePromptTextForTMP =
+            instance.StartCoroutine(instance.ShowText(followingText, instance.tmpPrompt));
     }
 
     public static void InsertNotificationMessagePopText(string followingText)
     {
-        instance.StopAllCoroutines();
-        instance.StartCoroutine(instance.ShowText(followingText, instance.tmpNotificationMessage));
+        if (instance.coroutineNotificationPopUpMessage != null)
+            instance.StopCoroutine(instance.coroutineNotificationPopUpMessage);
+
+        instance.coroutineNotificationPopUpMessage =
+            instance.StartCoroutine(instance.ShowText(followingText, instance.tmpNotificationMessage));
     }
 
     public void EditUIHighlighters(bool value)
@@ -138,13 +148,17 @@ public class UIController : MonoBehaviour
             }
     }
 
-    private IEnumerator ShowUIHighlighter(GameObject highlightElement)
+    private IEnumerator ShowUIHighlighter(RectTransform highlightElement)
     {
+        float diminitive = uiHighlightRect.position.x;
         while (true)
         {
-            float xPos = ActorManager.GetActorXYPosition().x;
+            Vector2 playerPosition =
+                mainCamera.WorldToViewportPoint(ActorManager.GetActorPosition()) * referenceScalerUI;
+
+            highlightElement.position =
+                new Vector3(playerPosition.x, playerPosition.y + offsetVerticalPlayerUIHighlight, 0f);
             yield return null;
         }
-        
     }
 }

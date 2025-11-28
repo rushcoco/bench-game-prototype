@@ -63,7 +63,6 @@ public class StateListeningAction : MonoBehaviour, IControlTypeState
     private void OnInputActionStartedToNextChitChat(InputAction.CallbackContext context)
     {
         if (currentConversable.NextChitChat()) return;
-        UIController.instance.HideSpeechBubble();
         ActorControlTypeStateMachine.PopStateToPrevious();
     }
 

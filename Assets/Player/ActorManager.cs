@@ -129,9 +129,8 @@ public class ActorManager : MonoBehaviour
         instance.cameraFollowTarget.SetTargetTransformPosition(Vector3.zero);
     }
 
-    public static Vector2 GetActorXYPosition()
+    public static Vector3 GetActorPosition()
     {
-        return new Vector2(instance.actorGameObject.transform.position.x,
-            instance.actorGameObject.transform.position.y);
+        return instance.actorGameObject.transform.position;
     }
 }

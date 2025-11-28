@@ -137,8 +137,7 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
         if (other.TryGetComponent(out IConversable conversable))
         {
             // >>>> set a bool check to true and show UI element to communicate to player
-            uiController.ShowUIElementListen();
-            uiController.ShowUIElementTalk();
+            uiController.ShowUIElementListenOrTalk();
             currentConversable = conversable;
         }
     }
@@ -161,8 +160,7 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
 
         if (other.TryGetComponent<IConversable>(out _))
         {
-            uiController.HideUIElementListen();
-            uiController.HideUIElementTalk();
+            uiController.HideUIElementListenOrTalk();
             currentConversable = null;
         }
     }
@@ -218,7 +216,6 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
             currentConversable.StartResponseIsCorrectChitChat();
 
         // TODO Delegate a function that shows all the correct UI Elements
-        uiController.ShowSpeechBubble();
 
         ActorControlTypeStateMachine.PushStateToListening(currentConversable);
     }
@@ -229,7 +226,6 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
 
         if (!currentConversable.StartTalkPrompt()) return;
 
-        uiController.ShowSpeechBubble();
 
         ActorControlTypeStateMachine.PushStateToTalking(currentConversable);
     }
