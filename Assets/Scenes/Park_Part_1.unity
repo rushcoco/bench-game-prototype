@@ -751,6 +751,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -55
       objectReference: {fileID: 0}
+    - target: {fileID: 1793928788731071406, guid: b5d6af6717a23704bb31fb9e0f265e0e, type: 3}
+      propertyPath: wordSelectorRectangle
+      value: 
+      objectReference: {fileID: 1381188061}
     - target: {fileID: 2225712172520321288, guid: b5d6af6717a23704bb31fb9e0f265e0e, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2164,6 +2168,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!224 &1381188061 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 984655772960033794, guid: b5d6af6717a23704bb31fb9e0f265e0e, type: 3}
+  m_PrefabInstance: {fileID: 412583583}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1396183705 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 869a066ca4b730e40b040519f1476fe8, type: 3}
