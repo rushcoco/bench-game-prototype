@@ -5,6 +5,7 @@ using UnityEngine;
 public class ActorManager : MonoBehaviour
 {
     private static ActorManager instance;
+    [SerializeField] private Transform actorPlayerTransform;
     [SerializeField] private List<WordData> wordsCollected;
     [SerializeField] private VerbData toHave;
     [SerializeField] private VerbData toBe;
@@ -14,7 +15,7 @@ public class ActorManager : MonoBehaviour
     [SerializeField] private AudioSource soundEnterCraftingMenu;
     [SerializeField] private AudioSource soundClickOnCraftButton;
     [SerializeField] private AudioSource soundOnInspect;
-    [SerializeField] private GameObject actorGameObject;
+
     private ISittable actorIsSittingOn;
     private CameraFollowTarget cameraFollowTarget;
 
@@ -91,12 +92,12 @@ public class ActorManager : MonoBehaviour
     public static void PlaySittingOnSittableAnimation(ISittable sittable)
     {
         instance.actorIsSittingOn = sittable;
-        instance.actorIsSittingOn.OnSitStart(instance.actorGameObject.transform);
+        instance.actorIsSittingOn.OnSitStart(instance.actorPlayerTransform);
     }
 
     public static void StandUpFromSittable()
     {
-        instance.actorIsSittingOn.OnSitEnd(instance.actorGameObject.transform);
+        instance.actorIsSittingOn.OnSitEnd(instance.actorPlayerTransform);
         instance.actorIsSittingOn = null;
     }
 
@@ -112,7 +113,7 @@ public class ActorManager : MonoBehaviour
         if (conversable is NpcBehaviour npcBehaviour)
         {
             Vector3 positionNpc = npcBehaviour.transform.position;
-            Vector3 positionActor = instance.actorGameObject.transform.position;
+            Vector3 positionActor = instance.actorPlayerTransform.transform.position;
 
             Vector2 positionDifference = new(positionNpc.x - positionActor.x, positionNpc.z - positionActor.z);
             float magnitude = positionDifference.magnitude * 0.5f;
@@ -131,6 +132,6 @@ public class ActorManager : MonoBehaviour
 
     public static Vector3 GetActorPosition()
     {
-        return instance.actorGameObject.transform.position;
+        return instance.actorPlayerTransform.transform.position;
     }
 }
