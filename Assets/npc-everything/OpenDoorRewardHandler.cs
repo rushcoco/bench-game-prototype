@@ -11,11 +11,11 @@ public class OpenDoorRewardHandler : RewardHandler
     protected override void HandlePuzzleSolved()
     {
         GetComponent<Collider>().enabled = false;
-        StartCoroutine(OpenDoor(transform.position));
+        StartCoroutine(OpenDoor());
         // Open the gardeners door aka this
     }
 
-    private IEnumerator OpenDoor(Vector3 position)
+    private IEnumerator OpenDoor()
     {
         float secondsLeft = 0f;
         while (secondsLeft < secondsOfDoorOpening)
