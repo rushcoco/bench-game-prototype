@@ -479,7 +479,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4570042851074040561, guid: e9d81d1173f496c448873e1145347b93, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.256
       objectReference: {fileID: 0}
     - target: {fileID: 4570042851074040561, guid: e9d81d1173f496c448873e1145347b93, type: 3}
       propertyPath: m_LocalPosition.z
@@ -517,17 +517,33 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6368346082048900837, guid: e9d81d1173f496c448873e1145347b93, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6368346082048900837, guid: e9d81d1173f496c448873e1145347b93, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6368346082048900837, guid: e9d81d1173f496c448873e1145347b93, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6368346082048900837, guid: e9d81d1173f496c448873e1145347b93, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8015847302018168538, guid: e9d81d1173f496c448873e1145347b93, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8614536554456482569, guid: e9d81d1173f496c448873e1145347b93, type: 3}
       propertyPath: m_Size.x
-      value: 2.34
+      value: 2.129646
       objectReference: {fileID: 0}
     - target: {fileID: 8614536554456482569, guid: e9d81d1173f496c448873e1145347b93, type: 3}
       propertyPath: m_Size.y
-      value: 2.3
+      value: 1.820009
       objectReference: {fileID: 0}
     - target: {fileID: 8614536554456482569, guid: e9d81d1173f496c448873e1145347b93, type: 3}
       propertyPath: m_Size.z
@@ -535,7 +551,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8614536554456482569, guid: e9d81d1173f496c448873e1145347b93, type: 3}
       propertyPath: m_Center.x
-      value: 0
+      value: 0.024646677
       objectReference: {fileID: 0}
     - target: {fileID: 8614536554456482569, guid: e9d81d1173f496c448873e1145347b93, type: 3}
       propertyPath: m_Center.y
