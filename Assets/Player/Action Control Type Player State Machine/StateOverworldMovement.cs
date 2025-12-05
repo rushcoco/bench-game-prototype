@@ -38,6 +38,8 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
     private float jumpForce;
     private bool jumpQueued;
 
+    
+
     private UIController uiController;
 
     private void Awake()
@@ -114,6 +116,7 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
 
         if (!uiController.IsUnityNull())
             uiController.EditUIHighlighters(true);
+
     }
 
     private void OnDisable()
