@@ -12,9 +12,8 @@ GameObject:
   - component: {fileID: 1891716963387880080}
   - component: {fileID: 3170107850714379536}
   - component: {fileID: 3270929781642209310}
-  - component: {fileID: 8614536554456482569}
   - component: {fileID: 5258454516137447132}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Gardeners Gate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,29 +85,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.8
-  m_Center: {x: 0, y: -0.4, z: 0.4}
---- !u!65 &8614536554456482569
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2108660437111126785}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.129646, y: 1.820009, z: 0.48}
-  m_Center: {x: 0.024646677, y: 1, z: 0}
+  m_Radius: 1
+  m_Center: {x: 0, y: 0.4, z: -0.4}
 --- !u!114 &5258454516137447132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,11 +164,45 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gate (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: abfaddfcd1b20ab4c82628fed247dfd5, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: abfaddfcd1b20ab4c82628fed247dfd5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8619416716275020639}
   m_SourcePrefab: {fileID: 100100000, guid: abfaddfcd1b20ab4c82628fed247dfd5, type: 3}
+--- !u!1 &1286679405603776686 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: abfaddfcd1b20ab4c82628fed247dfd5, type: 3}
+  m_PrefabInstance: {fileID: 2097091706357798399}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &8619416716275020639
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1286679405603776686}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4453806867672132484, guid: abfaddfcd1b20ab4c82628fed247dfd5, type: 3}
 --- !u!4 &1914281314994008596 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: abfaddfcd1b20ab4c82628fed247dfd5, type: 3}

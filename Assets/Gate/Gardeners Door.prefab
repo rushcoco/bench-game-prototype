@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8443962235739554071}
   - component: {fileID: 2103198592600550818}
   - component: {fileID: 1154274379932438810}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 1428534471067691559}
   - component: {fileID: 1900437334469217132}
   - component: {fileID: 4958543820139307322}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube.025
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -226,7 +226,7 @@ GameObject:
   - component: {fileID: 4125767277981943833}
   - component: {fileID: 8636589150569400675}
   - component: {fileID: 5945020576798549374}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: hut.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -310,7 +310,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4298511330401906236}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Gardeners Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}

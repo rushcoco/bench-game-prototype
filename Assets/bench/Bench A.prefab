@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2543774930939179572}
   - component: {fileID: 2107279732306163968}
   - component: {fileID: 2816943018994737604}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Behaviour
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5256121501797014259}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sit on bench
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3618268863560308779}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: stand up to
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,7 +142,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6117030928378288245}
   - component: {fileID: 343706734410164877}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bench A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -235,9 +235,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 401122468259050895, guid: 0247ef4b7c1e39742b5683b4e2cecedf, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0247ef4b7c1e39742b5683b4e2cecedf, type: 3}
       propertyPath: m_Name
       value: Bench_Section-one
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0247ef4b7c1e39742b5683b4e2cecedf, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2436642405449406515, guid: 0247ef4b7c1e39742b5683b4e2cecedf, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

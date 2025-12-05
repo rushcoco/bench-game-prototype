@@ -150,7 +150,6 @@ public class UIController : MonoBehaviour
 
     private IEnumerator ShowUIHighlighter(RectTransform highlightElement)
     {
-        float diminitive = uiHighlightRect.position.x;
         while (true)
         {
             Vector2 playerPosition =

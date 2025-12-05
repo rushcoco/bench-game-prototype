@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
   m_Name: Fade Objects
   m_EditorClassIdentifier: 
-  m_Active: 1
+  m_Active: 0
   settings:
     passTag: Fade Objects
     Event: 300
@@ -26,17 +26,17 @@ MonoBehaviour:
     overrideMaterialPassIndex: 0
     overrideShader: {fileID: -6465566751694194690, guid: 194fd06b96854c54d97dee1fcecc4b72, type: 3}
     overrideShaderPassIndex: 0
-    overrideMode: 2
-    overrideDepthState: 1
+    overrideMode: 1
+    overrideDepthState: 0
     depthCompareFunction: 5
     enableWrite: 0
     stencilSettings:
       overrideStencilState: 0
-      stencilReference: 0
-      stencilCompareFunction: 8
-      passOperation: 0
-      failOperation: 0
-      zFailOperation: 0
+      stencilReference: 2
+      stencilCompareFunction: 5
+      passOperation: 1
+      failOperation: 1
+      zFailOperation: 1
     cameraSettings:
       overrideCamera: 0
       restoreCamera: 1
@@ -71,7 +71,7 @@ MonoBehaviour:
     overrideMode: 1
     overrideDepthState: 1
     depthCompareFunction: 4
-    enableWrite: 1
+    enableWrite: 0
     stencilSettings:
       overrideStencilState: 0
       stencilReference: 0
@@ -110,10 +110,10 @@ MonoBehaviour:
     probeVolumeBlendStatesCS: {fileID: 7200000, guid: b9a23f869c4fd45f19c5ada54dd82176, type: 3}
   m_RendererFeatures:
   - {fileID: 7833122117494664109}
+  - {fileID: -6746039243321310841}
   - {fileID: 2809915465800726024}
   - {fileID: -4587897857540467629}
-  - {fileID: -6746039243321310841}
-  m_RendererFeatureMap: ad6b866f10d7b46c08b6ed833ad3fe26535486cf348354c08701fddc0c4161a2
+  m_RendererFeatureMap: ad6b866f10d7b46c8701fddc0c4161a208b6ed833ad3fe26535486cf348354c0
   m_UseNativeRenderPass: 1
   xrSystemData: {fileID: 0}
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
