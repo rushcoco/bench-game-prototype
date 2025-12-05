@@ -117,6 +117,7 @@ MonoBehaviour:
   rateAtWhichForceOfJumpDiminishes: 40
   coyoteTime: 0.2
   jumpBufferTime: 0.1
+  playerCharAnimator: {fileID: 1637946855695574891}
 --- !u!82 &5809369706641479354
 AudioSource:
   m_ObjectHideFlags: 0
@@ -291,23 +292,21 @@ PrefabInstance:
     - target: {fileID: 5866666021909216657, guid: 2c6f061e95782d341850d7c67f999d0f, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: e793d52cc502b164397936d3c6bb4f7c, type: 2}
+      objectReference: {fileID: 9100000, guid: b5c8cc24f2681d748abd8372da89eb0a, type: 2}
     - target: {fileID: 5866666021909216657, guid: 2c6f061e95782d341850d7c67f999d0f, type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'mixamorig:Hips'\n\tTransform 'mixamorig:LeftFoot'\n\tTransform
-        'mixamorig:LeftHandIndex1'\n\tTransform 'mixamorig:Spine1'\n\tTransform 'mixamorig:LeftToeBase'\n\tTransform
-        'mixamorig:RightArm'\n\tTransform 'mixamorig:LeftLeg'\n\tTransform 'mixamorig:LeftShoulder'\n\tTransform
-        'mixamorig:RightHandIndex3'\n\tTransform 'mixamorig:RightFoot'\n\tand more
-        ...\n\tFrom animation clip 'IdleS'\n\tFrom animation clip 'WalkS'\n\tFrom
-        animation clip 'JumpS'"
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c6f061e95782d341850d7c67f999d0f, type: 3}
+--- !u!95 &1637946855695574891 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 2c6f061e95782d341850d7c67f999d0f, type: 3}
+  m_PrefabInstance: {fileID: 5175113526400998138}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4637312508469591313 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2c6f061e95782d341850d7c67f999d0f, type: 3}
