@@ -67,17 +67,23 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
             jumpQueued = false;
             jumpBufferTimer = 0f;
             coyoteTimer = 0f;
+            playerCharacter.SetBool(IsGrounded, true);
         }
 
         if (!character.isGrounded)
+        {
             jumpForce -= rateAtWhichForceOfJumpDiminishes * Time.deltaTime;
-        else if (jumpForce < 0) jumpForce = 0;
+        }
+        else if (jumpForce < 0)
+        {
+            jumpForce = 0;
+            playerCharacter.SetBool(IsGrounded, false);
+        }
 
         Vector2 inputDirectionVector = inputWalking.action.ReadValue<Vector2>().normalized * walkingSpeed;
         Vector3 movementVector = new(inputDirectionVector.x, jumpForce, inputDirectionVector.y);
 
-        playerCharacter.SetBool(IsGrounded, character.isGrounded);
-        playerCharacter.SetBool(IsMoving, movementVector.magnitude > 0f);
+        playerCharacter.SetBool(IsMoving, inputWalking.action.ReadValue<Vector2>().magnitude > 0f);
         character.Move(movementVector * Time.deltaTime);
     }
 
