@@ -53,6 +53,7 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
     {
         uiController = UIController.instance;
         currentInspectables = new[] { (IInspectable)null };
+        playerCharacter.SetBool(IsGrounded, true);
     }
 
     private void Update()
@@ -67,7 +68,7 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
             jumpQueued = false;
             jumpBufferTimer = 0f;
             coyoteTimer = 0f;
-            playerCharacter.SetBool(IsGrounded, true);
+            playerCharacter.SetBool(IsGrounded, false);
         }
 
         if (!character.isGrounded)
@@ -77,7 +78,7 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
         else if (jumpForce < 0)
         {
             jumpForce = 0;
-            playerCharacter.SetBool(IsGrounded, false);
+            playerCharacter.SetBool(IsGrounded, true);
         }
 
         Vector2 inputDirectionVector = inputWalking.action.ReadValue<Vector2>().normalized * walkingSpeed;
