@@ -80,7 +80,62 @@ ModelImporter:
   humanDescription:
     serializedVersion: 3
     human: []
-    skeleton: []
+    skeleton:
+    - name: playerchar(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "B\xE9zierCircle"
+      parentName: playerchar(Clone)
+      position: {x: 1.0528813e-14, y: -0.000000059604645, z: 0}
+      rotation: {x: -4.255461e-15, y: 0.000000021855694, z: 1, w: -0.00000019470718}
+      scale: {x: 12.688602, y: 5.175866, z: 14.497435}
+    - name: Garment Mushroom Hat.001
+      parentName: playerchar(Clone)
+      position: {x: -1.1641532e-10, y: -0.000000059604645, z: -0.0000000037252903}
+      rotation: {x: -0.5737707, y: 0, z: -0, w: 0.819016}
+      scale: {x: 202.93663, y: 202.93663, z: 114.181366}
+    - name: Mball.007
+      parentName: playerchar(Clone)
+      position: {x: -0, y: 0, z: 0.000000014901161}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 5.5053926, y: 5.5053926, z: 5.5053926}
+    - name: Mball.013
+      parentName: playerchar(Clone)
+      position: {x: -0, y: 0, z: -2.1175824e-22}
+      rotation: {x: 0.50000006, y: -0.49999997, z: -0.5, w: -0.5}
+      scale: {x: 22.588522, y: 22.588522, z: 22.588522}
+    - name: Mball.017
+      parentName: playerchar(Clone)
+      position: {x: 0.000000029802322, y: 0, z: -0.000000029802322}
+      rotation: {x: -0.49640912, y: 0.05542288, z: -0.090852335, w: 0.8615406}
+      scale: {x: 3.9650922, y: 3.965092, z: 2.0576267}
+    - name: Toadstool No. 4 (Amanita Muscaria)..407
+      parentName: playerchar(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Toadstool No. 4 (Amanita Muscaria)..423
+      parentName: playerchar(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Toadstool No. 4 (Amanita Muscaria)..426
+      parentName: playerchar(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Toadstool No. 4 (Amanita Muscaria)..465
+      parentName: playerchar(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Toadstool No. 4 (Amanita Muscaria)..588
+      parentName: playerchar(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -95,7 +150,7 @@ ModelImporter:
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 3
+  animationType: 2
   humanoidOversampling: 1
   avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1

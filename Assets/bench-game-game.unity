@@ -2016,10 +2016,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3728249923187387303, guid: 35aadeb5ded45ac408284a622c521726, type: 3}
-      propertyPath: m_Avatar
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 6928105250303164206, guid: 35aadeb5ded45ac408284a622c521726, type: 3}
       propertyPath: m_Name
       value: Actor
