@@ -92,7 +92,7 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.02
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.1, z: 0}
 --- !u!114 &5290268580018972452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,12 +112,13 @@ MonoBehaviour:
   inputListening: {fileID: 1120369429361536294, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   inputTalking: {fileID: -7956963294089831746, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   inputToCrafting: {fileID: -1964244872861669727, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  playerCharAnimator: {fileID: 1637946855695574891}
   walkingSpeed: 5
   forceOfInitialJump: 10
   rateAtWhichForceOfJumpDiminishes: 40
   coyoteTime: 0.2
   jumpBufferTime: 0.1
-  playerCharAnimator: {fileID: 1637946855695574891}
+  rotationSpeed: 10
 --- !u!82 &5809369706641479354
 AudioSource:
   m_ObjectHideFlags: 0
@@ -246,12 +247,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 868712811224347871}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 2c6f061e95782d341850d7c67f999d0f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.31
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2c6f061e95782d341850d7c67f999d0f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.31
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2c6f061e95782d341850d7c67f999d0f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.31
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2c6f061e95782d341850d7c67f999d0f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2c6f061e95782d341850d7c67f999d0f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.44
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2c6f061e95782d341850d7c67f999d0f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -285,6 +298,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2c6f061e95782d341850d7c67f999d0f, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2c6f061e95782d341850d7c67f999d0f, type: 3}
       propertyPath: m_Name
       value: IdleSkin 1
@@ -292,7 +309,7 @@ PrefabInstance:
     - target: {fileID: 5866666021909216657, guid: 2c6f061e95782d341850d7c67f999d0f, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: b5c8cc24f2681d748abd8372da89eb0a, type: 2}
+      objectReference: {fileID: 9100000, guid: e793d52cc502b164397936d3c6bb4f7c, type: 2}
     - target: {fileID: 5866666021909216657, guid: 2c6f061e95782d341850d7c67f999d0f, type: 3}
       propertyPath: m_WarningMessage
       value: 

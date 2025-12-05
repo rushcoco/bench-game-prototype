@@ -20,12 +20,14 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
     [SerializeField] private InputActionReference inputListening;
     [SerializeField] private InputActionReference inputTalking;
     [SerializeField] private InputActionReference inputToCrafting;
+    [SerializeField] private Animator playerCharAnimator;
     [SerializeField] private float walkingSpeed;
     [SerializeField] private float forceOfInitialJump;
     [SerializeField] private float rateAtWhichForceOfJumpDiminishes;
     [SerializeField] private float coyoteTime;
     [SerializeField] private float jumpBufferTime;
-    [SerializeField] private Animator playerCharAnimator;
+    [SerializeField] private float rotationSpeed;
+
 
     private CharacterController character;
     private float coyoteTimer;
@@ -34,11 +36,12 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
     private IInspectable[] currentInspectables;
 
     private IInteractable currentInteractable;
+    private Vector2 inputDirectionVector;
     private float jumpBufferTimer;
     private float jumpForce;
     private bool jumpQueued;
-
-    
+    private bool moveNewDirectionQueued;
+    private float rotationSpeedTimer;
 
     private UIController uiController;
 
@@ -82,17 +85,26 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
             playerCharAnimator.SetBool(IsGrounded, true);
         }
 
-        Vector2 inputDirectionVector = inputWalking.action.ReadValue<Vector2>().normalized;
+        moveNewDirectionQueued = inputWalking.action.ReadValue<Vector2>() != inputDirectionVector;
+        if (moveNewDirectionQueued) rotationSpeedTimer = rotationSpeed;
+
+        inputDirectionVector = inputWalking.action.ReadValue<Vector2>().normalized;
         Vector3 movementVector = new(inputDirectionVector.x * walkingSpeed, jumpForce,
             inputDirectionVector.y * walkingSpeed);
 
         bool actorIsMoving = inputDirectionVector.magnitude > Vector2.zero.magnitude;
 
 
-        if (actorIsMoving) transform.Rotate(transform.up, Mathf.Sin(inputDirectionVector.x));
+        if (actorIsMoving && rotationSpeedTimer > 0f)
+        {
+            float angle = Mathf.Atan2(inputDirectionVector.x, inputDirectionVector.y) * Mathf.Rad2Deg;
+            float dtRotation = Time.deltaTime * rotationSpeed;
+            Quaternion targetRotation = Quaternion.Euler(0f, angle, 0f);
+            transform.localRotation = Quaternion.Slerp(transform.localRotation, targetRotation, dtRotation);
+            rotationSpeedTimer -= dtRotation;
+        }
 
         playerCharAnimator.SetBool(IsMoving, actorIsMoving);
-
 
         character.Move(movementVector * Time.deltaTime);
     }
@@ -116,7 +128,6 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
 
         if (!uiController.IsUnityNull())
             uiController.EditUIHighlighters(true);
-
     }
 
     private void OnDisable()
