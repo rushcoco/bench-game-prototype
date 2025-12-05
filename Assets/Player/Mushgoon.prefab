@@ -117,6 +117,7 @@ MonoBehaviour:
   rateAtWhichForceOfJumpDiminishes: 40
   coyoteTime: 0.2
   jumpBufferTime: 0.1
+  playerCharAnimator: {fileID: 1637946855695574891}
 --- !u!82 &5809369706641479354
 AudioSource:
   m_ObjectHideFlags: 0
@@ -308,6 +309,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c6f061e95782d341850d7c67f999d0f, type: 3}
+--- !u!95 &1637946855695574891 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 2c6f061e95782d341850d7c67f999d0f, type: 3}
+  m_PrefabInstance: {fileID: 5175113526400998138}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4637312508469591313 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2c6f061e95782d341850d7c67f999d0f, type: 3}

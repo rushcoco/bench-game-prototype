@@ -80,10 +80,18 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
             playerCharAnimator.SetBool(IsGrounded, true);
         }
 
-        Vector2 inputDirectionVector = inputWalking.action.ReadValue<Vector2>().normalized * walkingSpeed;
-        Vector3 movementVector = new(inputDirectionVector.x, jumpForce, inputDirectionVector.y);
+        Vector2 inputDirectionVector = inputWalking.action.ReadValue<Vector2>().normalized;
+        Vector3 movementVector = new(inputDirectionVector.x * walkingSpeed, jumpForce,
+            inputDirectionVector.y * walkingSpeed);
 
-        playerCharAnimator.SetBool(IsMoving, inputWalking.action.ReadValue<Vector2>().magnitude > 0f);
+        bool actorIsMoving = inputDirectionVector.magnitude > Vector2.zero.magnitude;
+
+
+        if (actorIsMoving) transform.Rotate(transform.up, Mathf.Sin(inputDirectionVector.x));
+
+        playerCharAnimator.SetBool(IsMoving, actorIsMoving);
+
+
         character.Move(movementVector * Time.deltaTime);
     }
 
