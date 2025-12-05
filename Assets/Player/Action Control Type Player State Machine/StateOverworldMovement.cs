@@ -10,6 +10,9 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class StateOverworldMovement : MonoBehaviour, IControlTypeState
 {
+    private static readonly int IsMoving = Animator.StringToHash("isMoving");
+    private static readonly int IsGrounded = Animator.StringToHash("isGrounded");
+
     [SerializeField] private InputActionReference inputWalking;
     [SerializeField] private InputActionReference inputJumping;
     [SerializeField] private InputActionReference inputInteracting;
@@ -33,6 +36,7 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
     private float jumpBufferTimer;
     private float jumpForce;
     private bool jumpQueued;
+    private Animator playerCharacter;
 
     private UIController uiController;
 
@@ -42,6 +46,7 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
             throw new NullReferenceException();
         jumpForce = 0;
         jumpQueued = false;
+        playerCharacter = GetComponent<Animator>();
     }
 
     private void Start()
@@ -70,6 +75,9 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
 
         Vector2 inputDirectionVector = inputWalking.action.ReadValue<Vector2>().normalized * walkingSpeed;
         Vector3 movementVector = new(inputDirectionVector.x, jumpForce, inputDirectionVector.y);
+
+        playerCharacter.SetBool(IsGrounded, character.isGrounded);
+        playerCharacter.SetBool(IsMoving, movementVector.magnitude > 0f);
         character.Move(movementVector * Time.deltaTime);
     }
 
