@@ -25,6 +25,7 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
     [SerializeField] private float rateAtWhichForceOfJumpDiminishes;
     [SerializeField] private float coyoteTime;
     [SerializeField] private float jumpBufferTime;
+    [SerializeField] private Animator playerCharAnimator;
 
     private CharacterController character;
     private float coyoteTimer;
@@ -36,7 +37,6 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
     private float jumpBufferTimer;
     private float jumpForce;
     private bool jumpQueued;
-    private Animator playerCharacter;
 
     private UIController uiController;
 
@@ -46,14 +46,13 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
             throw new NullReferenceException();
         jumpForce = 0;
         jumpQueued = false;
-        playerCharacter = GetComponent<Animator>();
     }
 
     private void Start()
     {
         uiController = UIController.instance;
         currentInspectables = new[] { (IInspectable)null };
-        playerCharacter.SetBool(IsGrounded, true);
+        playerCharAnimator.SetBool(IsGrounded, true);
     }
 
     private void Update()
@@ -68,7 +67,7 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
             jumpQueued = false;
             jumpBufferTimer = 0f;
             coyoteTimer = 0f;
-            playerCharacter.SetBool(IsGrounded, false);
+            playerCharAnimator.SetBool(IsGrounded, false);
         }
 
         if (!character.isGrounded)
@@ -78,13 +77,13 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
         else if (jumpForce < 0)
         {
             jumpForce = 0;
-            playerCharacter.SetBool(IsGrounded, true);
+            playerCharAnimator.SetBool(IsGrounded, true);
         }
 
         Vector2 inputDirectionVector = inputWalking.action.ReadValue<Vector2>().normalized * walkingSpeed;
         Vector3 movementVector = new(inputDirectionVector.x, jumpForce, inputDirectionVector.y);
 
-        playerCharacter.SetBool(IsMoving, inputWalking.action.ReadValue<Vector2>().magnitude > 0f);
+        playerCharAnimator.SetBool(IsMoving, inputWalking.action.ReadValue<Vector2>().magnitude > 0f);
         character.Move(movementVector * Time.deltaTime);
     }
 
