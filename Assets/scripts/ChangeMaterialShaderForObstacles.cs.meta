@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 3a6084381da4b8d4b8a17a4619e09c31
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - fadeNearCamera: {fileID: -6465566751694194690, guid: 194fd06b96854c54d97dee1fcecc4b72, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
