@@ -2416,7 +2416,7 @@ MonoBehaviour:
   targetTransform: {fileID: 0}
   directionFromTargetToCamera: {x: 0, y: 5, z: -12}
   distanceBetweenTargetAndCamera: 7
-  smoothedOutLerp: 0.02
+  smoothedOutLerp: 0.0185
 --- !u!114 &5824944532730939075
 MonoBehaviour:
   m_ObjectHideFlags: 0

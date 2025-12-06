@@ -386,6 +386,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _DitherStrength: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -766,6 +767,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _DitherStrength: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -864,6 +866,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _DitherStrength: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -1258,6 +1261,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _DitherStrength: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -1478,6 +1482,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _DitherStrength: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -1523,6 +1528,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _DitherStrength: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -1568,9 +1574,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _DitherStrength: 0.1
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _SeeThroughDistance: 3
+    - _SeeThroughDistance: 2
     m_Colors:
     - _BaseColor: {r: 0.552005, g: 0.80939615, b: 0.36832082, a: 1}
   m_BuildTextureStacks: []
@@ -1613,6 +1620,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _DitherStrength: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -1711,6 +1719,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _DitherStrength: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -1756,6 +1765,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _DitherStrength: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -1854,6 +1864,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _DitherStrength: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -2444,6 +2455,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _DitherStrength: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -2632,6 +2644,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _DitherStrength: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -2730,6 +2743,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _DitherStrength: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -2775,6 +2789,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _DitherStrength: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -2926,6 +2941,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _DitherStrength: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -2971,6 +2987,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _DitherStrength: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -3069,6 +3086,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _DitherStrength: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -3167,6 +3185,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _DitherStrength: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -3415,6 +3434,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _DitherStrength: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -3460,6 +3480,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _DitherStrength: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -3558,6 +3579,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _DitherStrength: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -3603,6 +3625,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _DitherStrength: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -3997,6 +4020,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _DitherStrength: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
