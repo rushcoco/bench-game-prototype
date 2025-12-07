@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
-    [SerializeField] private float timePassPerLetterInDialogueInMilliSeconds;
+    [SerializeField] private int amountOfLettersToBeAddedWhenSpeedUp;
+    [SerializeField] private float timePassPerLetterInDialogue;
     [SerializeField] private float offsetVerticalPlayerUIHighlight;
     [SerializeField] private float offsetHorizontalPlayerUIHighlight;
     [SerializeField] private float lerpUIHighlightByThisValue;
@@ -28,6 +29,7 @@ public class UIController : MonoBehaviour
     private RectTransform highlightInteractRect => highlightInteract.transform as RectTransform;
     private RectTransform highlightListenRect => highlightListen.transform as RectTransform;
     private RectTransform uiHighlightRect => uiHighlighter.transform as RectTransform;
+    private bool isUsingSpeedUpForTMP;
 
     public static UIController instance { get; private set; }
 
@@ -37,6 +39,8 @@ public class UIController : MonoBehaviour
             Destroy(this);
         else
             instance = this;
+
+        isUsingSpeedUpForTMP = false;
     }
 
     private void OnEnable()
@@ -123,6 +127,23 @@ public class UIController : MonoBehaviour
             instance.StartCoroutine(instance.ShowText(followingText, instance.tmpNotificationMessage));
     }
 
+    public static bool SpeedUpDialog()
+    {
+        instance.isUsingSpeedUpForTMP = true;
+        Debug.Log("Is Speeding Up");
+        
+        Debug.Log("notif coroutine " + !instance.coroutineNotificationPopUpMessage.IsUnityNull());
+        Debug.Log("dialog coroutine " + !instance.coroutineTextForTMP.IsUnityNull());
+
+        return !instance.coroutineNotificationPopUpMessage.IsUnityNull() || !instance.coroutineTextForTMP.IsUnityNull();
+    }
+
+    public static void SlowDownDialog()
+    {
+        instance.isUsingSpeedUpForTMP = false;
+        Debug.Log("Is Slowing Down");
+    }
+
     public void EditUIHighlighters(bool value)
     {
         if (!uiHighlighter.IsUnityNull())
@@ -134,21 +155,42 @@ public class UIController : MonoBehaviour
         tmpGUI.text = "";
         int amountChar = followingText.Length;
         int currChar = 0;
-        float timePassed = 0f;
-        float timePassTotal = timePassPerLetterInDialogueInMilliSeconds * 0.001f;
+        float dtCurrently = 0f;
 
         while (currChar < amountChar)
-            if (timePassed >= timePassTotal)
+        {
+            dtCurrently += Time.deltaTime;
+            
+            if (dtCurrently >= timePassPerLetterInDialogue)
             {
-                timePassed = 0f;
-                tmpGUI.text += followingText[currChar];
-                currChar++;
-                yield return null;
+                if (isUsingSpeedUpForTMP)
+                {
+                    for (int i = 0; i < amountOfLettersToBeAddedWhenSpeedUp && amountChar - currChar > 0; i++)
+                    {
+                        tmpGUI.text += followingText[currChar];
+                        currChar++;
+                    }
+                }
+                else
+                {
+                    tmpGUI.text += followingText[currChar];
+                    currChar++;
+                }
+
+                dtCurrently = 0f;
             }
-            else
-            {
-                timePassed += Time.deltaTime;
-            }
+
+            yield return null;
+        }
+
+        if (!coroutineTextForTMP.IsUnityNull())
+            coroutineTextForTMP = null;
+            
+        if (!coroutineNotificationPopUpMessage.IsUnityNull())
+            coroutineNotificationPopUpMessage = null;
+            
+        if (!coroutinePromptTextForTMP.IsUnityNull())
+            coroutinePromptTextForTMP = null;
     }
 
     private IEnumerator ShowUIHighlighter(RectTransform highlightElement)
@@ -164,7 +206,7 @@ public class UIController : MonoBehaviour
                 lerpUIHighlightByThisValue);
 
             highlightElement.position =
-                new Vector3(uiPositionDefinitive.x ,uiPositionDefinitive.y + offsetVerticalPlayerUIHighlight, 0f);
+                new Vector3(uiPositionDefinitive.x, uiPositionDefinitive.y + offsetVerticalPlayerUIHighlight, 0f);
             yield return null;
         }
     }
