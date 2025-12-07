@@ -16,20 +16,22 @@ public sealed class ChangeMaterialShaderForObstacles : MonoBehaviour
     public void RemapMaterials()
     {
         cachedByColor.Clear();
-        // targetLayers = LayerMask.GetMask("Obstacle", "Decorative");
 
         Renderer[] renderers = FindObjectsByType<Renderer>(FindObjectsSortMode.None);
 
         foreach (Renderer rendererComponent in renderers)
         {
-            // Check if renderComponent Game object is on layer in the target layer
-            if (IsInLayer(rendererComponent.gameObject.layer, targetLayers))
-            {
-                Material currMaterial = rendererComponent.sharedMaterial;
+            if (!IsInLayer(rendererComponent.gameObject.layer, targetLayers)) continue;
+            
+            Material[] rendererMaterials = rendererComponent.sharedMaterials;
+            createdMaterials.Clear();
+            createdMaterials.TrimExcess();
                 
-                if (currMaterial.shader != fadeNearCamera)
+            foreach (Material material in rendererMaterials)
+            {
+                if (material.shader != fadeNearCamera)
                 {
-                    Color baseColor = currMaterial.GetColor(BaseColorProperty);
+                    Color baseColor = material.GetColor(BaseColorProperty);
                     Color32 key = ConvertColorToColor32(baseColor);
 
                     if (!cachedByColor.TryGetValue(key, out Material customTempMaterial))
@@ -43,20 +45,25 @@ public sealed class ChangeMaterialShaderForObstacles : MonoBehaviour
                         cachedByColor.Add(key,customTempMaterial);
                         createdMaterials.Add(customTempMaterial);
                     }
-
-                    rendererComponent.sharedMaterial = customTempMaterial;
+                    createdMaterials.Add(customTempMaterial);
+                }
+                else
+                {
+                    createdMaterials.Add(material);
                 }
             }
-            
+                
+            rendererComponent.SetSharedMaterials(createdMaterials);
+
         }
     }
 
-    private bool IsInLayer(int layer, LayerMask layerMask)
+    private static bool IsInLayer(int layer, LayerMask layerMask)
     {
         return (layerMask.value & (1 << layer)) != 0;
     }
 
-    private Color32 ConvertColorToColor32(Color color)
+    private static Color32 ConvertColorToColor32(Color color)
     {
         Color32 color32 = new Color32(
             (byte)Mathf.Clamp(Mathf.RoundToInt(color.r * 255f), 0, 255),
