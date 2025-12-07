@@ -8,6 +8,9 @@ public class UIController : MonoBehaviour
 {
     [SerializeField] private float timePassPerLetterInDialogueInMilliSeconds;
     [SerializeField] private float offsetVerticalPlayerUIHighlight;
+    [SerializeField] private float offsetHorizontalPlayerUIHighlight;
+    [SerializeField] private float lerpUIHighlightByThisValue;
+    [SerializeField] private Material retroPostProcessing;
     [SerializeField] private GameObject highlightInspect;
     [SerializeField] private GameObject highlightInteract;
     [SerializeField] private GameObject highlightListen;
@@ -150,13 +153,18 @@ public class UIController : MonoBehaviour
 
     private IEnumerator ShowUIHighlighter(RectTransform highlightElement)
     {
+        Vector2 uiPositionBefore =
+            mainCamera.WorldToViewportPoint(ActorManager.GetCameraTargetPosition()) * referenceScalerUI;
         while (true)
         {
-            Vector2 playerPosition =
-                mainCamera.WorldToViewportPoint(ActorManager.GetActorPosition()) * referenceScalerUI;
+            Vector2 uiPositionDesired =
+                mainCamera.WorldToViewportPoint(ActorManager.GetCameraTargetPosition()) * referenceScalerUI;
+
+            Vector2 uiPositionDefinitive = Vector2.Lerp(uiPositionBefore, uiPositionDesired,
+                lerpUIHighlightByThisValue);
 
             highlightElement.position =
-                new Vector3(playerPosition.x, playerPosition.y + offsetVerticalPlayerUIHighlight, 0f);
+                new Vector3(uiPositionDefinitive.x ,uiPositionDefinitive.y + offsetVerticalPlayerUIHighlight, 0f);
             yield return null;
         }
     }

@@ -333,17 +333,6 @@
                 },
                 {
                     "name": "",
-                    "id": "a4370724-d960-4785-861b-1f07d66d09f5",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "Interact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "48ce86e7-9cb0-4b83-91b3-60fd0da75008",
                     "path": "<Mouse>/rightButton",
                     "interactions": "",
@@ -393,17 +382,6 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Inspect",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "6422ba2d-c7de-4cc4-a584-8c8caf9ccfed",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
                     "action": "Inspect",
                     "isComposite": false,
                     "isPartOfComposite": false

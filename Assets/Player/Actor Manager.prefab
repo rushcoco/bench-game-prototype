@@ -1107,8 +1107,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7582141d0b4c8ac38a47d5a79606d3b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timePassPerLetterInDialogueInMilliSeconds: 5
-  offsetVerticalPlayerUIHighlight: 200
+  timePassPerLetterInDialogueInMilliSeconds: 4
+  offsetVerticalPlayerUIHighlight: 260
+  offsetHorizontalPlayerUIHighlight: 0
+  lerpUIHighlightByThisValue: 0.8
+  retroPostProcessing: {fileID: 2100000, guid: 2e3d9b80a9788154fac9bd58c28ab6f9, type: 2}
   highlightInspect: {fileID: 7629470198703718062}
   highlightInteract: {fileID: 7629470198703718062}
   highlightListen: {fileID: 1499050268439753976}

@@ -56,4 +56,9 @@ public class CameraFollowTarget : MonoBehaviour
     {
         SetTargetTransformPosition(new Vector3(x, y, z));
     }
+
+    public Vector3 GetTargetTransformPosition()
+    {
+        return new Vector3(targetTransform.position.x, targetTransform.position.y, targetTransform.position.z);
+    }
 }

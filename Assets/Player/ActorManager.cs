@@ -45,11 +45,6 @@ public class ActorManager : MonoBehaviour
     {
     }
 
-    public static ActorManager Instance()
-    {
-        return instance;
-    }
-
     public static IReadOnlyCollection<WordData> GetAllWordsPlayerHasCollected()
     {
         return instance.wordsCollected;
@@ -133,5 +128,10 @@ public class ActorManager : MonoBehaviour
     public static Vector3 GetActorPosition()
     {
         return instance.actorPlayerTransform.transform.position;
+    }
+
+    public static Vector3 GetCameraTargetPosition()
+    {
+        return instance.cameraFollowTarget.GetTargetTransformPosition();
     }
 }
