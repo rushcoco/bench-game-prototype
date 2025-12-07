@@ -133,4 +133,9 @@ public class NpcBehaviour : MonoBehaviour, IConversable
         // have string appear every character per frame?
         UIController.InsertTextForTMP(playThis);
     }
+
+    public List<PuzzleData> GetPuzzleData()
+    {
+        return puzzles;
+    }
 }

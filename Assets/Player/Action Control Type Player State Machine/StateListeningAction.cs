@@ -10,18 +10,6 @@ public class StateListeningAction : MonoBehaviour, IControlTypeState
     private IConversable currentConversable;
     private bool hasPressedInputToNextChitChat;
 
-    private void Awake()
-    {
-    }
-
-    private void Start()
-    {
-    }
-
-    private void Update()
-    {
-    }
-
     private void OnEnable()
     {
         canvasDialogBox.gameObject.SetActive(true);

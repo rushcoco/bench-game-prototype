@@ -19,7 +19,6 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
     [SerializeField] private InputActionReference inputInspecting;
     [SerializeField] private InputActionReference inputListening;
     [SerializeField] private InputActionReference inputTalking;
-    [SerializeField] private InputActionReference inputToCrafting;
     [SerializeField] private Animator playerCharAnimator;
     [SerializeField] private float walkingSpeed;
     [SerializeField] private float forceOfInitialJump;
@@ -117,14 +116,12 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
         inputInspecting.action.Enable();
         inputListening.action.Enable();
         inputTalking.action.Enable();
-        inputToCrafting.action.Enable();
 
         inputJumping.action.performed += OnInputActionPerformedInputJumping;
         inputInteracting.action.performed += OnInputActionPerformedInputInteracting;
         inputInspecting.action.performed += OnInputActionPerformedInputInspecting;
         inputListening.action.performed += OnInputActionPerformedInputListening;
         inputTalking.action.performed += OnInputActionPerformedInputTalking;
-        inputToCrafting.action.performed += OnInputActionPerformedChangeToCraftingState;
 
         if (!uiController.IsUnityNull())
             uiController.EditUIHighlighters(true);
@@ -137,7 +134,6 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
         inputInspecting.action.performed -= OnInputActionPerformedInputInspecting;
         inputListening.action.performed -= OnInputActionPerformedInputListening;
         inputTalking.action.performed -= OnInputActionPerformedInputTalking;
-        inputToCrafting.action.performed -= OnInputActionPerformedChangeToCraftingState;
 
         inputWalking.action.Disable();
         inputJumping.action.Disable();
@@ -145,7 +141,6 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
         inputInspecting.action.Disable();
         inputListening.action.Disable();
         inputTalking.action.Disable();
-        inputToCrafting.action.Disable();
 
         if (!uiController.IsUnityNull())
             uiController.EditUIHighlighters(false);
@@ -209,10 +204,6 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
     public void EnterState()
     {
         enabled = true;
-    }
-
-    private void OnInputActionPerformedChangeToCraftingState(InputAction.CallbackContext context)
-    {
     }
 
     private void OnInputActionPerformedInputJumping(InputAction.CallbackContext context)

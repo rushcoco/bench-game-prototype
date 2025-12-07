@@ -4,11 +4,11 @@ using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ChangeMaterialShaderForLevelAssets
+public abstract class ChangeMaterialShaderForLevelAssets
 {
-    private const string ToolPath = "Tools/Remap MAterials In Open Scenes";
+    private const string TOOL_PATH = "Tools/Remap MAterials In Open Scenes";
     
-    [MenuItem(ToolPath)]
+    [MenuItem(TOOL_PATH)]
     public static void RemapAndSave()
     {
         var helper = Object.FindFirstObjectByType<ChangeMaterialShaderForObstacles>();
