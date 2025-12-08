@@ -1846,7 +1846,7 @@ Material:
     - _QueueOffset: 0
     - _SeeThroughDistance: 2
     m_Colors:
-    - _BaseColor: {r: 0.552005, g: 0.80939615, b: 0.36832082, a: 1}
+    - _BaseColor: {r: 0.54744345, g: 0.76729554, b: 0.38847348, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!21 &841225936
