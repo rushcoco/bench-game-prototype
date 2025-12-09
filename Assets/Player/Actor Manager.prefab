@@ -2452,8 +2452,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e49108ae60e4bc347908ec0bb8b7cc4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputToNextChitChat: {fileID: 1178495701541941843, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   inputToNextOrSpeedUp: {fileID: 676516873053259250, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  inputImmediateChitChatCompletion: {fileID: 1178495701541941843, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   canvasDialogBox: {fileID: 3555749218936704290}
 --- !u!114 &1793928788731071406
 MonoBehaviour:
