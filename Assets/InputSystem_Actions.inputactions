@@ -311,8 +311,8 @@
                 },
                 {
                     "name": "",
-                    "id": "48ce86e7-9cb0-4b83-91b3-60fd0da75008",
-                    "path": "<Mouse>/rightButton",
+                    "id": "1307b330-84eb-4940-b05a-c73af6f9e46b",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
@@ -388,8 +388,8 @@
                 },
                 {
                     "name": "",
-                    "id": "83032761-1af8-4351-b549-58042474db9d",
-                    "path": "<Mouse>/rightButton",
+                    "id": "d07358d2-358e-4e51-8e4b-8bd60dfbb4a1",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
