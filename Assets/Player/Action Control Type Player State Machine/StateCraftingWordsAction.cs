@@ -16,6 +16,7 @@ public class StateCraftingWordsAction : MonoBehaviour, IControlTypeState
     [SerializeField] private int amountOfNounsThatCanBeCraftedInTotal;
 
     [SerializeField] private GameObject emptyUIGameObject;
+
     private List<WordBehaviour> toBeCrafted;
     private List<WordBehaviour> wordsThatCanBeSelected;
 
@@ -28,7 +29,7 @@ public class StateCraftingWordsAction : MonoBehaviour, IControlTypeState
         inputClickOnThings.action.Enable();
         inputCursorPosition.action.Enable();
 
-        inputClickOnThings.action.performed += OnInputActionPerformedClickOnThings;
+        inputClickOnThings.action.performed += OnInputActionPerformedClick;
 
         ActorControlTypeStateMachine.SetCursorModes(true, CursorLockMode.None);
 
@@ -50,7 +51,7 @@ public class StateCraftingWordsAction : MonoBehaviour, IControlTypeState
     {
         ActorControlTypeStateMachine.SetCursorModes(false, CursorLockMode.Locked);
 
-        inputClickOnThings.action.performed -= OnInputActionPerformedClickOnThings;
+        inputClickOnThings.action.performed -= OnInputActionPerformedClick;
 
         inputClickOnThings.action.Disable();
         inputCursorPosition.action.Disable();
@@ -77,7 +78,7 @@ public class StateCraftingWordsAction : MonoBehaviour, IControlTypeState
         enabled = true;
     }
 
-    private void OnInputActionPerformedClickOnThings(InputAction.CallbackContext context)
+    private void OnInputActionPerformedClick(InputAction.CallbackContext context)
     {
         if (!IsWordClickedOn(out WordBehaviour foundWord)) return;
 

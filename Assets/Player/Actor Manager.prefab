@@ -2475,6 +2475,7 @@ MonoBehaviour:
   wordSelectorRectangle: {fileID: 984655772960033794}
   emptyUIGameObject: {fileID: 8646101438223821950, guid: c62acf38e217f9b40a2f05a5ed4dd987, type: 3}
   sentenceBuildingCanvas: {fileID: 5145908319932115498}
+  secondsUntilClickInputIsRegisteredAsHolding: 0.2
 --- !u!114 &6083774232372810144
 MonoBehaviour:
   m_ObjectHideFlags: 0

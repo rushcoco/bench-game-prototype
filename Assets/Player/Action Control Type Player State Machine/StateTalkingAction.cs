@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
@@ -15,6 +16,7 @@ public class StateTalkingAction : MonoBehaviour, IControlTypeState
     [SerializeField] private RectTransform wordSelectorRectangle;
     [SerializeField] private GameObject emptyUIGameObject;
     [SerializeField] private RectTransform sentenceBuildingCanvas;
+    [SerializeField] private float secondsUntilClickInputIsRegisteredAsHolding;
 
     private IConversable currentConversable;
 
@@ -27,7 +29,10 @@ public class StateTalkingAction : MonoBehaviour, IControlTypeState
     private WordBehaviour draggedWord;
     private CanvasGroup draggedWordCanvasGroup;
     private Vector2 dragOffset;
+
+    private bool inputClickQueued;
     private Transform originalParent;
+    private float secondsMouseClickBeingHeld;
     private Pronoun solutionPronoun;
     private Tense solutionTense;
 
@@ -63,7 +68,9 @@ public class StateTalkingAction : MonoBehaviour, IControlTypeState
         inputRemoveLastWordFromSentence.action.Enable();
 
         inputRemoveLastWordFromSentence.action.performed += OnInputActionPerformedRemoveLastWordFromTheSentence;
-        inputClickOnThings.action.performed += OnInputActionClickOnThings;
+
+        inputClickOnThings.action.started += OnInputActionStartedClickOnThings;
+        inputClickOnThings.action.canceled += OnInputActionCanceledClickOnThings;
 
         currentSentence = new List<WordBehaviour>();
         currentWordsThatCanBeSelected = new List<WordBehaviour>();
@@ -82,10 +89,16 @@ public class StateTalkingAction : MonoBehaviour, IControlTypeState
 
         solutionTense = currentConversable.GetSolutionSentence().tense;
         solutionPronoun = currentConversable.GetSolutionSentence().pronoun;
+
+        inputClickQueued = false;
+        secondsMouseClickBeingHeld = 0f;
     }
 
     private void OnDisable()
     {
+        inputClickQueued = false;
+        secondsMouseClickBeingHeld = 0f;
+
         ActorControlTypeStateMachine.SetCursorModes(false, CursorLockMode.Locked);
 
         // currentConversable = null;
@@ -99,7 +112,9 @@ public class StateTalkingAction : MonoBehaviour, IControlTypeState
         currentWordsThatCanBeSelected.TrimExcess();
         currentSentence.TrimExcess();
 
-        inputClickOnThings.action.performed -= OnInputActionClickOnThings;
+        inputClickOnThings.action.started -= OnInputActionStartedClickOnThings;
+        inputClickOnThings.action.canceled -= OnInputActionCanceledClickOnThings;
+
         inputRemoveLastWordFromSentence.action.performed -= OnInputActionPerformedRemoveLastWordFromTheSentence;
 
         inputRemoveLastWordFromSentence.action.Disable();
@@ -119,7 +134,35 @@ public class StateTalkingAction : MonoBehaviour, IControlTypeState
         enabled = true;
     }
 
-    private void OnInputActionClickOnThings(InputAction.CallbackContext context)
+    private void OnInputActionStartedClickOnThings(InputAction.CallbackContext context)
+    {
+        inputClickQueued = true;
+        StartCoroutine(CountingSeconds());
+    }
+
+    private void OnInputActionCanceledClickOnThings(InputAction.CallbackContext context)
+    {
+        Debug.Log("Click Time Held: " + secondsMouseClickBeingHeld);
+        if (inputClickQueued && secondsMouseClickBeingHeld >= secondsUntilClickInputIsRegisteredAsHolding)
+        {
+            // The player is holding the mouse ->
+            // Check if a word is being held ->
+            // Check if the word is in a new position
+            // Get that word in between the other words in the new position.
+        }
+        else if (inputClickQueued && secondsMouseClickBeingHeld < secondsUntilClickInputIsRegisteredAsHolding)
+        {
+            // Player simply clicked on smth
+            // Do the click input
+            ActorPerformedShortClick();
+        }
+        // At the very end queued gets defaulted
+
+        inputClickQueued = false;
+        secondsMouseClickBeingHeld = 0f;
+    }
+
+    private void ActorPerformedShortClick()
     {
         if (!IsWordClickedOn(out WordBehaviour foundWord)) return;
 
@@ -206,6 +249,17 @@ public class StateTalkingAction : MonoBehaviour, IControlTypeState
         {
             currentConversable.StartResponseIsWrongChitChat();
             ActorControlTypeStateMachine.PushStateToListening(currentConversable);
+        }
+    }
+
+    private IEnumerator CountingSeconds()
+    {
+        secondsMouseClickBeingHeld = 0f;
+
+        while (inputClickQueued)
+        {
+            secondsMouseClickBeingHeld += Time.deltaTime;
+            yield return null;
         }
     }
 }
