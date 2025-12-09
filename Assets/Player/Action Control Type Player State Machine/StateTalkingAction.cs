@@ -25,19 +25,18 @@ public class StateTalkingAction : MonoBehaviour, IControlTypeState
     private float currentTimeInSeconds;
     private List<WordBehaviour> currentWordsThatCanBeSelected;
 
-    // Drag Behaviour Variable
-    private WordBehaviour draggedWord;
-    private CanvasGroup draggedWordCanvasGroup;
-    private Vector2 dragOffset;
-
     private bool inputClickQueued;
+    private Camera mainCamera;
     private Transform originalParent;
     private float secondsMouseClickBeingHeld;
     private Pronoun solutionPronoun;
     private Tense solutionTense;
 
+    private WordBehaviour wordClickedOn;
+
     private void Awake()
     {
+        mainCamera = Camera.main;
     }
 
     private void Start()
@@ -92,16 +91,16 @@ public class StateTalkingAction : MonoBehaviour, IControlTypeState
 
         inputClickQueued = false;
         secondsMouseClickBeingHeld = 0f;
+        wordClickedOn = null;
     }
 
     private void OnDisable()
     {
         inputClickQueued = false;
         secondsMouseClickBeingHeld = 0f;
+        wordClickedOn = null;
 
         ActorControlTypeStateMachine.SetCursorModes(false, CursorLockMode.Locked);
-
-        // currentConversable = null;
 
         currentWordsThatCanBeSelected.ForEach(behaviour => Destroy(behaviour.gameObject));
         currentSentence.ForEach(behaviour => Destroy(behaviour.gameObject));
@@ -138,46 +137,93 @@ public class StateTalkingAction : MonoBehaviour, IControlTypeState
     {
         inputClickQueued = true;
         StartCoroutine(CountingSeconds());
+        if (IsWordClickedOn(out WordBehaviour foundWord))
+            wordClickedOn = foundWord;
     }
 
     private void OnInputActionCanceledClickOnThings(InputAction.CallbackContext context)
     {
         Debug.Log("Click Time Held: " + secondsMouseClickBeingHeld);
-        if (inputClickQueued && secondsMouseClickBeingHeld >= secondsUntilClickInputIsRegisteredAsHolding)
+        if (wordClickedOn.IsUnityNull())
         {
-            // The player is holding the mouse ->
-            // Check if a word is being held ->
-            // Check if the word is in a new position
-            // Get that word in between the other words in the new position.
+            inputClickQueued = false;
+            secondsMouseClickBeingHeld = 0f;
+            wordClickedOn = null;
+            return;
         }
-        else if (inputClickQueued && secondsMouseClickBeingHeld < secondsUntilClickInputIsRegisteredAsHolding)
+
+        switch (inputClickQueued)
         {
-            // Player simply clicked on smth
-            // Do the click input
-            ActorPerformedShortClick();
+            case true when secondsMouseClickBeingHeld >= secondsUntilClickInputIsRegisteredAsHolding:
+                // The player is holding the mouse ->
+                // Check if a word is being held ->
+                // Check if the word is in a new position
+                // Get that word in between the other words in the new position.
+                ActorPerformedLongClick();
+                break;
+            case true when secondsMouseClickBeingHeld < secondsUntilClickInputIsRegisteredAsHolding:
+                // Player simply clicked on smth
+                // Do the click input
+                ActorPerformedShortClick();
+                break;
         }
-        // At the very end queued gets defaulted
 
         inputClickQueued = false;
         secondsMouseClickBeingHeld = 0f;
+        wordClickedOn = null;
     }
 
     private void ActorPerformedShortClick()
     {
-        if (!IsWordClickedOn(out WordBehaviour foundWord)) return;
-
-        Debug.Log("Found WordData: " + foundWord.wordData.presentedWord);
-        if (currentSentence.Contains(foundWord))
+        Debug.Log("Found WordData: " + wordClickedOn.wordData.presentedWord);
+        if (currentSentence.Contains(wordClickedOn))
         {
-            currentSentence.Remove(foundWord);
-            Destroy(foundWord.gameObject);
+            currentSentence.Remove(wordClickedOn);
+            Destroy(wordClickedOn.gameObject);
         }
         else
         {
-            currentSentence.Add(Instantiate(foundWord, sentenceContainerRectangle));
+            currentSentence.Add(Instantiate(wordClickedOn, sentenceContainerRectangle));
         }
 
         WordPositionsInSentence();
+    }
+
+    private void ActorPerformedLongClick()
+    {
+        Debug.Log("Found WordData: " + wordClickedOn.wordData.presentedWord);
+        if (currentSentence.Contains(wordClickedOn))
+        {
+            float xPosMouse = Mouse.current.position.value.x;
+            Debug.Log(xPosMouse);
+
+            int newIndexWordClickedOn = 0;
+            int oldIndexWordClickedOn = currentSentence.FindIndex(behaviour => behaviour.Equals(wordClickedOn));
+
+            while (newIndexWordClickedOn < currentSentence.Count)
+            {
+                WordBehaviour curr = currentSentence[newIndexWordClickedOn];
+                RectTransform rect = curr.GetComponent<RectTransform>();
+                float xPosCurr = rect.position.x;
+
+                if (xPosCurr > xPosMouse)
+                    break;
+
+                newIndexWordClickedOn++;
+            }
+
+            if (newIndexWordClickedOn >= currentSentence.Count)
+                newIndexWordClickedOn = currentSentence.Count - 1;
+
+            if (newIndexWordClickedOn == oldIndexWordClickedOn) return;
+
+            currentSentence.RemoveAt(oldIndexWordClickedOn);
+            currentSentence.Insert(newIndexWordClickedOn, wordClickedOn);
+
+            currentSentence.ForEach(word => Debug.Log(word.wordData.presentedWord));
+
+            WordPositionsInSentence();
+        }
     }
 
     private void OnInputActionPerformedRemoveLastWordFromTheSentence(InputAction.CallbackContext context)
@@ -220,6 +266,15 @@ public class StateTalkingAction : MonoBehaviour, IControlTypeState
         {
             if (wordBehaviour.wordData is not VerbData verbData) continue;
             if (wordBehaviour.TryGetComponent(out TextMeshProUGUI tmpUGUI))
+                tmpUGUI.text = VerbConjugator.Conjugate(verbData, solutionTense, solutionPronoun);
+        }
+
+        for (int i = 0; i < currentSentence.Count; i++)
+        {
+            currentSentence[i].transform.SetSiblingIndex(i);
+
+            if (currentSentence[i].wordData is not VerbData verbData) continue;
+            if (currentSentence[i].TryGetComponent(out TextMeshProUGUI tmpUGUI))
                 tmpUGUI.text = VerbConjugator.Conjugate(verbData, solutionTense, solutionPronoun);
         }
 
