@@ -250,6 +250,62 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2394942301833066255, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
+      propertyPath: 'puzzles.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 88af3b9f764577246bfedd5a2c1ffb72, type: 2}
+    - target: {fileID: 2394942301833066255, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
+      propertyPath: 'puzzles.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7562ad59f00a9254a9694ad5c7591329, type: 2}
+    - target: {fileID: 2394942301833066255, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
+      propertyPath: 'puzzles.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: e62f1bc3649b5384286e741ebe6bea14, type: 2}
+    - target: {fileID: 2394942301833066255, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
+      propertyPath: 'puzzles.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 5c0eddc7f5d22c54989c88c75458cc75, type: 2}
+    - target: {fileID: 5655072681820791954, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5655072681820791954, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
+      propertyPath: 'learnThisWord.Array.data[0]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5655072681820791954, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
+      propertyPath: 'learnThisWord.Array.data[1]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5655072681820791954, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
+      propertyPath: 'learnThisWord.Array.data[2]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5655072681820791954, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
+      propertyPath: 'learnThisWord.Array.data[3]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5655072681820791954, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
+      propertyPath: 'learnThisWord.Array.data[4]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5655072681820791954, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
+      propertyPath: 'learnThisWord.Array.data[5]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5655072681820791954, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
+      propertyPath: 'learnThisWord.Array.data[6]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5655072681820791954, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
+      propertyPath: 'learnThisWord.Array.data[7]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5655072681820791954, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
+      propertyPath: 'learnThisWord.Array.data[8]'
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8601363689895532270, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -298,7 +354,8 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5655072681820791954, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
     m_RemovedGameObjects:
     - {fileID: 2922984878492894465, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
     m_AddedGameObjects:

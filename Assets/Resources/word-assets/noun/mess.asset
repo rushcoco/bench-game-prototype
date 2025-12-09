@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22744b8af2e2038c0957d1672bc94194, type: 3}
   m_Name: mess
   m_EditorClassIdentifier: 
-  id: 19
+  id: 18
   presentedWord: mess

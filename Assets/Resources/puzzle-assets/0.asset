@@ -34,7 +34,7 @@ MonoBehaviour:
   - "I\u2019m not babysitting another dead weight."
   - "And I especially don\u2019t want another brat running around the park."
   - Those two troublemakers are already more than enough.
-  - So what did you want to tell me?
+  - So, what did you want to tell me?
   dialogResponseFalse: I'm sorry youngster. I have no idea what you are talking about.
   dialogTimeRunOut: If you wanna talk at least find something to talk about!
   dialogPuzzlePrompt: "What do you want now? Don\u2019t you see I\u2019m working?"

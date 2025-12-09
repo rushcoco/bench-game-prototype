@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db05f9a781e2e2b96807a57f2087eead, type: 3}
+  m_Name: 9
+  m_EditorClassIdentifier: 
+  id: 9
+  correctSentenceData: {fileID: 11400000, guid: edef94cd34e18a046b8f25a592a9995e, type: 2}
+  dialogChitChat:
+  - Darn... how am I supposed to use the broom?
+  timeLimitInSeconds: 60
+  dialogPuzzleSolved:
+  - Sweep?
+  - With the broom?
+  - "Oh! That\u2019s right!"
+  - What a great idea you had!
+  - "Good! It\u2019s finally time to get this shop back open!"
+  - Thank you so much for your help.
+  - "Come back here as soon as I\u2019m done."
+  - Your delicious coffee will be waiting for you!
+  dialogResponseFalse: Sorry, could you repeat that?
+  dialogTimeRunOut: Hello? Is everything alright?
+  dialogPuzzlePrompt: Darn... how am I supposed to use the broom?
+  isPuzzleSolved: 0

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
+    [SerializeField] private int amountOfLettersToBeAddedWhenNormal;
     [SerializeField] private int amountOfLettersToBeAddedWhenSpeedUp;
     [SerializeField] private float timePassPerLetterInDialogue;
     [SerializeField] private float offsetVerticalPlayerUIHighlight;
@@ -23,13 +24,13 @@ public class UIController : MonoBehaviour
     private Coroutine coroutineNotificationPopUpMessage;
     private Coroutine coroutinePromptTextForTMP;
     private Coroutine coroutineTextForTMP;
+    private bool isUsingSpeedUpForTMP;
     private Camera mainCamera;
     private Vector2 referenceScalerUI;
     private RectTransform highlightInspectRect => highlightInspect.transform as RectTransform;
     private RectTransform highlightInteractRect => highlightInteract.transform as RectTransform;
     private RectTransform highlightListenRect => highlightListen.transform as RectTransform;
     private RectTransform uiHighlightRect => uiHighlighter.transform as RectTransform;
-    private bool isUsingSpeedUpForTMP;
 
     public static UIController instance { get; private set; }
 
@@ -131,7 +132,7 @@ public class UIController : MonoBehaviour
     {
         instance.isUsingSpeedUpForTMP = true;
         Debug.Log("Is Speeding Up");
-        
+
         Debug.Log("notif coroutine " + !instance.coroutineNotificationPopUpMessage.IsUnityNull());
         Debug.Log("dialog coroutine " + !instance.coroutineTextForTMP.IsUnityNull());
 
@@ -160,18 +161,13 @@ public class UIController : MonoBehaviour
         while (currChar < amountChar)
         {
             dtCurrently += Time.deltaTime;
-            
+
             if (dtCurrently >= timePassPerLetterInDialogue)
             {
-                if (isUsingSpeedUpForTMP)
-                {
-                    for (int i = 0; i < amountOfLettersToBeAddedWhenSpeedUp && amountChar - currChar > 0; i++)
-                    {
-                        tmpGUI.text += followingText[currChar];
-                        currChar++;
-                    }
-                }
-                else
+                int amountOfLettersToBeAdded = isUsingSpeedUpForTMP
+                    ? amountOfLettersToBeAddedWhenSpeedUp
+                    : amountOfLettersToBeAddedWhenNormal;
+                for (int i = 0; i < amountOfLettersToBeAdded && amountChar > currChar; i++)
                 {
                     tmpGUI.text += followingText[currChar];
                     currChar++;
@@ -185,16 +181,17 @@ public class UIController : MonoBehaviour
 
         if (!coroutineTextForTMP.IsUnityNull())
             coroutineTextForTMP = null;
-            
+
         if (!coroutineNotificationPopUpMessage.IsUnityNull())
             coroutineNotificationPopUpMessage = null;
-            
+
         if (!coroutinePromptTextForTMP.IsUnityNull())
             coroutinePromptTextForTMP = null;
     }
 
     private IEnumerator ShowUIHighlighter(RectTransform highlightElement)
     {
+        // retroPostProcessing.GetVector("Rair");
         Vector2 uiPositionBefore =
             mainCamera.WorldToViewportPoint(ActorManager.GetCameraTargetPosition()) * referenceScalerUI;
         while (true)

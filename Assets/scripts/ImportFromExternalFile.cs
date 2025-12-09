@@ -42,7 +42,7 @@ public static class ImportFromExternalFile
 
         for (int i = 1; i < lines.Length; i++)
         {
-            string[] values = lines[i].Split(',');
+            string[] values = TrimRawValues(lines[i]);
 
             // first three are set and then afterwords are unspecified amount of numbers (linked to wordsId)
             SentenceData sentenceData = ScriptableObject.CreateInstance<SentenceData>();
@@ -100,7 +100,7 @@ public static class ImportFromExternalFile
 
         for (int i = 1; i < lines.Length; i++)
         {
-            string[] values = lines[i].Split(',');
+            string[] values = TrimRawValues(lines[i]);
 
             switch (int.Parse(values[2]))
             {
@@ -161,21 +161,23 @@ public static class ImportFromExternalFile
 
         wordData.infinitive = values[3];
         wordData.imperative = values[4];
-        wordData.present[0] = values[5].Trim('"');
-        wordData.present[1] = values[6];
-        wordData.present[2] = values[7];
-        wordData.present[3] = values[8];
-        wordData.present[4] = values[9];
-        wordData.present[5] = values[10].Trim('"');
-        wordData.preterite[0] = values[11].Trim('"');
-        wordData.preterite[1] = values[12];
-        wordData.preterite[2] = values[13];
-        wordData.preterite[3] = values[14];
-        wordData.preterite[4] = values[15];
-        wordData.preterite[5] = values[16].Trim('"');
+        string[] presents = values[5].Split(',');
+        string[] preterites = values[6].Split(',');
+        wordData.present[0] = presents[0];
+        wordData.present[1] = presents[1];
+        wordData.present[2] = presents[2];
+        wordData.present[3] = presents[3];
+        wordData.present[4] = presents[4];
+        wordData.present[5] = presents[5];
+        wordData.preterite[0] = preterites[0];
+        wordData.preterite[1] = preterites[1];
+        wordData.preterite[2] = preterites[2];
+        wordData.preterite[3] = preterites[3];
+        wordData.preterite[4] = preterites[4];
+        wordData.preterite[5] = preterites[5];
 
-        wordData.presentParticiple = values[17];
-        wordData.pastParticiple = values[18];
+        wordData.presentParticiple = values[7];
+        wordData.pastParticiple = values[8];
 
         string assetPath = $"{pathFolder}/{wordData.presentedWord}.asset";
         AssetDatabase.CreateAsset(wordData, assetPath);
@@ -188,10 +190,10 @@ public static class ImportFromExternalFile
         wordData.id = int.Parse(values[0]);
         wordData.presentedWord = values[1];
 
-        wordData.formBase = values[9];
-        wordData.formMore = values[10];
-        wordData.formMost = values[11];
-        wordData.hasOnlyBaseForm = bool.Parse(values[12]);
+        wordData.formBase = values[3];
+        wordData.formMore = values[4];
+        wordData.formMost = values[5];
+        wordData.hasOnlyBaseForm = bool.Parse(values[6]);
 
         string assetPath = $"{pathFolder}/{wordData.presentedWord}.asset";
         AssetDatabase.CreateAsset(wordData, assetPath);
@@ -204,7 +206,7 @@ public static class ImportFromExternalFile
         wordData.id = int.Parse(values[0]);
         wordData.presentedWord = values[1];
 
-        wordData.pronoun = Enum.Parse<Pronoun>(values[13]);
+        wordData.pronoun = Enum.Parse<Pronoun>(values[3]);
 
         string assetPath = $"{pathFolder}/{wordData.presentedWord}.asset";
         AssetDatabase.CreateAsset(wordData, assetPath);
@@ -239,7 +241,7 @@ public static class ImportFromExternalFile
 
         for (int i = 1; i < lines.Length; i++)
         {
-            string[] values = lines[i].Split(',');
+            string[] values = TrimRawValues(lines[i]);
 
             PuzzleData puzzleData = ScriptableObject.CreateInstance<PuzzleData>();
             puzzleData.id = int.Parse(values[0]);
@@ -251,19 +253,12 @@ public static class ImportFromExternalFile
             if (int.TryParse(values[3], out int solvedDialoguesKey))
                 puzzleData.dialogPuzzleSolved = solvedPuzzleDialogues[solvedDialoguesKey];
 
-            if (values[4].Contains('"'))
-                values[4] = values[4].Trim('"');
             puzzleData.dialogResponseFalse = values[4];
-            if (values[5].Contains('"'))
-                values[5] = values[5].Trim('"');
             puzzleData.dialogTimeRunOut = values[5];
-            if (values[6].Contains('"'))
-                values[6] = values[6].Trim('"');
             puzzleData.dialogPuzzlePrompt = values[6];
 
             if (int.TryParse(values[7], out int result))
                 puzzleData.timeLimitInSeconds = result;
-
 
             string assetPath = $"{pathFolder}/{puzzleData.id}.asset";
             AssetDatabase.CreateAsset(puzzleData, assetPath);
@@ -294,6 +289,7 @@ public static class ImportFromExternalFile
     private static void ImportStandardFileToDictionary(string title, string directory, string extension,
         Dictionary<int, List<string>> dictionary)
     {
+        // TODO: Look For " symbols and make exceptions for seperating comma values
         string pathFile = EditorUtility.OpenFilePanel(title, directory, extension);
         if (string.IsNullOrEmpty(pathFile)) return;
 
@@ -301,15 +297,15 @@ public static class ImportFromExternalFile
 
         for (int i = 1; i < lines.Length; i++)
         {
-            string[] values = lines[i].Split(',');
+            string[] values = TrimRawValues(lines[i]);
             dictionary.Add(int.Parse(values[0]), new List<string>());
 
             for (int j = 1; j < values.Length; j++)
             {
                 if (string.IsNullOrEmpty(values[j])) break;
 
-                if (values[j].Contains('"'))
-                    values[j] = values[j].Trim('"');
+                // if (values[j].Contains('"'))
+                // values[j] = values[j].Trim('"');
 
                 dictionary[int.Parse(values[0])].Add(values[j]);
             }
@@ -318,6 +314,58 @@ public static class ImportFromExternalFile
 
     private static void ClearFolder(string path, Type type)
     {
+    }
+
+    private static string[] TrimRawValues(string line)
+    {
+        string[] rawValues = line.Split(',');
+        string tempVal = "";
+
+        List<string> editedValues = new();
+
+        // for (int i = 0; i < rawValues.Length; i++)
+        // {
+        //     if (!rawValues[i].Contains('"'))
+        //     {
+        //         editedValues.Add(rawValues[i]);
+        //         continue;
+        //     }
+        //
+        //     while (!rawValues[i].EndsWith('"'))
+        //     {
+        //         tempVal += rawValues[i];
+        //         i++;
+        //     }
+        //
+        //     tempVal += rawValues[i];
+        //     editedValues.Add(tempVal.Trim('"'));
+        //     tempVal = "";
+        // }
+
+        bool isInAString = false;
+
+        foreach (char c in line)
+            switch (c)
+            {
+                case ',' when !isInAString:
+                {
+                    if (tempVal.Length > 0)
+                        editedValues.Add(tempVal);
+                    tempVal = "";
+                    break;
+                }
+                case '"':
+                    isInAString = !isInAString;
+                    break;
+                default:
+                    tempVal += c;
+                    break;
+            }
+
+        if (tempVal.Length > 0)
+            editedValues.Add(tempVal);
+
+        return editedValues.ToArray();
     }
 #endif
 }

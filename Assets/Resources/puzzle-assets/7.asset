@@ -13,11 +13,20 @@ MonoBehaviour:
   m_Name: 7
   m_EditorClassIdentifier: 
   id: 7
-  correctSentenceData: {fileID: 0}
-  dialogChitChat: []
-  timeLimitInSeconds: 0
-  dialogPuzzleSolved: []
-  dialogResponseFalse: 
-  dialogTimeRunOut: 
-  dialogPuzzlePrompt: 
+  correctSentenceData: {fileID: 11400000, guid: f1a88cdedb4af324ea0ca1db5da78b60, type: 2}
+  dialogChitChat:
+  - I want him to really, REALLY, apologize!
+  timeLimitInSeconds: 60
+  dialogPuzzleSolved:
+  - Good. Very good!
+  - "Now\u2026"
+  - Tell the flower head that he can use my broom.
+  - I am not cleaning that mess. He will have to do it on his own.
+  - "He better not do\u2026"
+  - "\u2026"
+  - "Whatever he did\u2026"
+  - Now go, let me work!
+  dialogResponseFalse: I don't think that's enough. More apologies!
+  dialogTimeRunOut: Come on youngster! You lost your words?
+  dialogPuzzlePrompt: I want him to really, REALLY, apologize!
   isPuzzleSolved: 0

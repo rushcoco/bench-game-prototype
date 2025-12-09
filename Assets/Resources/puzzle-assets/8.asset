@@ -13,11 +13,20 @@ MonoBehaviour:
   m_Name: 8
   m_EditorClassIdentifier: 
   id: 8
-  correctSentenceData: {fileID: 0}
-  dialogChitChat: []
-  timeLimitInSeconds: 0
-  dialogPuzzleSolved: []
-  dialogResponseFalse: 
-  dialogTimeRunOut: 
-  dialogPuzzlePrompt: 
+  correctSentenceData: {fileID: 11400000, guid: db14e70e43aaee945bbac6422c2bcea5, type: 2}
+  dialogChitChat:
+  - Have you talked to the Gardener yet?
+  - "I hope he wasn\u2019t too harsh with you!"
+  timeLimitInSeconds: 60
+  dialogPuzzleSolved:
+  - "Mh\u2026"
+  - A broom?
+  - I think I know what a broom is.
+  - "I\u2019m not really sure how I\u2019m supposed to use it though\u2026"
+  - Should I smash it against the table to get it back up?
+  - "Darn\u2026"
+  - "The Gardener is going to be mad at me again if I don\u2019t find the right method\u2026"
+  dialogResponseFalse: Sorry, could you repeat that?
+  dialogTimeRunOut: Hello? Is everything alright?
+  dialogPuzzlePrompt: Did the Gardener decide to help me?
   isPuzzleSolved: 0

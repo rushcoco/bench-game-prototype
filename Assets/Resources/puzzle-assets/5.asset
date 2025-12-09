@@ -13,11 +13,45 @@ MonoBehaviour:
   m_Name: 5
   m_EditorClassIdentifier: 
   id: 5
-  correctSentenceData: {fileID: 0}
-  dialogChitChat: []
-  timeLimitInSeconds: 120
-  dialogPuzzleSolved: []
-  dialogResponseFalse: 
-  dialogTimeRunOut: 
-  dialogPuzzlePrompt: 
+  correctSentenceData: {fileID: 11400000, guid: 61fd3ff10ed072f4e95444e686494f71, type: 2}
+  dialogChitChat:
+  - Greetings dear friend!
+  - I welcome you to the only coffee shop in this park!
+  - "Well\u2026 what remains of it."
+  - "I would love to offer you a good cup of coffee, but I can\u2019t possibly reopen
+    the shop in this state."
+  - As you can see, the storm that hit us in the last few days caused big damages.
+  - "I\u2019m trying my best to clean up the area, but doing it with bare hands is
+    not ideal."
+  - There must be some kind of tool for situations like these.
+  - But the only tools I know are the coffee grinder and the moka pot.
+  - "I would ask for help to the Gardener but\u2026"
+  - "Let\u2019s just say that we are not exactly on good terms."
+  - "Well, since you are here\u2026"
+  - Would it be too much to ask you to tell the Gardener that you want to clean this
+    mess?
+  - I know it's not your concearn...
+  - But if I were to ask him myself, he would probably refuse.
+  - "When it\u2019s done, I promise you will have the best coffee of your life!"
+  - On the house, of course.
+  - Thank you so much!
+  timeLimitInSeconds: 60
+  dialogPuzzleSolved:
+  - What? After all this time?
+  - "Listen, I didn\u2019t want to break his shovel!"
+  - "For some reason I thought that using the shovel to smash the coffee beans was
+    a good idea\u2026"
+  - "It broke after a couple of strikes\u2026"
+  - My coffee grinder was broken!
+  - What else could I have done?
+  - "\u2026"
+  - "Anyway\u2026"
+  - I should probably apologize.
+  - "\u2026"
+  - Could you do it for me?
+  - "I\u2019m really busy right now."
+  - Someone must turn this big table back up.
+  dialogResponseFalse: Sorry, could you repeat that?
+  dialogTimeRunOut: Hello? Is everything alright?
+  dialogPuzzlePrompt: Have you talked to the Gardener yet?
   isPuzzleSolved: 0

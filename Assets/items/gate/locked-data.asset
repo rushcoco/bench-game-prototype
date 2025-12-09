@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46977991f09f266428789e17161c0dc9, type: 3}
   m_Name: locked-data
   m_EditorClassIdentifier: 
-  learnThisWord: {fileID: 11400000, guid: 29204ea2f3496084da798356711e881a, type: 2}
+  learnThisWord: {fileID: 11400000, guid: cc71945099e8e584aa3c554dbedeaf10, type: 2}

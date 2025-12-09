@@ -12,7 +12,7 @@ public class StatePopUpNotificationAction : MonoBehaviour, IControlTypeState
     {
         popUpCanvas.gameObject.SetActive(true);
         SetMessageStringToUIElement();
-        
+
         speedUpText.action.Enable();
 
         speedUpText.action.started += OnInputActionStartedSpeedUpText;
@@ -27,8 +27,10 @@ public class StatePopUpNotificationAction : MonoBehaviour, IControlTypeState
 
         speedUpText.action.started -= OnInputActionStartedSpeedUpText;
         speedUpText.action.canceled -= OnInputActionCanceledSpeedUpText;
-        
+
         speedUpText.action.Disable();
+
+        UIController.SlowDownDialog();
 
         popUpCanvas.gameObject.SetActive(false);
     }
@@ -61,7 +63,7 @@ public class StatePopUpNotificationAction : MonoBehaviour, IControlTypeState
         // Add Notification Message to a list or stack or smth
         notificationMessage.Enqueue(message);
     }
-    
+
     private void OnInputActionStartedSpeedUpText(InputAction.CallbackContext context)
     {
         UIController.SpeedUpDialog();

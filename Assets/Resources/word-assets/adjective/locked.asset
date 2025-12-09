@@ -15,6 +15,6 @@ MonoBehaviour:
   id: 9
   presentedWord: locked
   formBase: locked
-  formMore: more locked
-  formMost: most locked
-  hasOnlyBaseForm: 0
+  formMore: locked
+  formMost: locked
+  hasOnlyBaseForm: 1

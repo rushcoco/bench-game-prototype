@@ -714,6 +714,45 @@
             ]
         },
         {
+            "name": "Pop-Up",
+            "id": "552bb9c3-5795-4678-a9f5-b51631736943",
+            "actions": [
+                {
+                    "name": "Speed Up Text",
+                    "type": "Button",
+                    "id": "e86485a9-53df-4618-a861-b1c4f9aab484",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "3f1637ac-3dcf-4273-9b6b-c5ad0b504846",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Speed Up Text",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b35c1c24-a871-4b08-97ea-5b4bcf5910c2",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Speed Up Text",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
             "name": "UI",
             "id": "272f6d14-89ba-496f-b7ff-215263d3219f",
             "actions": [

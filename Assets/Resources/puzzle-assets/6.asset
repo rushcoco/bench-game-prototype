@@ -13,11 +13,22 @@ MonoBehaviour:
   m_Name: 6
   m_EditorClassIdentifier: 
   id: 6
-  correctSentenceData: {fileID: 0}
-  dialogChitChat: []
-  timeLimitInSeconds: 30
-  dialogPuzzleSolved: []
-  dialogResponseFalse: 
-  dialogTimeRunOut: 
-  dialogPuzzlePrompt: 
+  correctSentenceData: {fileID: 11400000, guid: 4b8d79f10faec2948aee009d0657c4d1, type: 2}
+  dialogChitChat:
+  - Cleaning the coffee shop....
+  - Unbelievable!
+  - He better apologize right now!
+  timeLimitInSeconds: 60
+  dialogPuzzleSolved:
+  - Ah! There you go!
+  - Finally!
+  - "\u2026"
+  - "Mh\u2026"
+  - Hmmmm...
+  - Hmmmmmmmmmmmm...
+  - "I don\u2019t think it\u2019s enough."
+  - I want him to really, REALLY, apologize!
+  dialogResponseFalse: Speak louder youngster! I can't hear you!
+  dialogTimeRunOut: Come on youngster! You lost your words?
+  dialogPuzzlePrompt: So, does the flower head have something to tell me?
   isPuzzleSolved: 0

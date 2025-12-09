@@ -16,4 +16,4 @@ MonoBehaviour:
   craftWords:
   - {fileID: 11400000, guid: b3481f51debeeda42abaf90a6e3006a8, type: 2}
   - {fileID: 11400000, guid: 9d4b25204ffd1424fbf2fbde56d57e3e, type: 2}
-  craftedWord: {fileID: 11400000, guid: 718a5fb9fa96a264e8cf577d77069eab, type: 2}
+  craftedWord: {fileID: 11400000, guid: 27531e95f437e0b4e928d9f51ef62c7e, type: 2}

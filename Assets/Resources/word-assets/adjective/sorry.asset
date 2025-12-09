@@ -9,8 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22744b8af2e2038c0957d1672bc94194, type: 3}
-  m_Name: shop
+  m_Script: {fileID: 11500000, guid: 1c5a1f07ced371c938d16a7d783912d4, type: 3}
+  m_Name: sorry
   m_EditorClassIdentifier: 
-  id: 18
-  presentedWord: shop
+  id: 21
+  presentedWord: sorry
+  formBase: sorry
+  formMore: sorry
+  formMost: sorry
+  hasOnlyBaseForm: 1

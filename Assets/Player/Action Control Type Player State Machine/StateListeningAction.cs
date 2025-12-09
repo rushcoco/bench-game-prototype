@@ -3,8 +3,9 @@ using UnityEngine.InputSystem;
 
 public class StateListeningAction : MonoBehaviour, IControlTypeState
 {
-    [SerializeField] private InputActionReference inputToNextOrSpeedUp;
-    [SerializeField] private InputActionReference inputImmediateChitChatCompletion;
+    [SerializeField] private InputActionReference inputToNextChitChat;
+    [SerializeField] private InputActionReference inputToSpeedUpDialog;
+
     [SerializeField] private RectTransform canvasDialogBox;
 
     private IConversable currentConversable;
@@ -14,24 +15,26 @@ public class StateListeningAction : MonoBehaviour, IControlTypeState
     {
         canvasDialogBox.gameObject.SetActive(true);
 
-        inputImmediateChitChatCompletion.action.Enable();
-        inputToNextOrSpeedUp.action.Enable();
+        inputToNextChitChat.action.Enable();
+        inputToSpeedUpDialog.action.Enable();
 
-        inputImmediateChitChatCompletion.action.performed += OnInputActionPerformedToNextChitChat;
-        inputToNextOrSpeedUp.action.started += OnInputActionStartedSpeedUpText;
-        inputToNextOrSpeedUp.action.canceled += OnInputActionCanceledSpeedUpText;
+        inputToNextChitChat.action.performed += OnInputActionPerformedToNextChitChat;
+        inputToSpeedUpDialog.action.started += OnInputActionStartedSpeedUpText;
+        inputToSpeedUpDialog.action.canceled += OnInputActionCanceledSpeedUpText;
 
         ActorManager.OnEnterMoveCameraToCaptureActorWithConversable(currentConversable);
     }
 
     private void OnDisable()
     {
-        inputImmediateChitChatCompletion.action.performed -= OnInputActionPerformedToNextChitChat;
-        inputToNextOrSpeedUp.action.started -= OnInputActionStartedSpeedUpText;
-        inputToNextOrSpeedUp.action.canceled -= OnInputActionCanceledSpeedUpText;
+        inputToNextChitChat.action.performed -= OnInputActionPerformedToNextChitChat;
+        inputToSpeedUpDialog.action.started -= OnInputActionStartedSpeedUpText;
+        inputToSpeedUpDialog.action.canceled -= OnInputActionCanceledSpeedUpText;
 
-        inputImmediateChitChatCompletion.action.Disable();
-        inputToNextOrSpeedUp.action.Disable();
+        inputToNextChitChat.action.Disable();
+        inputToSpeedUpDialog.action.Disable();
+
+        UIController.SlowDownDialog();
 
         canvasDialogBox.gameObject.SetActive(false);
 
@@ -55,16 +58,14 @@ public class StateListeningAction : MonoBehaviour, IControlTypeState
 
     private void OnInputActionPerformedToNextChitChat(InputAction.CallbackContext context)
     {
-        // Complete the current Sentence
+        if (currentConversable.NextChitChat()) return;
+        ActorControlTypeStateMachine.PopStateToPrevious();
     }
 
     private void OnInputActionStartedSpeedUpText(InputAction.CallbackContext context)
     {
         Debug.Log(UIController.SpeedUpDialog());
         if (UIController.SpeedUpDialog()) return;
-        
-        if (currentConversable.NextChitChat()) return;
-        ActorControlTypeStateMachine.PopStateToPrevious();
     }
 
     private void OnInputActionCanceledSpeedUpText(InputAction.CallbackContext context)

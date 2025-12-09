@@ -18,9 +18,31 @@ MonoBehaviour:
   - "Hey! Don\u2019t step there!"
   - "I\u2019m cleaning, don\u2019t you see?"
   timeLimitInSeconds: 60
-  dialogPuzzleSolved: []
-  dialogResponseFalse: Speak up youngster! Don't you see how old I am?
-  dialogTimeRunOut: Nobody told you that you need to put a word aftern another to
-    talk?
+  dialogPuzzleSolved:
+  - "Ah! Don\u2019t even mention it!"
+  - "I don\u2019t want to know anything about that flower head and his steaming contraptions!"
+  - Let alone help with the cleaning!
+  - I am still too mad at him for what he has done.
+  - Certain misdeeds must not be tolerated!
+  - "It\u2019s part of my work ethics."
+  - You know what is even worse?
+  - He never apologized for it!
+  - You heard it! He never apologized for it!
+  - "\u2026"
+  - "Yeah\u2026"
+  - "\u2026"
+  - "\u2026\u2026"
+  - "Well, I might have forgotten what he did\u2026"
+  - "\u2026\u2026\u2026"
+  - "But it doesn\u2019t matter!"
+  - I can still feel my anger!
+  - Go and tell him!
+  - "Tell him that ME, the honest and hardworking Gardener of this park\u2026"
+  - '*cough* *cough*'
+  - "Will not\u2026"
+  - '*cough* *cough* *cough*'
+  - "\u2026 tolerate any insolence in my regards!"
+  dialogResponseFalse: Speak louder youngster! I can't hear you!
+  dialogTimeRunOut: Come on youngster! You lost your words?
   dialogPuzzlePrompt: You again? What is it now?
   isPuzzleSolved: 0

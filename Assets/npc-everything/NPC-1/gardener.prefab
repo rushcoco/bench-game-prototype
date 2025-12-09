@@ -72,6 +72,22 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 2394942301833066255, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
+      propertyPath: 'puzzles.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 818ad23538abf844e98b7bbd8d1d99fa, type: 2}
+    - target: {fileID: 2394942301833066255, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
+      propertyPath: 'puzzles.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: ad0daa4c23ab2324eaaa38c494ef20e9, type: 2}
+    - target: {fileID: 2394942301833066255, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
+      propertyPath: 'puzzles.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 240284ce75da0a94985b1d42af7256b9, type: 2}
+    - target: {fileID: 2394942301833066255, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
+      propertyPath: 'puzzles.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 48a18c9f5424b994ca7467d13029cb18, type: 2}
     - target: {fileID: 2583755491961741243, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
@@ -139,6 +155,50 @@ PrefabInstance:
     - target: {fileID: 5480288598567448593, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5655072681820791954, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 11400000, guid: 818ad23538abf844e98b7bbd8d1d99fa, type: 2}
+    - target: {fileID: 5655072681820791954, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
+      propertyPath: learnThisWord.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5655072681820791954, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
+      propertyPath: 'learnThisWord.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 469f5ebad279eb14ca2ec1aa0fc43452, type: 2}
+    - target: {fileID: 5655072681820791954, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
+      propertyPath: 'learnThisWord.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 84425fec3c9a33043a0bb76d77864f82, type: 2}
+    - target: {fileID: 5655072681820791954, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
+      propertyPath: 'learnThisWord.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 5e70cad20b212c5ffadaa02e5c936f7f, type: 2}
+    - target: {fileID: 5655072681820791954, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
+      propertyPath: 'learnThisWord.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7df2abf8281d8a748b7a7a5c36d71b77, type: 2}
+    - target: {fileID: 5655072681820791954, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
+      propertyPath: 'learnThisWord.Array.data[4]'
+      value: 
+      objectReference: {fileID: 11400000, guid: c3c264bc9821ed94eababc4a7000ec77, type: 2}
+    - target: {fileID: 5655072681820791954, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
+      propertyPath: 'learnThisWord.Array.data[5]'
+      value: 
+      objectReference: {fileID: 11400000, guid: c30db8906e5110f4cacf9342fe530df6, type: 2}
+    - target: {fileID: 5655072681820791954, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
+      propertyPath: 'learnThisWord.Array.data[6]'
+      value: 
+      objectReference: {fileID: 11400000, guid: ebd7a2fde22681a40aeec883e7888b8f, type: 2}
+    - target: {fileID: 5655072681820791954, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
+      propertyPath: 'learnThisWord.Array.data[7]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 32254c790965e1d428503fbc83849727, type: 2}
+    - target: {fileID: 5655072681820791954, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
+      propertyPath: 'learnThisWord.Array.data[8]'
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5891788896965849283, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
       propertyPath: m_Layer
