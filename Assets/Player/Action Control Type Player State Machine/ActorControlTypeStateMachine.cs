@@ -10,6 +10,7 @@ public class ActorControlTypeStateMachine : MonoBehaviour
     [SerializeField] private StateTalkingAction talkingAction;
     [SerializeField] private StateCraftingWordsAction craftingWordsAction;
     [SerializeField] private StatePopUpNotificationAction popUpNotificationAction;
+
     public bool actorCurserVisible;
     public CursorLockMode actorCursorLock;
     private readonly Stack<IControlTypeState> stateStack = new();
@@ -101,6 +102,11 @@ public class ActorControlTypeStateMachine : MonoBehaviour
     {
         instance.talkingAction.SetIConversable(currentConversable);
         instance.PushState(instance.talkingAction);
+    }
+
+    public static void PushStateToNoActorControl(IControlTypeState controlTypeState)
+    {
+        instance.PushState(controlTypeState);
     }
 
     public static void ChangeStateToListening(IConversable currentConversable)

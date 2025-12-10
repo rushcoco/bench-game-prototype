@@ -155,15 +155,9 @@ public class StateTalkingAction : MonoBehaviour, IControlTypeState
         switch (inputClickQueued)
         {
             case true when secondsMouseClickBeingHeld >= secondsUntilClickInputIsRegisteredAsHolding:
-                // The player is holding the mouse ->
-                // Check if a word is being held ->
-                // Check if the word is in a new position
-                // Get that word in between the other words in the new position.
                 ActorPerformedLongClick();
                 break;
             case true when secondsMouseClickBeingHeld < secondsUntilClickInputIsRegisteredAsHolding:
-                // Player simply clicked on smth
-                // Do the click input
                 ActorPerformedShortClick();
                 break;
         }
@@ -298,7 +292,7 @@ public class StateTalkingAction : MonoBehaviour, IControlTypeState
         if (currentConversable.TryResponse(currentSentence.ConvertAll(x => x.wordData)))
         {
             currentConversable.StartResponseIsCorrectChitChat();
-            ActorControlTypeStateMachine.ChangeStateToListening(currentConversable);
+            ActorControlTypeStateMachine.PushStateToListening(currentConversable);
         }
         else
         {

@@ -107,6 +107,7 @@ MonoBehaviour:
   onOpenDoorAxisRotatedAround: {x: 0, y: 0, z: 0}
   angleOfDoorOpened: 100
   secondsOfDoorOpening: 2
+  secondsOfSeeingOpenedDoor: 3
 --- !u!64 &1154274379932438810
 MeshCollider:
   m_ObjectHideFlags: 0

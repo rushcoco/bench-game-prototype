@@ -122,6 +122,17 @@ public class ActorManager : MonoBehaviour
 
     public static void OnExitMoveCameraToCaptureActorWithConversable(IConversable conversable)
     {
+        ResetCameraToOriginalPosition();
+    }
+
+    public static void MoveCameraToAFocus(Transform target)
+    {
+        Vector3 distance = target.position - instance.actorPlayerTransform.position;
+        instance.cameraFollowTarget.SetTargetTransformPosition(distance);
+    }
+
+    public static void ResetCameraToOriginalPosition()
+    {
         instance.cameraFollowTarget.SetTargetTransformPosition(Vector3.zero);
     }
 

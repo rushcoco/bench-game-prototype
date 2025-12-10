@@ -104,6 +104,8 @@ public class NpcBehaviour : MonoBehaviour, IConversable
 
         Debug.Log(currentPuzzleData.GetSolutionSentence().finalSentence);
 
+        ActorControlTypeStateMachine.PopStateToPrevious();
+
         currentPuzzleData.SetIsSolved(true);
         UIController.InsertPromptTextForTMP("");
         Debug.Log("Words are correct");

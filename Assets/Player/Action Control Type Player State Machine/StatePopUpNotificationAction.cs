@@ -47,11 +47,13 @@ public class StatePopUpNotificationAction : MonoBehaviour, IControlTypeState
 
     private void SetMessageStringToUIElement()
     {
-        UIController.InsertNotificationMessagePopText(notificationMessage.Dequeue());
+        UIController.InsertNotificationMessagePopText(notificationMessage.Peek());
     }
 
     public void OnContinue()
     {
+        notificationMessage.Dequeue();
+
         if (notificationMessage.Count > 0)
             SetMessageStringToUIElement();
         else

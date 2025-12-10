@@ -34,6 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1914281314994008596}
+  - {fileID: 5714757212982328377}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1891716963387880080
@@ -100,6 +101,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 11400000, guid: 48a18c9f5424b994ca7467d13029cb18, type: 2}
+  secondsUntilGateIsGone: 6
+  waitForSecondsAtDestroyedGate: 3
+  waitForSecondsUntilCameraArrivesAtGate: 2
+  gateMeshRenderer: {fileID: 782439318281865595}
+  targetForCameraFocus: {fileID: 5714757212982328377}
+--- !u!1 &7005937331781926950
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5714757212982328377}
+  m_Layer: 8
+  m_Name: Target this
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5714757212982328377
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7005937331781926950}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.265, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4570042851074040561}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2097091706357798399
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -176,6 +213,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 8619416716275020639}
   m_SourcePrefab: {fileID: 100100000, guid: abfaddfcd1b20ab4c82628fed247dfd5, type: 3}
+--- !u!23 &782439318281865595 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: abfaddfcd1b20ab4c82628fed247dfd5, type: 3}
+  m_PrefabInstance: {fileID: 2097091706357798399}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1286679405603776686 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: abfaddfcd1b20ab4c82628fed247dfd5, type: 3}

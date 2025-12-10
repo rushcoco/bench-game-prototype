@@ -9,7 +9,6 @@ public class ItemBehaviour : MonoBehaviour, IInspectable
     public void Inspect()
     {
         messages = new List<string>();
-        // Player should learn this word
         foreach (ItemData data in itemData)
             if (ActorManager.TryAddWordToWordsCollected(data.learnThisWord))
                 messages.Add($"You have learned the word '{data.learnThisWord.presentedWord}'.");

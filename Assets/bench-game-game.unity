@@ -387,6 +387,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _NoiseActivated: 0
+    - _NoiseStrength: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -1018,6 +1020,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _NoiseActivated: 0
+    - _NoiseStrength: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -1117,6 +1121,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _NoiseActivated: 0
+    - _NoiseStrength: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -1163,6 +1169,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _NoiseActivated: 0
+    - _NoiseStrength: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -1209,6 +1217,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _NoiseActivated: 0
+    - _NoiseStrength: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -1475,6 +1485,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _NoiseActivated: 0
+    - _NoiseStrength: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -1545,7 +1557,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 782439318281865595, guid: e9d81d1173f496c448873e1145347b93, type: 3}
       propertyPath: m_Materials.Array.size
-      value: 17
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 782439318281865595, guid: e9d81d1173f496c448873e1145347b93, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -1558,55 +1570,55 @@ PrefabInstance:
     - target: {fileID: 782439318281865595, guid: e9d81d1173f496c448873e1145347b93, type: 3}
       propertyPath: 'm_Materials.Array.data[2]'
       value: 
-      objectReference: {fileID: 2077248255}
+      objectReference: {fileID: 1485470497}
     - target: {fileID: 782439318281865595, guid: e9d81d1173f496c448873e1145347b93, type: 3}
       propertyPath: 'm_Materials.Array.data[3]'
       value: 
-      objectReference: {fileID: 1485470497}
+      objectReference: {fileID: 1188887081}
     - target: {fileID: 782439318281865595, guid: e9d81d1173f496c448873e1145347b93, type: 3}
       propertyPath: 'm_Materials.Array.data[4]'
       value: 
-      objectReference: {fileID: 1485470497}
+      objectReference: {fileID: 1724096160}
     - target: {fileID: 782439318281865595, guid: e9d81d1173f496c448873e1145347b93, type: 3}
       propertyPath: 'm_Materials.Array.data[5]'
       value: 
-      objectReference: {fileID: 1188887081}
+      objectReference: {fileID: 786539276}
     - target: {fileID: 782439318281865595, guid: e9d81d1173f496c448873e1145347b93, type: 3}
       propertyPath: 'm_Materials.Array.data[6]'
       value: 
-      objectReference: {fileID: 1188887081}
+      objectReference: {fileID: 482365714}
     - target: {fileID: 782439318281865595, guid: e9d81d1173f496c448873e1145347b93, type: 3}
       propertyPath: 'm_Materials.Array.data[7]'
       value: 
-      objectReference: {fileID: 1724096160}
+      objectReference: {fileID: 453469958}
     - target: {fileID: 782439318281865595, guid: e9d81d1173f496c448873e1145347b93, type: 3}
       propertyPath: 'm_Materials.Array.data[8]'
       value: 
-      objectReference: {fileID: 1724096160}
+      objectReference: {fileID: 847205042}
     - target: {fileID: 782439318281865595, guid: e9d81d1173f496c448873e1145347b93, type: 3}
       propertyPath: 'm_Materials.Array.data[9]'
       value: 
-      objectReference: {fileID: 786539276}
+      objectReference: {fileID: 847205042}
     - target: {fileID: 782439318281865595, guid: e9d81d1173f496c448873e1145347b93, type: 3}
       propertyPath: 'm_Materials.Array.data[10]'
       value: 
-      objectReference: {fileID: 786539276}
+      objectReference: {fileID: 847205042}
     - target: {fileID: 782439318281865595, guid: e9d81d1173f496c448873e1145347b93, type: 3}
       propertyPath: 'm_Materials.Array.data[11]'
       value: 
-      objectReference: {fileID: 482365714}
+      objectReference: {fileID: 847205042}
     - target: {fileID: 782439318281865595, guid: e9d81d1173f496c448873e1145347b93, type: 3}
       propertyPath: 'm_Materials.Array.data[12]'
       value: 
-      objectReference: {fileID: 482365714}
+      objectReference: {fileID: 847205042}
     - target: {fileID: 782439318281865595, guid: e9d81d1173f496c448873e1145347b93, type: 3}
       propertyPath: 'm_Materials.Array.data[13]'
       value: 
-      objectReference: {fileID: 453469958}
+      objectReference: {fileID: 847205042}
     - target: {fileID: 782439318281865595, guid: e9d81d1173f496c448873e1145347b93, type: 3}
       propertyPath: 'm_Materials.Array.data[14]'
       value: 
-      objectReference: {fileID: 453469958}
+      objectReference: {fileID: 847205042}
     - target: {fileID: 782439318281865595, guid: e9d81d1173f496c448873e1145347b93, type: 3}
       propertyPath: 'm_Materials.Array.data[15]'
       value: 
@@ -1893,6 +1905,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _NoiseActivated: 0
+    - _NoiseStrength: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -2061,6 +2075,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _NoiseActivated: 0
+    - _NoiseStrength: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -2160,6 +2176,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _NoiseActivated: 0
+    - _NoiseStrength: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -2206,6 +2224,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _NoiseActivated: 0
+    - _NoiseStrength: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -2252,6 +2272,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 0.1
+    - _NoiseActivated: 0
+    - _NoiseStrength: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 2
@@ -2298,6 +2320,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _NoiseActivated: 0
+    - _NoiseStrength: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -2397,6 +2421,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _NoiseActivated: 0
+    - _NoiseStrength: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -2496,6 +2522,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _NoiseActivated: 0
+    - _NoiseStrength: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -2542,6 +2570,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _NoiseActivated: 0
+    - _NoiseStrength: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -2588,6 +2618,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _NoiseActivated: 0
+    - _NoiseStrength: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -2687,6 +2719,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _NoiseActivated: 0
+    - _NoiseStrength: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -2733,6 +2767,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _NoiseActivated: 0
+    - _NoiseStrength: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -3605,6 +3641,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _NoiseActivated: 0
+    - _NoiseStrength: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -3651,6 +3689,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _NoiseActivated: 0
+    - _NoiseStrength: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -3840,6 +3880,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _NoiseActivated: 0
+    - _NoiseStrength: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -3939,6 +3981,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _NoiseActivated: 0
+    - _NoiseStrength: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -3985,6 +4029,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _NoiseActivated: 0
+    - _NoiseStrength: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -4170,6 +4216,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _NoiseActivated: 0
+    - _NoiseStrength: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -4269,6 +4317,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _NoiseActivated: 0
+    - _NoiseStrength: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -4315,6 +4365,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _NoiseActivated: 0
+    - _NoiseStrength: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -4414,6 +4466,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _NoiseActivated: 0
+    - _NoiseStrength: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -4513,6 +4567,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _NoiseActivated: 0
+    - _NoiseStrength: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -4709,6 +4765,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _NoiseActivated: 0
+    - _NoiseStrength: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -4876,6 +4934,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _NoiseActivated: 0
+    - _NoiseStrength: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -4922,6 +4982,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _NoiseActivated: 0
+    - _NoiseStrength: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -5021,6 +5083,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _NoiseActivated: 0
+    - _NoiseStrength: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -5067,6 +5131,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _NoiseActivated: 0
+    - _NoiseStrength: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -5113,6 +5179,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _NoiseActivated: 0
+    - _NoiseStrength: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -5212,6 +5280,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _NoiseActivated: 0
+    - _NoiseStrength: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -5231,6 +5301,7 @@ GameObject:
   - component: {fileID: 2088453028}
   - component: {fileID: 2088453027}
   - component: {fileID: 2088453030}
+  - component: {fileID: 2088453031}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5356,6 +5427,103 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!82 &2088453031
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088453026}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 0f0dc478f2d550c45a11474ffc302f7f, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2099524137
 GameObject:
   m_ObjectHideFlags: 0
@@ -5554,6 +5722,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _NoiseActivated: 0
+    - _NoiseStrength: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 3
@@ -65413,6 +65583,75 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1001 &8791742791278934472
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 596089508750460494, guid: f788637361256b340a82c3993b314bcc, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 945119853}
+    - target: {fileID: 3391862180235437733, guid: f788637361256b340a82c3993b314bcc, type: 3}
+      propertyPath: m_Name
+      value: Shield Learn Annoy
+      objectReference: {fileID: 0}
+    - target: {fileID: 4086481948672529509, guid: f788637361256b340a82c3993b314bcc, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2056558919}
+    - target: {fileID: 5790651458825494028, guid: f788637361256b340a82c3993b314bcc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 5790651458825494028, guid: f788637361256b340a82c3993b314bcc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.363
+      objectReference: {fileID: 0}
+    - target: {fileID: 5790651458825494028, guid: f788637361256b340a82c3993b314bcc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -25.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 5790651458825494028, guid: f788637361256b340a82c3993b314bcc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.8003654
+      objectReference: {fileID: 0}
+    - target: {fileID: 5790651458825494028, guid: f788637361256b340a82c3993b314bcc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5790651458825494028, guid: f788637361256b340a82c3993b314bcc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.5995125
+      objectReference: {fileID: 0}
+    - target: {fileID: 5790651458825494028, guid: f788637361256b340a82c3993b314bcc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5790651458825494028, guid: f788637361256b340a82c3993b314bcc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5790651458825494028, guid: f788637361256b340a82c3993b314bcc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -73.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 5790651458825494028, guid: f788637361256b340a82c3993b314bcc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5880857324105546829, guid: f788637361256b340a82c3993b314bcc, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 606948994}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f788637361256b340a82c3993b314bcc, type: 3}
 --- !u!4 &8794237025552690036
 Transform:
   m_ObjectHideFlags: 0
@@ -68777,6 +69016,7 @@ SceneRoots:
   - {fileID: 1081720620}
   - {fileID: 544908812}
   - {fileID: 3834383838011277799}
+  - {fileID: 8791742791278934472}
   - {fileID: 288516146}
   - {fileID: 1734946151}
   - {fileID: 1036821491}
