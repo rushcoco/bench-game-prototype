@@ -138,4 +138,10 @@ public class NpcBehaviour : MonoBehaviour, IConversable
     {
         return puzzles;
     }
+
+    public void AddPuzzleDataToPuzzles(PuzzleData puzzleData)
+    {
+        if (!puzzles.Contains(puzzleData))
+            puzzles.Add(puzzleData);
+    }
 }

@@ -14,8 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 7
   words:
-  - {fileID: 11400000, guid: 5d82ebcb20ed78247a3cffec66da0f9d, type: 2}
-  - {fileID: 11400000, guid: 84425fec3c9a33043a0bb76d77864f82, type: 2}
   - {fileID: 11400000, guid: d38e95817f2416141b09d1e3f5cb89fd, type: 2}
   - {fileID: 11400000, guid: d38e95817f2416141b09d1e3f5cb89fd, type: 2}
   - {fileID: 11400000, guid: d38e95817f2416141b09d1e3f5cb89fd, type: 2}

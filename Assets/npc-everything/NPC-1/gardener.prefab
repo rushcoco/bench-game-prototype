@@ -73,6 +73,10 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2394942301833066255, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
+      propertyPath: puzzles.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394942301833066255, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
       propertyPath: 'puzzles.Array.data[0]'
       value: 
       objectReference: {fileID: 11400000, guid: 818ad23538abf844e98b7bbd8d1d99fa, type: 2}
@@ -88,6 +92,10 @@ PrefabInstance:
       propertyPath: 'puzzles.Array.data[3]'
       value: 
       objectReference: {fileID: 11400000, guid: 48a18c9f5424b994ca7467d13029cb18, type: 2}
+    - target: {fileID: 2394942301833066255, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
+      propertyPath: 'puzzles.Array.data[4]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 88af3b9f764577246bfedd5a2c1ffb72, type: 2}
     - target: {fileID: 2583755491961741243, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
@@ -292,5 +300,41 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 5391681805950166591, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9009980107026422012, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2495938584821735429}
   m_SourcePrefab: {fileID: 100100000, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
+--- !u!114 &2614940094963100265 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2394942301833066255, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
+  m_PrefabInstance: {fileID: 393688370894822758}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8682738146901099930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1163819a92fb07a43b703f12d64a1570, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &8682738146901099930 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9009980107026422012, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
+  m_PrefabInstance: {fileID: 393688370894822758}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2495938584821735429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8682738146901099930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c97ad90b7de09f439b56e963ba9e791, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 11400000, guid: 7562ad59f00a9254a9694ad5c7591329, type: 2}
+  unlockThisReward:
+  - {fileID: 11400000, guid: e62f1bc3649b5384286e741ebe6bea14, type: 2}
+  - {fileID: 11400000, guid: 5c0eddc7f5d22c54989c88c75458cc75, type: 2}
+  ownerOfUnlockedPuzzles: {fileID: 2614940094963100265}

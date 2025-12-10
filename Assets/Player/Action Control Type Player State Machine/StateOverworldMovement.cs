@@ -171,6 +171,8 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
             uiController.ShowUIElementListenOrTalk();
             currentConversable = conversable;
         }
+
+        if (other.TryGetComponent(out InsideHouseBehaviour insideHouseBehaviour)) insideHouseBehaviour.HideMesh();
     }
 
     private void OnTriggerExit(Collider other)
@@ -194,6 +196,8 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
             uiController.HideUIElementListenOrTalk();
             currentConversable = null;
         }
+
+        if (other.TryGetComponent(out InsideHouseBehaviour insideHouseBehaviour)) insideHouseBehaviour.ShowMesh();
     }
 
     public void ExitState()

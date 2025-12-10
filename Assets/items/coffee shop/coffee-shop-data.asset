@@ -9,11 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be593036b5288ff59a3b4df02c359729, type: 3}
-  m_Name: 2
+  m_Script: {fileID: 11500000, guid: 46977991f09f266428789e17161c0dc9, type: 3}
+  m_Name: coffee-shop-data
   m_EditorClassIdentifier: 
-  id: 2
-  words:
-  - {fileID: 11400000, guid: 9d4b25204ffd1424fbf2fbde56d57e3e, type: 2}
-  tense: 1
-  pronoun: 0
+  learnThisWord: {fileID: 11400000, guid: 4c3909c8430cc9a4982f18a0207ca2a7, type: 2}

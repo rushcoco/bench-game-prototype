@@ -253,7 +253,7 @@ PrefabInstance:
     - target: {fileID: 2394942301833066255, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
       propertyPath: 'puzzles.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: 88af3b9f764577246bfedd5a2c1ffb72, type: 2}
+      objectReference: {fileID: 11400000, guid: 7562ad59f00a9254a9694ad5c7591329, type: 2}
     - target: {fileID: 2394942301833066255, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
       propertyPath: 'puzzles.Array.data[1]'
       value: 
@@ -362,10 +362,46 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8601363689895532270, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4569226373208348231}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9009980107026422012, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6694180980592026385}
   m_SourcePrefab: {fileID: 100100000, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
 --- !u!4 &1455697469217092859 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8601363689895532270, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
   m_PrefabInstance: {fileID: 7164527264652337685}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2189983883260426985 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9009980107026422012, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
+  m_PrefabInstance: {fileID: 7164527264652337685}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6694180980592026385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2189983883260426985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c97ad90b7de09f439b56e963ba9e791, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 11400000, guid: 5c0eddc7f5d22c54989c88c75458cc75, type: 2}
+  unlockThisReward:
+  - {fileID: 11400000, guid: 646692bffd9df9249926768c6cc5ac63, type: 2}
+  - {fileID: 11400000, guid: 358b970297149f342ae5a96aba52317f, type: 2}
+  ownerOfUnlockedPuzzles: {fileID: 4778610313889371418}
+--- !u!114 &4778610313889371418 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2394942301833066255, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
+  m_PrefabInstance: {fileID: 7164527264652337685}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2189983883260426985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1163819a92fb07a43b703f12d64a1570, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
