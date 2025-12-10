@@ -1833,6 +1833,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2664081461473849100, guid: 29f665e879d05e147bdafb783b42b94d, type: 3}
+      propertyPath: craftables.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2664081461473849100, guid: 29f665e879d05e147bdafb783b42b94d, type: 3}
+      propertyPath: 'craftables.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: e5237702690280b4baef3205b19e7a8b, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

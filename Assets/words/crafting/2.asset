@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   craftWords:
-  - {fileID: 0}
-  - {fileID: 11400000, guid: 29204ea2f3496084da798356711e881a, type: 2}
-  craftedWord: {fileID: 11400000, guid: 27531e95f437e0b4e928d9f51ef62c7e, type: 2}
+  - {fileID: 11400000, guid: 9b8107ff5c275714a8d881a5660f25c1, type: 2}
+  - {fileID: 11400000, guid: 3f940363a7afc6447bbef7f009720e13, type: 2}
+  craftedWord: {fileID: 11400000, guid: f86ba8452b70ea146840fb648c7b3845, type: 2}
