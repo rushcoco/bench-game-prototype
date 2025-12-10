@@ -6,26 +6,42 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
-    [SerializeField] private int amountOfLettersToBeAddedWhenNormal;
+    [Header("Text Construction")] [SerializeField]
+    private int amountOfLettersToBeAddedWhenNormal;
+
     [SerializeField] private int amountOfLettersToBeAddedWhenSpeedUp;
     [SerializeField] private float timePassPerLetterInDialogue;
-    [SerializeField] private float offsetVerticalPlayerUIHighlight;
+
+    [Header("Diegetic UI Behaviour")] [SerializeField]
+    private float offsetVerticalPlayerUIHighlight;
+
     [SerializeField] private float offsetHorizontalPlayerUIHighlight;
     [SerializeField] private float lerpUIHighlightByThisValue;
-    [SerializeField] private Material retroPostProcessing;
-    [SerializeField] private GameObject highlightInspect;
+
+    [Header("Full Screen Retro Shader")] [SerializeField]
+    private Material retroPostProcessing;
+
+    [Header("Diegetic UI Game Objects")] [SerializeField]
+    private GameObject highlightInspect;
+
     [SerializeField] private GameObject highlightInteract;
     [SerializeField] private GameObject highlightListen;
     [SerializeField] private GameObject highlightTalk;
-    [SerializeField] private TextMeshProUGUI tmpChitChat;
+    [SerializeField] private GameObject uiHighlighter;
+
+    [Header("Text Mesh Pro UI Prefabs")] [SerializeField]
+    private TextMeshProUGUI tmpChitChat;
+
     [SerializeField] private TextMeshProUGUI tmpPrompt;
     [SerializeField] private TextMeshProUGUI tmpNotificationMessage;
-    [SerializeField] private GameObject uiHighlighter;
-    private Coroutine coroutineNotificationPopUpMessage;
-    private Coroutine coroutinePromptTextForTMP;
+
     private Coroutine coroutineTextForTMP;
+    private Coroutine coroutineUIHighlighter;
+
     private bool isUsingSpeedUpForTMP;
+
     private Camera mainCamera;
+    private Vector2 referenceScaler;
     private Vector2 referenceScalerUI;
     private RectTransform highlightInspectRect => highlightInspect.transform as RectTransform;
     private RectTransform highlightInteractRect => highlightInteract.transform as RectTransform;
@@ -47,59 +63,67 @@ public class UIController : MonoBehaviour
     private void OnEnable()
     {
         mainCamera = Camera.main;
+        referenceScaler = Vector2.zero;
         referenceScalerUI = uiHighlighter.GetComponent<CanvasScaler>().referenceResolution;
         coroutineTextForTMP = null;
-        coroutinePromptTextForTMP = null;
-        coroutineNotificationPopUpMessage = null;
+        coroutineUIHighlighter = null;
     }
 
     private void OnDisable()
     {
         mainCamera = null;
-        referenceScalerUI = Vector2.zero;
+        referenceScaler = Vector2.zero;
         coroutineTextForTMP = null;
-        coroutinePromptTextForTMP = null;
-        coroutineNotificationPopUpMessage = null;
+        coroutineUIHighlighter = null;
     }
 
     public void ShowUIElementInspect()
     {
-        highlightInspect.SetActive(true);
-        instance.StartCoroutine(ShowUIHighlighter(highlightInspectRect));
+        ShowUIElement(highlightInspect, highlightInspectRect);
     }
 
     public void ShowUIElementInteract()
     {
-        highlightInteract.SetActive(true);
-        instance.StartCoroutine(ShowUIHighlighter(highlightInteractRect));
+        ShowUIElement(highlightInteract, highlightInteractRect);
     }
 
     public void ShowUIElementListenOrTalk()
     {
-        highlightListen.SetActive(true);
-        instance.StartCoroutine(ShowUIHighlighter(highlightListenRect));
+        ShowUIElement(highlightListen, highlightListenRect);
     }
 
-    private void ShowUIElement()
+    private void ShowUIElement(GameObject highlight, RectTransform rectTransform)
     {
+        highlight.SetActive(true);
+        referenceScaler = mainCamera.pixelRect.size;
+
+        if (coroutineUIHighlighter != null)
+            StopCoroutine(coroutineUIHighlighter);
+
+        coroutineUIHighlighter = instance.StartCoroutine(ShowUIHighlighter(rectTransform));
     }
 
     public void HideUIElementInspect()
     {
-        instance.StopCoroutine(nameof(ShowUIHighlighter));
-        highlightInspect.SetActive(false);
+        HideUIElement(highlightInspect);
     }
 
     public void HideUIElementInteract()
     {
-        instance.StopCoroutine(nameof(ShowUIHighlighter));
-        highlightInteract.SetActive(false);
+        HideUIElement(highlightInteract);
     }
 
     public void HideUIElementListenOrTalk()
     {
-        instance.StopCoroutine(nameof(ShowUIHighlighter));
-        highlightListen.SetActive(false);
+        HideUIElement(highlightListen);
+    }
+
+    private void HideUIElement(GameObject highlight)
+    {
+        if (coroutineUIHighlighter != null)
+            StopCoroutine(coroutineUIHighlighter);
+
+        highlight.SetActive(false);
     }
 
     public static void InsertTextForTMP(string followingText)
@@ -112,19 +136,19 @@ public class UIController : MonoBehaviour
 
     public static void InsertPromptTextForTMP(string followingText)
     {
-        if (instance.coroutinePromptTextForTMP != null)
-            instance.StopCoroutine(instance.coroutinePromptTextForTMP);
+        if (instance.coroutineTextForTMP != null)
+            instance.StopCoroutine(instance.coroutineTextForTMP);
 
-        instance.coroutinePromptTextForTMP =
+        instance.coroutineTextForTMP =
             instance.StartCoroutine(instance.ShowText(followingText, instance.tmpPrompt));
     }
 
     public static void InsertNotificationMessagePopText(string followingText)
     {
-        if (instance.coroutineNotificationPopUpMessage != null)
-            instance.StopCoroutine(instance.coroutineNotificationPopUpMessage);
+        if (instance.coroutineTextForTMP != null)
+            instance.StopCoroutine(instance.coroutineTextForTMP);
 
-        instance.coroutineNotificationPopUpMessage =
+        instance.coroutineTextForTMP =
             instance.StartCoroutine(instance.ShowText(followingText, instance.tmpNotificationMessage));
     }
 
@@ -133,10 +157,7 @@ public class UIController : MonoBehaviour
         instance.isUsingSpeedUpForTMP = true;
         Debug.Log("Is Speeding Up");
 
-        Debug.Log("notif coroutine " + !instance.coroutineNotificationPopUpMessage.IsUnityNull());
-        Debug.Log("dialog coroutine " + !instance.coroutineTextForTMP.IsUnityNull());
-
-        return !instance.coroutineNotificationPopUpMessage.IsUnityNull() || !instance.coroutineTextForTMP.IsUnityNull();
+        return !instance.coroutineTextForTMP.IsUnityNull();
     }
 
     public static void SlowDownDialog()
@@ -181,30 +202,32 @@ public class UIController : MonoBehaviour
 
         if (!coroutineTextForTMP.IsUnityNull())
             coroutineTextForTMP = null;
-
-        if (!coroutineNotificationPopUpMessage.IsUnityNull())
-            coroutineNotificationPopUpMessage = null;
-
-        if (!coroutinePromptTextForTMP.IsUnityNull())
-            coroutinePromptTextForTMP = null;
     }
 
     private IEnumerator ShowUIHighlighter(RectTransform highlightElement)
     {
-        // retroPostProcessing.GetVector("Rair");
-        Vector2 uiPositionBefore =
-            mainCamera.WorldToViewportPoint(ActorManager.GetCameraTargetPosition()) * referenceScalerUI;
-        while (true)
-        {
-            Vector2 uiPositionDesired =
-                mainCamera.WorldToViewportPoint(ActorManager.GetCameraTargetPosition()) * referenceScalerUI;
+        Vector2 viewportUIElement =
+            mainCamera.WorldToViewportPoint(ActorManager.GetCameraTargetPosition());
 
-            Vector2 uiPositionDefinitive = Vector2.Lerp(uiPositionBefore, uiPositionDesired,
+        viewportUIElement.y += offsetVerticalPlayerUIHighlight / referenceScalerUI.y;
+
+        while (highlightElement.gameObject.activeSelf)
+        {
+            Vector2 viewportUIElementDesired =
+                mainCamera.WorldToViewportPoint(ActorManager.GetCameraTargetPosition());
+
+            viewportUIElementDesired.y += offsetVerticalPlayerUIHighlight / referenceScalerUI.y;
+
+            Vector2 viewPortUIElementReal = Vector2.Lerp(viewportUIElement, viewportUIElementDesired,
                 lerpUIHighlightByThisValue);
 
-            highlightElement.position =
-                new Vector3(uiPositionDefinitive.x, uiPositionDefinitive.y + offsetVerticalPlayerUIHighlight, 0f);
+            highlightElement.position = viewPortUIElementReal * referenceScaler;
+
+            viewportUIElement = viewPortUIElementReal;
+
             yield return null;
         }
+
+        coroutineUIHighlighter = null;
     }
 }

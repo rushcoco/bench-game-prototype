@@ -12,4 +12,9 @@ public class UnlockPuzzleRewardHandler : RewardHandler
         // get Reward Puzzles and the NPC of who will unlock it
         foreach (PuzzleData puzzleData in unlockThisReward) ownerOfUnlockedPuzzles.AddPuzzleDataToPuzzles(puzzleData);
     }
+
+    public List<PuzzleData> GetRewardPuzzles()
+    {
+        return unlockThisReward;
+    }
 }

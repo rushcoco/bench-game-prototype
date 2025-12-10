@@ -225,8 +225,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 20
-    m_Right: 20
+    m_Left: 40
+    m_Right: 40
     m_Top: 40
     m_Bottom: 0
   m_ChildAlignment: 0
@@ -1118,10 +1118,10 @@ MonoBehaviour:
   highlightInteract: {fileID: 7629470198703718062}
   highlightListen: {fileID: 1499050268439753976}
   highlightTalk: {fileID: 8844736475136954050}
+  uiHighlighter: {fileID: 3034959929261592216}
   tmpChitChat: {fileID: 328367088531966758}
   tmpPrompt: {fileID: 5838173363693969516}
   tmpNotificationMessage: {fileID: 7805101708634215443}
-  uiHighlighter: {fileID: 3034959929261592216}
 --- !u!82 &5454873930787516502
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2567,7 +2567,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: -318, y: -160}
-  m_SizeDelta: {x: 800, y: 180}
+  m_SizeDelta: {x: 900, y: 240}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1318551473869047766
 CanvasRenderer:
@@ -3383,8 +3383,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -40, y: -20}
+  m_AnchoredPosition: {x: 0, y: -3}
+  m_SizeDelta: {x: -80, y: -46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2786806178823531014
 CanvasRenderer:
@@ -3441,8 +3441,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 22
-  m_fontSizeBase: 22
+  m_fontSize: 38
+  m_fontSizeBase: 38
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3453,7 +3453,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 35
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -3517,10 +3517,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6152636700847437440}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 300, y: -200}
-  m_SizeDelta: {x: 560, y: 360}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -6}
+  m_SizeDelta: {x: -80, y: -52}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &395020144697688201
 CanvasRenderer:
@@ -3577,8 +3577,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28
-  m_fontSizeBase: 28
+  m_fontSize: 45
+  m_fontSizeBase: 45
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3589,7 +3589,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 45
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -3759,7 +3759,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -60, y: -16}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4515896316688378717
 CanvasRenderer:
@@ -3816,8 +3816,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 34
+  m_fontSizeBase: 34
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4081,7 +4081,6 @@ GameObject:
   - component: {fileID: 6152636700847437440}
   - component: {fileID: 3900878181885825765}
   - component: {fileID: 2787738220830606724}
-  - component: {fileID: 3786456971298920762}
   m_Layer: 5
   m_Name: Notification Pop Up - Panel
   m_TagString: Untagged
@@ -4147,32 +4146,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 10
---- !u!114 &3786456971298920762
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7056482185738304459}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Padding:
-    m_Left: 20
-    m_Right: 20
-    m_Top: 20
-    m_Bottom: 20
-  m_ChildAlignment: 0
-  m_Spacing: 20
-  m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
-  m_ChildControlWidth: 1
-  m_ChildControlHeight: 1
-  m_ChildScaleWidth: 0
-  m_ChildScaleHeight: 0
-  m_ReverseArrangement: 0
 --- !u!1 &7220448545596699765
 GameObject:
   m_ObjectHideFlags: 0
