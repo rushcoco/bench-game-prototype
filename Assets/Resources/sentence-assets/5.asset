@@ -16,7 +16,5 @@ MonoBehaviour:
   words:
   - {fileID: 11400000, guid: 6fa3b81033294e34f96b52ca5980c1ab, type: 2}
   - {fileID: 11400000, guid: d694cb2af06496c45871250e4d40115a, type: 2}
-  - {fileID: 11400000, guid: 32254c790965e1d428503fbc83849727, type: 2}
-  - {fileID: 11400000, guid: c30db8906e5110f4cacf9342fe530df6, type: 2}
   tense: 0
   pronoun: 2
