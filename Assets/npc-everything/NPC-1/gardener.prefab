@@ -170,7 +170,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 818ad23538abf844e98b7bbd8d1d99fa, type: 2}
     - target: {fileID: 5655072681820791954, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
       propertyPath: learnThisWord.Array.size
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5655072681820791954, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
       propertyPath: 'learnThisWord.Array.data[0]'
@@ -191,11 +191,11 @@ PrefabInstance:
     - target: {fileID: 5655072681820791954, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
       propertyPath: 'learnThisWord.Array.data[4]'
       value: 
-      objectReference: {fileID: 11400000, guid: c3c264bc9821ed94eababc4a7000ec77, type: 2}
+      objectReference: {fileID: 11400000, guid: c30db8906e5110f4cacf9342fe530df6, type: 2}
     - target: {fileID: 5655072681820791954, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
       propertyPath: 'learnThisWord.Array.data[5]'
       value: 
-      objectReference: {fileID: 11400000, guid: c30db8906e5110f4cacf9342fe530df6, type: 2}
+      objectReference: {fileID: 11400000, guid: 32254c790965e1d428503fbc83849727, type: 2}
     - target: {fileID: 5655072681820791954, guid: efd388fce8d7f2342bfedc1b008349ab, type: 3}
       propertyPath: 'learnThisWord.Array.data[6]'
       value: 
