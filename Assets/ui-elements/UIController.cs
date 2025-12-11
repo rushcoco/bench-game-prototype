@@ -254,17 +254,18 @@ public class UIController : MonoBehaviour
 
     private IEnumerator ShowUIHighlighter(RectTransform highlightElement)
     {
-        Vector3 worldToViewport =
-            mainCamera.WorldToViewportPoint(ActorManager.GetCameraTargetPosition());
-        Vector2 viewportUIElement = ApplyDistortion(worldToViewport.x, worldToViewport.y);
+        // Vector3 worldToViewport = mainCamera.WorldToViewportPoint(ActorManager.GetCameraTargetPosition());
+        // Vector2 viewportUIElement = ApplyDistortion(worldToViewport.x, worldToViewport.y);
+        Vector2 viewportUIElement = mainCamera.WorldToViewportPoint(ActorManager.GetCameraTargetPosition());
 
-
+        viewportUIElement.x += offsetHorizontalPlayerUIHighlight / referenceScaler.x;
         viewportUIElement.y += offsetVerticalPlayerUIHighlight / referenceScalerUI.y;
 
         while (highlightElement.gameObject.activeSelf)
         {
-            worldToViewport = mainCamera.WorldToViewportPoint(ActorManager.GetCameraTargetPosition());
-            Vector2 viewportUIElementDesired = ApplyDistortion(worldToViewport.x, worldToViewport.y);
+            // worldToViewport = mainCamera.WorldToViewportPoint(ActorManager.GetCameraTargetPosition());
+            // Vector2 viewportUIElementDesired = ApplyDistortion(worldToViewport.x, worldToViewport.y);
+            Vector2 viewportUIElementDesired = mainCamera.WorldToViewportPoint(ActorManager.GetCameraTargetPosition());
 
             viewportUIElementDesired.y += offsetVerticalPlayerUIHighlight / referenceScalerUI.y;
 

@@ -15,6 +15,7 @@ public class ActorManager : MonoBehaviour
     [SerializeField] private AudioSource soundEnterCraftingMenu;
     [SerializeField] private AudioSource soundClickOnCraftButton;
     [SerializeField] private AudioSource soundOnInspect;
+    [SerializeField] private Material inspectHighlightMat;
 
     private ISittable actorIsSittingOn;
     private CameraFollowTarget cameraFollowTarget;
