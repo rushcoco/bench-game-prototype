@@ -212,6 +212,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1859359662493220840, guid: b5d6af6717a23704bb31fb9e0f265e0e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1859359662493220840, guid: b5d6af6717a23704bb31fb9e0f265e0e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4264733858631335975, guid: b5d6af6717a23704bb31fb9e0f265e0e, type: 3}
       propertyPath: m_Name
       value: Actor Manager
@@ -387,6 +395,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _EdgeWidth: 0.1
     - _NoiseActivated: 0
     - _NoiseStrength: 0
     - _QueueControl: 0
@@ -394,6 +403,7 @@ Material:
     - _SeeThroughDistance: 3
     m_Colors:
     - _BaseColor: {r: 0.78301704, g: 0.72464436, b: 0.10875534, a: 1}
+    - _EdgeColor: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!1001 &159068584
@@ -1020,6 +1030,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _EdgeWidth: 0.1
     - _NoiseActivated: 0
     - _NoiseStrength: 0
     - _QueueControl: 0
@@ -1027,6 +1038,7 @@ Material:
     - _SeeThroughDistance: 3
     m_Colors:
     - _BaseColor: {r: 0.6855764, g: 0.5574912, b: 0.46071708, a: 1}
+    - _EdgeColor: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!1 &341005828
@@ -1121,6 +1133,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _EdgeWidth: 0.1
     - _NoiseActivated: 0
     - _NoiseStrength: 0
     - _QueueControl: 0
@@ -1128,6 +1141,7 @@ Material:
     - _SeeThroughDistance: 3
     m_Colors:
     - _BaseColor: {r: 0.39494714, g: 0.80929494, b: 0.48811752, a: 1}
+    - _EdgeColor: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!21 &457264966
@@ -1169,6 +1183,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _EdgeWidth: 0.1
     - _NoiseActivated: 0
     - _NoiseStrength: 0
     - _QueueControl: 0
@@ -1176,6 +1191,7 @@ Material:
     - _SeeThroughDistance: 3
     m_Colors:
     - _BaseColor: {r: 0.8052809, g: 0.2451371, b: 0.31942388, a: 1}
+    - _EdgeColor: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!21 &482365714
@@ -1217,6 +1233,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _EdgeWidth: 0.1
     - _NoiseActivated: 0
     - _NoiseStrength: 0
     - _QueueControl: 0
@@ -1224,6 +1241,7 @@ Material:
     - _SeeThroughDistance: 3
     m_Colors:
     - _BaseColor: {r: 0.43466964, g: 0.37125036, b: 0.73269635, a: 1}
+    - _EdgeColor: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!1 &513173275
@@ -1905,6 +1923,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _EdgeWidth: 0.1
     - _NoiseActivated: 0
     - _NoiseStrength: 0
     - _QueueControl: 0
@@ -1912,6 +1931,7 @@ Material:
     - _SeeThroughDistance: 3
     m_Colors:
     - _BaseColor: {r: 0.6570619, g: 0.5249717, b: 0.36717328, a: 1}
+    - _EdgeColor: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!1 &709727077
@@ -2075,6 +2095,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _EdgeWidth: 0.1
     - _NoiseActivated: 0
     - _NoiseStrength: 0
     - _QueueControl: 0
@@ -2082,6 +2103,7 @@ Material:
     - _SeeThroughDistance: 3
     m_Colors:
     - _BaseColor: {r: 0.41565815, g: 0.5232932, b: 0.73292613, a: 1}
+    - _EdgeColor: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!1 &797783028
@@ -2176,6 +2198,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _EdgeWidth: 0.1
     - _NoiseActivated: 0
     - _NoiseStrength: 0
     - _QueueControl: 0
@@ -2183,6 +2206,7 @@ Material:
     - _SeeThroughDistance: 3
     m_Colors:
     - _BaseColor: {r: 0.6688393, g: 0.40166885, b: 0.7326297, a: 1}
+    - _EdgeColor: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!21 &820313105
@@ -2224,6 +2248,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _EdgeWidth: 0.1
     - _NoiseActivated: 0
     - _NoiseStrength: 0
     - _QueueControl: 0
@@ -2231,6 +2256,7 @@ Material:
     - _SeeThroughDistance: 3
     m_Colors:
     - _BaseColor: {r: 0.2850109, g: 0.66745734, b: 0.6400795, a: 1}
+    - _EdgeColor: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!21 &834016167
@@ -2272,6 +2298,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 0.1
+    - _EdgeWidth: 0.1
     - _NoiseActivated: 0
     - _NoiseStrength: 0
     - _QueueControl: 0
@@ -2279,6 +2306,7 @@ Material:
     - _SeeThroughDistance: 2
     m_Colors:
     - _BaseColor: {r: 0.54744345, g: 0.76729554, b: 0.38847348, a: 1}
+    - _EdgeColor: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!21 &841225936
@@ -2421,6 +2449,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _EdgeWidth: 0.1
     - _NoiseActivated: 0
     - _NoiseStrength: 0
     - _QueueControl: 0
@@ -2428,6 +2457,7 @@ Material:
     - _SeeThroughDistance: 3
     m_Colors:
     - _BaseColor: {r: 0.32805973, g: 0.69509774, b: 0.45563728, a: 1}
+    - _EdgeColor: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!1 &858148063
@@ -2522,6 +2552,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _EdgeWidth: 0.1
     - _NoiseActivated: 0
     - _NoiseStrength: 0
     - _QueueControl: 0
@@ -2529,6 +2560,7 @@ Material:
     - _SeeThroughDistance: 3
     m_Colors:
     - _BaseColor: {r: 0.6237388, g: 0.76831657, b: 0.4217179, a: 1}
+    - _EdgeColor: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!21 &937881385
@@ -2570,6 +2602,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _EdgeWidth: 0.1
     - _NoiseActivated: 0
     - _NoiseStrength: 0
     - _QueueControl: 0
@@ -2577,6 +2610,7 @@ Material:
     - _SeeThroughDistance: 3
     m_Colors:
     - _BaseColor: {r: 0.61327803, g: 0.42030308, b: 0.30180177, a: 1}
+    - _EdgeColor: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!21 &945119853
@@ -2767,6 +2801,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _EdgeWidth: 0.1
     - _NoiseActivated: 0
     - _NoiseStrength: 0
     - _QueueControl: 0
@@ -2774,6 +2809,7 @@ Material:
     - _SeeThroughDistance: 3
     m_Colors:
     - _BaseColor: {r: 0.7425841, g: 0.71267813, b: 0.4695974, a: 1}
+    - _EdgeColor: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!1 &974907011
@@ -3641,6 +3677,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _EdgeWidth: 0.1
     - _NoiseActivated: 0
     - _NoiseStrength: 0
     - _QueueControl: 0
@@ -3648,6 +3685,7 @@ Material:
     - _SeeThroughDistance: 3
     m_Colors:
     - _BaseColor: {r: 0.7325372, g: 0.42796224, b: 0.5299702, a: 1}
+    - _EdgeColor: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!21 &1195085014
@@ -3689,6 +3727,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _EdgeWidth: 0.1
     - _NoiseActivated: 0
     - _NoiseStrength: 0
     - _QueueControl: 0
@@ -3696,6 +3735,7 @@ Material:
     - _SeeThroughDistance: 3
     m_Colors:
     - _BaseColor: {r: 0, g: 0, b: 0, a: 1}
+    - _EdgeColor: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!1 &1210659111
@@ -3880,6 +3920,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _EdgeWidth: 0.1
     - _NoiseActivated: 0
     - _NoiseStrength: 0
     - _QueueControl: 0
@@ -3887,6 +3928,7 @@ Material:
     - _SeeThroughDistance: 3
     m_Colors:
     - _BaseColor: {r: 0.32805973, g: 0.69509774, b: 0.45563728, a: 1}
+    - _EdgeColor: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!1 &1313081855
@@ -3981,6 +4023,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _EdgeWidth: 0.1
     - _NoiseActivated: 0
     - _NoiseStrength: 0
     - _QueueControl: 0
@@ -3988,6 +4031,7 @@ Material:
     - _SeeThroughDistance: 3
     m_Colors:
     - _BaseColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _EdgeColor: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!21 &1365966243
@@ -4029,6 +4073,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _EdgeWidth: 0.1
     - _NoiseActivated: 0
     - _NoiseStrength: 0
     - _QueueControl: 0
@@ -4036,6 +4081,7 @@ Material:
     - _SeeThroughDistance: 3
     m_Colors:
     - _BaseColor: {r: 0.65493643, g: 0.80981976, b: 0.4704988, a: 1}
+    - _EdgeColor: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!1 &1390069604
@@ -4216,6 +4262,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _EdgeWidth: 0.1
     - _NoiseActivated: 0
     - _NoiseStrength: 0
     - _QueueControl: 0
@@ -4223,6 +4270,7 @@ Material:
     - _SeeThroughDistance: 3
     m_Colors:
     - _BaseColor: {r: 0.4242522, g: 0.6855867, b: 0.628994, a: 1}
+    - _EdgeColor: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!1 &1500510568
@@ -4317,6 +4365,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _EdgeWidth: 0.1
     - _NoiseActivated: 0
     - _NoiseStrength: 0
     - _QueueControl: 0
@@ -4324,6 +4373,7 @@ Material:
     - _SeeThroughDistance: 3
     m_Colors:
     - _BaseColor: {r: 0.6480773, g: 0.66655177, b: 0.39116234, a: 1}
+    - _EdgeColor: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!21 &1555484826
@@ -4365,6 +4415,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _EdgeWidth: 0.1
     - _NoiseActivated: 0
     - _NoiseStrength: 0
     - _QueueControl: 0
@@ -4372,6 +4423,7 @@ Material:
     - _SeeThroughDistance: 3
     m_Colors:
     - _BaseColor: {r: 0.39494714, g: 0.80929494, b: 0.48811752, a: 1}
+    - _EdgeColor: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!1 &1561962669
@@ -4466,6 +4518,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _EdgeWidth: 0.1
     - _NoiseActivated: 0
     - _NoiseStrength: 0
     - _QueueControl: 0
@@ -4473,6 +4526,7 @@ Material:
     - _SeeThroughDistance: 3
     m_Colors:
     - _BaseColor: {r: 0.4242522, g: 0.6855867, b: 0.628994, a: 1}
+    - _EdgeColor: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!1 &1589907010
@@ -4765,6 +4819,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _EdgeWidth: 0.1
     - _NoiseActivated: 0
     - _NoiseStrength: 0
     - _QueueControl: 0
@@ -4772,6 +4827,7 @@ Material:
     - _SeeThroughDistance: 3
     m_Colors:
     - _BaseColor: {r: 0.6688393, g: 0.40166885, b: 0.7326297, a: 1}
+    - _EdgeColor: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!1 &1734946149
@@ -4934,6 +4990,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _EdgeWidth: 0.1
     - _NoiseActivated: 0
     - _NoiseStrength: 0
     - _QueueControl: 0
@@ -4941,6 +4998,7 @@ Material:
     - _SeeThroughDistance: 3
     m_Colors:
     - _BaseColor: {r: 0.7325372, g: 0.42796224, b: 0.5299702, a: 1}
+    - _EdgeColor: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!21 &1839384451
@@ -4982,6 +5040,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _EdgeWidth: 0.1
     - _NoiseActivated: 0
     - _NoiseStrength: 0
     - _QueueControl: 0
@@ -4989,6 +5048,7 @@ Material:
     - _SeeThroughDistance: 3
     m_Colors:
     - _BaseColor: {r: 0.41565815, g: 0.5232932, b: 0.73292613, a: 1}
+    - _EdgeColor: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!1 &1970264467
@@ -5083,6 +5143,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _EdgeWidth: 0.1
     - _NoiseActivated: 0
     - _NoiseStrength: 0
     - _QueueControl: 0
@@ -5090,6 +5151,7 @@ Material:
     - _SeeThroughDistance: 3
     m_Colors:
     - _BaseColor: {r: 0.6665468, g: 0.42378592, b: 0.4055853, a: 1}
+    - _EdgeColor: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!21 &2028481629
@@ -5280,6 +5342,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _EdgeWidth: 0.1
     - _NoiseActivated: 0
     - _NoiseStrength: 0
     - _QueueControl: 0
@@ -5287,6 +5350,7 @@ Material:
     - _SeeThroughDistance: 3
     m_Colors:
     - _BaseColor: {r: 0.7425841, g: 0.71267813, b: 0.4695974, a: 1}
+    - _EdgeColor: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!1 &2088453026
@@ -5722,6 +5786,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _DitherStrength: 1
+    - _EdgeWidth: 0.1
     - _NoiseActivated: 0
     - _NoiseStrength: 0
     - _QueueControl: 0
@@ -5729,6 +5794,7 @@ Material:
     - _SeeThroughDistance: 3
     m_Colors:
     - _BaseColor: {r: 0.43466964, g: 0.37125036, b: 0.73269635, a: 1}
+    - _EdgeColor: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!1 &2122253099
