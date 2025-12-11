@@ -1,16 +1,21 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TitleScreenManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private Scene benchGame;
+    [SerializeField] private int thisSceneID;
+    [SerializeField] private string sceneName;
+
+    private void Awake()
     {
-        
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnStartGame()
     {
-        
+        if (!string.IsNullOrEmpty(sceneName))
+            SceneManager.LoadSceneAsync(sceneName);
+        else
+            Debug.LogError("No scene configured");
     }
 }
