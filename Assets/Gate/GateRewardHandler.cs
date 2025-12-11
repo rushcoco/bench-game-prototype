@@ -5,10 +5,23 @@ public class GateRewardHandler : RewardHandler, IControlTypeState
 {
     private static readonly int NoiseStrength = Shader.PropertyToID("_NoiseStrength");
     private static readonly int NoiseActivated = Shader.PropertyToID("_NoiseActivated");
-    [SerializeField] private float secondsUntilGateIsGone;
+    private static readonly int EdgeWidth = Shader.PropertyToID("_EdgeWidth");
+    private static readonly int EdgeColor = Shader.PropertyToID("_EdgeColor");
+
+    [Header("Gate Duration Seconds Configuration")] [SerializeField]
+    private float secondsUntilGateIsGone;
+
     [SerializeField] private float waitForSecondsAtDestroyedGate;
     [SerializeField] private float waitForSecondsUntilCameraArrivesAtGate;
-    [SerializeField] private Renderer gateMeshRenderer;
+
+    [Header("Edge Simple Noise Configuration")] [SerializeField]
+    private float edgeWidth;
+
+    [SerializeField] private Color edgeColor;
+
+    [Header("Component References")] [SerializeField]
+    private Renderer gateMeshRenderer;
+
     [SerializeField] private Transform targetForCameraFocus;
 
     private bool isActive;
@@ -44,7 +57,12 @@ public class GateRewardHandler : RewardHandler, IControlTypeState
 
         Material[] gateMaterials = gateMeshRenderer.materials;
 
-        foreach (Material material in gateMaterials) material.SetInt(NoiseActivated, 1);
+        foreach (Material material in gateMaterials)
+        {
+            material.SetInt(NoiseActivated, 1);
+            material.SetColor(EdgeColor, edgeColor);
+            material.SetFloat(EdgeWidth, edgeWidth);
+        }
 
         while (secondsLeft < secondsUntilGateIsGone)
         {

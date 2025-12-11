@@ -104,6 +104,8 @@ MonoBehaviour:
   secondsUntilGateIsGone: 6
   waitForSecondsAtDestroyedGate: 3
   waitForSecondsUntilCameraArrivesAtGate: 2
+  edgeWidth: 0.1
+  edgeColor: {r: 0, g: 1, b: 0.85274386, a: 0}
   gateMeshRenderer: {fileID: 782439318281865595}
   targetForCameraFocus: {fileID: 5714757212982328377}
 --- !u!1 &7005937331781926950
