@@ -65655,6 +65655,11 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: 10704a06e858a414cac028345bd383a7, type: 2}
+    - target: {fileID: 4645648599220487666, guid: f788637361256b340a82c3993b314bcc, type: 3}
+      propertyPath: 'message.Array.data[12]'
+      value: Whenever you can inspect something, the exclamation mark with the question
+        mark next to it will appear!
+      objectReference: {fileID: 0}
     - target: {fileID: 5790651458825494028, guid: f788637361256b340a82c3993b314bcc, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.58133

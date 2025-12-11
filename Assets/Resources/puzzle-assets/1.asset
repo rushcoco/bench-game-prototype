@@ -27,19 +27,19 @@ MonoBehaviour:
   - There should be something inside my house.
   - What was it again?
   - Can you go check for me?
-  - As you can see i'm busy with all the leaves on the ground.
-  - Darn, i hate autumns.
+  - As you can see I'm busy with all the leaves on the ground.
+  - Darn, I hate autumns.
   - Autumns and winters.
   - They always leave a mess on the floor.
   - Ah.
   - Just ignore this old mans rambling.
-  - What did i want again?
+  - What did I want again?
   - Hm...
   - Hmmmm...
   - Hmmmmmmmmmmmm...
   - Oh right!
   - Check my house
-  - Wait, i'll open the door for you.
+  - Wait, I'll open the door for you.
   dialogResponseFalse: Speak up youngster! Don't you see how old I am?
   dialogTimeRunOut: Nobody told you that you need to put a word after another to
     talk?

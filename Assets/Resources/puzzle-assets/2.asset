@@ -19,7 +19,7 @@ MonoBehaviour:
   - It's right next to me.
   - Can you go check inside?
   - There should be something in there.
-  - At least, i think.
+  - At least, I think.
   timeLimitInSeconds: 60
   dialogPuzzleSolved:
   - Oh, Thank you youngster
