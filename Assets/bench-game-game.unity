@@ -220,6 +220,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4232153262244405132, guid: b5d6af6717a23704bb31fb9e0f265e0e, type: 3}
+      propertyPath: globalVolumeProfile
+      value: 
+      objectReference: {fileID: 175199734}
     - target: {fileID: 4264733858631335975, guid: b5d6af6717a23704bb31fb9e0f265e0e, type: 3}
       propertyPath: m_Name
       value: Actor Manager

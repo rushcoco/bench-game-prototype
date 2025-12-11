@@ -2,6 +2,8 @@ using System.Collections;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
@@ -18,8 +20,8 @@ public class UIController : MonoBehaviour
     [SerializeField] private float offsetHorizontalPlayerUIHighlight;
     [SerializeField] private float lerpUIHighlightByThisValue;
 
-    [Header("Full Screen Retro Shader")] [SerializeField]
-    private Material retroPostProcessing;
+    [Header("Global Volume Configurations")] [SerializeField]
+    private Volume globalVolumeProfile;
 
     [Header("Diegetic UI Game Objects")] [SerializeField]
     private GameObject highlightInspect;
@@ -39,6 +41,7 @@ public class UIController : MonoBehaviour
     private Coroutine coroutineUIHighlighter;
 
     private bool isUsingSpeedUpForTMP;
+    private LensDistortion lensDistortion;
 
     private Camera mainCamera;
     private Vector2 referenceScaler;
@@ -58,6 +61,7 @@ public class UIController : MonoBehaviour
             instance = this;
 
         isUsingSpeedUpForTMP = false;
+        TryResolveLensDistortion();
     }
 
     private void OnEnable()
@@ -67,6 +71,8 @@ public class UIController : MonoBehaviour
         referenceScalerUI = uiHighlighter.GetComponent<CanvasScaler>().referenceResolution;
         coroutineTextForTMP = null;
         coroutineUIHighlighter = null;
+
+        TryResolveLensDistortion();
     }
 
     private void OnDisable()
@@ -75,6 +81,12 @@ public class UIController : MonoBehaviour
         referenceScaler = Vector2.zero;
         coroutineTextForTMP = null;
         coroutineUIHighlighter = null;
+    }
+
+    private void TryResolveLensDistortion()
+    {
+        if (globalVolumeProfile != null && globalVolumeProfile.profile != null)
+            globalVolumeProfile.profile.TryGet(out lensDistortion);
     }
 
     public void ShowUIElementInspect()
@@ -172,6 +184,42 @@ public class UIController : MonoBehaviour
             uiHighlighter.SetActive(value);
     }
 
+    private Vector2 ApplyDistortion(float x, float y)
+    {
+        return ApplyDistortion(new Vector2(x, y));
+    }
+
+    private Vector2 ApplyDistortion(Vector2 uv)
+    {
+        if (!lensDistortion || !lensDistortion.active) return uv;
+
+        float intensity = lensDistortion.intensity.value;
+        float multiplierX = lensDistortion.xMultiplier.value;
+        float multiplierY = lensDistortion.yMultiplier.value;
+        Vector2 center = lensDistortion.center.value;
+        float scale = lensDistortion.scale.value;
+
+        Vector2 uvShiftedCenter = uv - center;
+
+        Vector2 p = new(uvShiftedCenter.x * 2, uvShiftedCenter.y * 2);
+
+        p.x *= scale * Mathf.Max(1e-4f, multiplierX);
+        p.y *= scale * Mathf.Max(1e-4f, multiplierY);
+
+        float r2 = p.x * p.x + p.y * p.y;
+        float k = intensity * 0.75f;
+
+        float factor = 1f + k * r2;
+        Vector2 dp = p * factor;
+
+        dp.x /= scale * Mathf.Max(1e-4f, multiplierX);
+        dp.y /= scale * Mathf.Max(1e-4f, multiplierY);
+
+        Vector2 outUv = new Vector2(dp.x * 0.5f, dp.y * 0.5f) + center;
+
+        return outUv;
+    }
+
     private IEnumerator ShowText(string followingText, TextMeshProUGUI tmpGUI)
     {
         tmpGUI.text = "";
@@ -206,15 +254,17 @@ public class UIController : MonoBehaviour
 
     private IEnumerator ShowUIHighlighter(RectTransform highlightElement)
     {
-        Vector2 viewportUIElement =
+        Vector3 worldToViewport =
             mainCamera.WorldToViewportPoint(ActorManager.GetCameraTargetPosition());
+        Vector2 viewportUIElement = ApplyDistortion(worldToViewport.x, worldToViewport.y);
+
 
         viewportUIElement.y += offsetVerticalPlayerUIHighlight / referenceScalerUI.y;
 
         while (highlightElement.gameObject.activeSelf)
         {
-            Vector2 viewportUIElementDesired =
-                mainCamera.WorldToViewportPoint(ActorManager.GetCameraTargetPosition());
+            worldToViewport = mainCamera.WorldToViewportPoint(ActorManager.GetCameraTargetPosition());
+            Vector2 viewportUIElementDesired = ApplyDistortion(worldToViewport.x, worldToViewport.y);
 
             viewportUIElementDesired.y += offsetVerticalPlayerUIHighlight / referenceScalerUI.y;
 
