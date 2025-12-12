@@ -2668,6 +2668,8 @@ MonoBehaviour:
   soundClickOnCraftButton: {fileID: 5911591568202255569}
   soundOnInspect: {fileID: 3955524072484974112}
   inspectHighlightMat: {fileID: 2100000, guid: 10704a06e858a414cac028345bd383a7, type: 2}
+  inputToResetGame: {fileID: 2695308503219197513, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  titleScreenSceneIndex: 0
 --- !u!1 &4532051610884197933
 GameObject:
   m_ObjectHideFlags: 0

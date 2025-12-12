@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class ActorManager : MonoBehaviour
 {
@@ -16,6 +18,8 @@ public class ActorManager : MonoBehaviour
     [SerializeField] private AudioSource soundClickOnCraftButton;
     [SerializeField] private AudioSource soundOnInspect;
     [SerializeField] private Material inspectHighlightMat;
+    [SerializeField] private InputActionReference inputToResetGame;
+    [SerializeField] private int titleScreenSceneIndex;
 
     private ISittable actorIsSittingOn;
     private CameraFollowTarget cameraFollowTarget;
@@ -34,17 +38,40 @@ public class ActorManager : MonoBehaviour
         cameraFollowTarget = GetComponent<CameraFollowTarget>();
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
         if (wordsCollected is null)
             wordsCollected = new List<WordData>();
     }
 
-    // Update is called once per frame
-    private void Update()
+    private void OnEnable()
     {
+        inputToResetGame.action.Enable();
+        inputToResetGame.action.performed += OnInputToResetEntireGame;
     }
+
+    private void OnDisable()
+    {
+        inputToResetGame.action.performed -= OnInputToResetEntireGame;
+        inputToResetGame.action.Disable();
+    }
+
+    private void OnInputToResetEntireGame(InputAction.CallbackContext context)
+    {
+        // TODO:
+        /*
+         * - Reset all Puzzles to Not solved
+         * - Remove all collected words by the player
+         * - Change Scene to other Scene
+         */
+
+        ResetAllPuzzlesSolved.ResetPuzzlesSolved();
+        wordsCollected.Clear();
+        wordsCollected.TrimExcess();
+
+        SceneManager.LoadSceneAsync(titleScreenSceneIndex);
+    }
+
 
     public static IReadOnlyCollection<WordData> GetAllWordsPlayerHasCollected()
     {
