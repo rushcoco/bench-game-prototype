@@ -187,6 +187,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeToPlaySitAnimation: {fileID: 5736391821169191244}
   placeWherePlayerWillStandUpTo: {fileID: 489803185888091259}
+  interactThisMesh:
+  - {fileID: 4960620490268349952}
+  - {fileID: 3797205872836840459}
 --- !u!1001 &8685653484511908386
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -237,7 +240,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4873446893628210142, guid: 0d99edf50d7390e4e85fcc17130070ef, type: 3}
       propertyPath: m_Materials.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4873446893628210142, guid: 0d99edf50d7390e4e85fcc17130070ef, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -259,6 +262,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: 10704a06e858a414cac028345bd383a7, type: 2}
+    - target: {fileID: -9899720705938544, guid: 0d99edf50d7390e4e85fcc17130070ef, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.321
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0d99edf50d7390e4e85fcc17130070ef, type: 3}
       propertyPath: m_Name
       value: Bench_Section-two
@@ -271,6 +278,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 7062685489408862912, guid: 0d99edf50d7390e4e85fcc17130070ef, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.321
+      objectReference: {fileID: 0}
     - target: {fileID: 8869669039281602302, guid: 0d99edf50d7390e4e85fcc17130070ef, type: 3}
       propertyPath: m_Layer
       value: 8
@@ -280,6 +291,16 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d99edf50d7390e4e85fcc17130070ef, type: 3}
+--- !u!23 &3797205872836840459 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -3730175333396062679, guid: 0d99edf50d7390e4e85fcc17130070ef, type: 3}
+  m_PrefabInstance: {fileID: 8685653484511908386}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &4960620490268349952 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -4873446893628210142, guid: 0d99edf50d7390e4e85fcc17130070ef, type: 3}
+  m_PrefabInstance: {fileID: 8685653484511908386}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9152188202990843337 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0d99edf50d7390e4e85fcc17130070ef, type: 3}

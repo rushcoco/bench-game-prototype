@@ -70,6 +70,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeToPlaySitAnimation: {fileID: 5256121501797014259}
   placeWherePlayerWillStandUpTo: {fileID: 3618268863560308779}
+  interactThisMesh:
+  - {fileID: 3287404959436662859}
+  - {fileID: 9066706924178972505}
 --- !u!1 &6204668898586525575
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,8 +283,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0247ef4b7c1e39742b5683b4e2cecedf, type: 3}
+--- !u!23 &3287404959436662859 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -2258909429528773002, guid: 0247ef4b7c1e39742b5683b4e2cecedf, type: 3}
+  m_PrefabInstance: {fileID: 5564629117933737533}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5382700741670547926 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0247ef4b7c1e39742b5683b4e2cecedf, type: 3}
+  m_PrefabInstance: {fileID: 5564629117933737533}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &9066706924178972505 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -5698494594245768860, guid: 0247ef4b7c1e39742b5683b4e2cecedf, type: 3}
   m_PrefabInstance: {fileID: 5564629117933737533}
   m_PrefabAsset: {fileID: 0}

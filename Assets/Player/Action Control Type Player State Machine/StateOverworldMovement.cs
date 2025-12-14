@@ -162,6 +162,8 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
         {
             uiController.ShowUIElementInteract();
             currentInteractable = interactable;
+
+            currentInteractable.ShowHighlight(ActorManager.GetOutlineMaterialWhenInspecting());
         }
 
         if (other.TryGetComponent(out IConversable conversable))
@@ -185,9 +187,11 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
             currentInspectables = new[] { (IInspectable)null };
         }
 
-        if (other.TryGetComponent<IInteractable>(out _))
+        if (other.TryGetComponent(out IInteractable interactable))
         {
+            interactable.HideHighlight(ActorManager.GetOutlineMaterialWhenInspecting());
             uiController.HideUIElementInteract();
+
             currentInteractable = null;
         }
 
