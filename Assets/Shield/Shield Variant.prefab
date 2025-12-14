@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2039551855986318512, guid: 70a1faa8de149934cb8b7a0b84792985, type: 3}
       propertyPath: m_Name
-      value: Shield (1) Variant
+      value: Shield Variant
       objectReference: {fileID: 0}
     - target: {fileID: 7134590110668579865, guid: 70a1faa8de149934cb8b7a0b84792985, type: 3}
       propertyPath: m_LocalPosition.x
@@ -166,5 +166,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a24de58a681fa9f4c92022b65345c99b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameObjectWithRenderer: {fileID: 0}
   itemData:
   - {fileID: 11400000, guid: d81a32112a8fef44d876f9e566214ef2, type: 2}
