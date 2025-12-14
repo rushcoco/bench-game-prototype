@@ -58,13 +58,6 @@ public class ActorManager : MonoBehaviour
 
     private void OnInputToResetEntireGame(InputAction.CallbackContext context)
     {
-        // TODO:
-        /*
-         * - Reset all Puzzles to Not solved
-         * - Remove all collected words by the player
-         * - Change Scene to other Scene
-         */
-
         ResetAllPuzzlesSolved.ResetPuzzlesSolved();
         wordsCollected.Clear();
         wordsCollected.TrimExcess();
@@ -172,5 +165,10 @@ public class ActorManager : MonoBehaviour
     public static Vector3 GetCameraTargetPosition()
     {
         return instance.cameraFollowTarget.GetTargetTransformPosition();
+    }
+
+    public static Material GetOutlineMaterialWhenInspecting()
+    {
+        return instance.inspectHighlightMat;
     }
 }

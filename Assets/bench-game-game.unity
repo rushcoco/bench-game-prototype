@@ -1260,7 +1260,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a24de58a681fa9f4c92022b65345c99b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObjectWithRenderer: {fileID: 0}
+  inspectThisMesh:
+  - {fileID: 6922774099027271244}
+  - {fileID: 2956463805944380541}
   itemData:
   - {fileID: 11400000, guid: 0863acb8b3a26524fac411deac3660cf, type: 2}
 --- !u!1001 &313137491
@@ -3373,7 +3375,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a24de58a681fa9f4c92022b65345c99b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObjectWithRenderer: {fileID: 0}
+  inspectThisMesh:
+  - {fileID: 1878332366034831290}
+  - {fileID: 370527131954740868}
+  - {fileID: 1742357241369616879}
+  - {fileID: 5347432974690351540}
+  - {fileID: 5519224791014776996}
+  - {fileID: 7161489929987592313}
+  - {fileID: 4325919525792997500}
+  - {fileID: 6241648844285975473}
   itemData:
   - {fileID: 11400000, guid: caf287703f851b04b9914e22e81af186, type: 2}
 --- !u!1 &1041035467
@@ -5295,7 +5305,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a24de58a681fa9f4c92022b65345c99b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObjectWithRenderer: {fileID: 0}
+  inspectThisMesh:
+  - {fileID: 996772904008415346}
+  - {fileID: 7945552376694745657}
   itemData:
   - {fileID: 11400000, guid: 0863acb8b3a26524fac411deac3660cf, type: 2}
 --- !u!1 &1736175290
@@ -13340,7 +13352,6 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 1574353461}
-  - {fileID: 2100000, guid: 10704a06e858a414cac028345bd383a7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -21043,6 +21054,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcaa3a0cd03f0bc4b810ffa2e0c46f60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inspectThisMesh:
+  - {fileID: 68664569}
   message:
   - You look inside the gardeners house.
   - There seems to be a large sign in the middle.
@@ -25298,7 +25311,6 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 1300987763}
-  - {fileID: 2100000, guid: 10704a06e858a414cac028345bd383a7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -32737,7 +32749,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a24de58a681fa9f4c92022b65345c99b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObjectWithRenderer: {fileID: 0}
+  inspectThisMesh: []
   itemData:
   - {fileID: 11400000, guid: 360a32ccc7d55634ea3479023ae3bd31, type: 2}
 --- !u!4 &4044130348309083443
@@ -51707,7 +51719,6 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 1365966243}
-  - {fileID: 2100000, guid: 10704a06e858a414cac028345bd383a7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -59304,7 +59315,6 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2121761102}
-  - {fileID: 2100000, guid: 10704a06e858a414cac028345bd383a7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -69534,9 +69544,6 @@ SceneRoots:
   - {fileID: 774071232}
   - {fileID: 638257697}
   - {fileID: 2334030877393232716}
-  - {fileID: 543450653661173035}
-  - {fileID: 1066651571}
-  - {fileID: 204425931}
   - {fileID: 175199735}
   - {fileID: 1081720620}
   - {fileID: 544908812}
@@ -69545,3 +69552,6 @@ SceneRoots:
   - {fileID: 288516146}
   - {fileID: 1734946151}
   - {fileID: 1036821491}
+  - {fileID: 1066651571}
+  - {fileID: 543450653661173035}
+  - {fileID: 204425931}

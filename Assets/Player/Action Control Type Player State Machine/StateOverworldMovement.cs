@@ -151,23 +151,21 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
         Debug.Log(other.gameObject);
         if (other.TryGetComponent(out IInspectable inspectable))
         {
-            // >>>> set a bool check to true and show UI element to communicate to player
             uiController.ShowUIElementInspect();
             currentInspectable = inspectable;
 
             currentInspectables = other.GetComponents<IInspectable>();
+            currentInspectable.ShowHighlight(ActorManager.GetOutlineMaterialWhenInspecting());
         }
 
         if (other.TryGetComponent(out IInteractable interactable))
         {
-            // >>>> set a bool check to true and show UI element to communicate to player
             uiController.ShowUIElementInteract();
             currentInteractable = interactable;
         }
 
         if (other.TryGetComponent(out IConversable conversable))
         {
-            // >>>> set a bool check to true and show UI element to communicate to player
             uiController.ShowUIElementListenOrTalk();
             currentConversable = conversable;
         }
@@ -177,9 +175,11 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.TryGetComponent<IInspectable>(out _))
+        if (other.TryGetComponent(out IInspectable inspectable))
         {
             uiController.HideUIElementInspect();
+            inspectable.HideHighlight(ActorManager.GetOutlineMaterialWhenInspecting());
+
             currentInspectable = null;
 
             currentInspectables = new[] { (IInspectable)null };
@@ -219,12 +219,19 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
     private void OnInputActionPerformedInputInteracting(InputAction.CallbackContext context)
     {
         if (currentInteractable.IsUnityNull()) return;
+
+        playerCharAnimator.SetBool(IsGrounded, true);
+        playerCharAnimator.SetBool(IsMoving, false);
+
         currentInteractable.Interact();
     }
 
     private void OnInputActionPerformedInputInspecting(InputAction.CallbackContext context)
     {
         if (currentInspectable.IsUnityNull()) return;
+
+        playerCharAnimator.SetBool(IsGrounded, true);
+        playerCharAnimator.SetBool(IsMoving, false);
 
         if (currentInspectables.Length > 1)
         {
@@ -243,10 +250,11 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
     {
         if (currentConversable.IsUnityNull()) return;
 
+        playerCharAnimator.SetBool(IsGrounded, true);
+        playerCharAnimator.SetBool(IsMoving, false);
+
         if (!currentConversable.StartChitChat())
             currentConversable.StartResponseIsCorrectChitChat();
-
-        // TODO Delegate a function that shows all the correct UI Elements
 
         ActorControlTypeStateMachine.PushStateToListening(currentConversable);
     }
@@ -257,6 +265,8 @@ public class StateOverworldMovement : MonoBehaviour, IControlTypeState
 
         if (!currentConversable.StartTalkPrompt()) return;
 
+        playerCharAnimator.SetBool(IsGrounded, true);
+        playerCharAnimator.SetBool(IsMoving, false);
 
         ActorControlTypeStateMachine.PushStateToTalking(currentConversable);
     }

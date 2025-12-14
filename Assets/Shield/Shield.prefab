@@ -155,6 +155,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcaa3a0cd03f0bc4b810ffa2e0c46f60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inspectThisMesh:
+  - {fileID: 858420182444568176}
+  - {fileID: 4258748326526516315}
+  - {fileID: 7116428078273709656}
   message: []
 --- !u!135 &5382774245324947177
 SphereCollider:

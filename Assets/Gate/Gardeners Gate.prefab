@@ -49,6 +49,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcaa3a0cd03f0bc4b810ffa2e0c46f60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inspectThisMesh:
+  - {fileID: 782439318281865595}
   message:
   - It seems this gate is locked
   - Maybe there is someone that can open it?
@@ -64,6 +66,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a24de58a681fa9f4c92022b65345c99b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inspectThisMesh:
+  - {fileID: 782439318281865595}
   itemData:
   - {fileID: 11400000, guid: 3fec53f6e8befa7439282f6b455f35ce, type: 2}
   - {fileID: 11400000, guid: 31f20fc65000be94c88f5ead8f7e4d40, type: 2}
