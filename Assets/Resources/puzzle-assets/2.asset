@@ -36,4 +36,4 @@ MonoBehaviour:
   dialogTimeRunOut: Hmm? What did you say? I can't hear properly. My ears aren't
     exactly like how they used to be.
   dialogPuzzlePrompt: So? Did you find something in my house?
-  isPuzzleSolved: 0
+  isPuzzleSolved: 1

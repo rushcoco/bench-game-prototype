@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="adieresis" format="2">
+  <advance width="641"/>
+  <unicode hex="00E4"/>
+  <outline>
+    <component base="a" identifier="BC1AE93F"/>
+    <component base="dieresis" xScale="1.0474" xyScale="0.0732" yScale="1.0474" yxScale="-0.0732" xOffset="201" yOffset="-124"/>
+  </outline>
+  <lib>
+    <dict>
+      <key>com.schriftgestaltung.Glyphs.lastChange</key>
+      <string>2022-01-25 17:48:25 +0000</string>
+      <key>public.markColor</key>
+      <string>0.67,0.95,0.38,1</string>
+      <key>public.objectLibs</key>
+      <dict>
+        <key>BC1AE93F</key>
+        <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
+        </dict>
+      </dict>
+    </dict>
+  </lib>
+</glyph>

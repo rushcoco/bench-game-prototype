@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="u_l_l_e" format="2">
+  <advance width="1500"/>
+  <unicode hex="F5170"/>
+  <outline>
+    <component base="u" xOffset="13" yOffset="149" identifier="B5984BFE"/>
+    <component base="l_l_e" xOffset="395" yOffset="-50"/>
+  </outline>
+  <lib>
+    <dict>
+      <key>com.schriftgestaltung.Glyphs.lastChange</key>
+      <string>2024-09-03 17:45:52 +0000</string>
+      <key>com.schriftgestaltung.Glyphs.rightMetricsKey</key>
+      <string>e</string>
+      <key>public.markColor</key>
+      <string>0.98,0.36,0.67,1</string>
+      <key>public.objectLibs</key>
+      <dict>
+        <key>B5984BFE</key>
+        <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
+        </dict>
+      </dict>
+    </dict>
+  </lib>
+</glyph>

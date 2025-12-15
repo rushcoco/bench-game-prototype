@@ -27,11 +27,7 @@ MonoBehaviour:
   - I hope they would *grumble*
   - Anyways...
   - If you need me you know where to find me.
-  dialogResponseFalse: Unfortunately, I can't make sense of what you're saying. Try
-    thinking carefully what you wanna say beforehand. My recommendations when it
-    comes to thinking are benches. After all, nothing beats relaxing on a bench and
-    getting lost in the greens of the park, am i right? Harharharhar-hmm? What were
-    we talking about youngster?
+  dialogResponseFalse: Go to the bench and think carefully what you want to say.
   dialogTimeRunOut: Haaa? I can't hear you properly. Don't be shy, I'm not gonna
     bite! Harharharhar.
   dialogPuzzlePrompt: What do you want me to do with the key now?

@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="dieresis" format="2">
+  <advance width="371"/>
+  <unicode hex="00A8"/>
+  <outline>
+    <contour>
+      <point x="81" y="631" type="curve" smooth="yes"/>
+      <point x="116" y="616"/>
+      <point x="150" y="634"/>
+      <point x="164" y="661" type="curve" smooth="yes"/>
+      <point x="179" y="691"/>
+      <point x="171" y="737"/>
+      <point x="138" y="746" type="curve" smooth="yes"/>
+      <point x="104" y="754"/>
+      <point x="74" y="737"/>
+      <point x="61" y="706" type="curve" smooth="yes"/>
+      <point x="50" y="678"/>
+      <point x="53" y="642"/>
+    </contour>
+    <contour>
+      <point x="213" y="679" type="curve" smooth="yes"/>
+      <point x="225" y="650"/>
+      <point x="264" y="639"/>
+      <point x="290" y="652" type="curve" smooth="yes"/>
+      <point x="317" y="664"/>
+      <point x="321" y="699"/>
+      <point x="311" y="726" type="curve" smooth="yes"/>
+      <point x="299" y="755"/>
+      <point x="270" y="770"/>
+      <point x="240" y="757" type="curve" smooth="yes"/>
+      <point x="210" y="743"/>
+      <point x="202" y="708"/>
+    </contour>
+  </outline>
+  <lib>
+    <dict>
+      <key>com.schriftgestaltung.Glyphs.lastChange</key>
+      <string>2021-12-12 16:35:05 +0000</string>
+    </dict>
+  </lib>
+</glyph>

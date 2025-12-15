@@ -106,8 +106,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8297611818316759015, guid: 70a1faa8de149934cb8b7a0b84792985, type: 3}
       propertyPath: 'message.Array.data[12]'
-      value: Whenever you can inspect something, the excamation mark with the question
-        mark next to it will appear!
+      value: Whenever you can inspect something, a symbol will appear!
       objectReference: {fileID: 0}
     - target: {fileID: 8297611818316759015, guid: 70a1faa8de149934cb8b7a0b84792985, type: 3}
       propertyPath: 'message.Array.data[13]'

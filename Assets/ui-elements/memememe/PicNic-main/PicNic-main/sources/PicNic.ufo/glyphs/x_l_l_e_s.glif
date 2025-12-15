@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="x_l_l_e_s" format="2">
+  <advance width="2000"/>
+  <unicode hex="F5780"/>
+  <outline>
+    <component base="l_l_e" xOffset="530" yOffset="-64"/>
+    <component base="s" xOffset="1548" yOffset="202" identifier="B553D0CD"/>
+    <component base="x"/>
+  </outline>
+  <lib>
+    <dict>
+      <key>com.schriftgestaltung.Glyphs.lastChange</key>
+      <string>2024-09-03 17:47:04 +0000</string>
+      <key>com.schriftgestaltung.Glyphs.leftMetricsKey</key>
+      <string>x</string>
+      <key>public.markColor</key>
+      <string>0.98,0.36,0.67,1</string>
+      <key>public.objectLibs</key>
+      <dict>
+        <key>B553D0CD</key>
+        <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
+        </dict>
+      </dict>
+    </dict>
+  </lib>
+</glyph>

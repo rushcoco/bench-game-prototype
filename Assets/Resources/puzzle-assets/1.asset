@@ -44,4 +44,4 @@ MonoBehaviour:
   dialogTimeRunOut: Nobody told you that you need to put a word after another to
     talk?
   dialogPuzzlePrompt: So what did you want to tell me about the gate?
-  isPuzzleSolved: 0
+  isPuzzleSolved: 1

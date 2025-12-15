@@ -38,4 +38,4 @@ MonoBehaviour:
   dialogResponseFalse: I'm sorry youngster. I have no idea what you are talking about.
   dialogTimeRunOut: If you wanna talk at least find something to talk about!
   dialogPuzzlePrompt: "What do you want now? Don\u2019t you see I\u2019m working?"
-  isPuzzleSolved: 0
+  isPuzzleSolved: 1

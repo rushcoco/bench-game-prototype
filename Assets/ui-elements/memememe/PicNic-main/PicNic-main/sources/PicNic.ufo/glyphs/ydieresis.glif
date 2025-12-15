@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="ydieresis" format="2">
+  <advance width="557"/>
+  <unicode hex="00FF"/>
+  <guideline x="557" y="610" angle="90"/>
+  <outline>
+    <component base="y" identifier="E591769F"/>
+    <component base="dieresis" xScale="0.9942" xyScale="-0.2664" yScale="0.9942" yxScale="0.2664" xOffset="77" yOffset="-64"/>
+  </outline>
+  <lib>
+    <dict>
+      <key>com.schriftgestaltung.Glyphs.lastChange</key>
+      <string>2022-01-26 00:30:43 +0000</string>
+      <key>public.markColor</key>
+      <string>0.67,0.95,0.38,1</string>
+      <key>public.objectLibs</key>
+      <dict>
+        <key>E591769F</key>
+        <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
+        </dict>
+      </dict>
+    </dict>
+  </lib>
+</glyph>

@@ -196,6 +196,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 328367088531966758, guid: b5d6af6717a23704bb31fb9e0f265e0e, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 651342587068945786, guid: b5d6af6717a23704bb31fb9e0f265e0e, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1032003196381670146, guid: b5d6af6717a23704bb31fb9e0f265e0e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -220,6 +228,26 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1943636095633525649, guid: b5d6af6717a23704bb31fb9e0f265e0e, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3232345633722131333, guid: b5d6af6717a23704bb31fb9e0f265e0e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3232345633722131333, guid: b5d6af6717a23704bb31fb9e0f265e0e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3232345633722131333, guid: b5d6af6717a23704bb31fb9e0f265e0e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3232345633722131333, guid: b5d6af6717a23704bb31fb9e0f265e0e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4232153262244405132, guid: b5d6af6717a23704bb31fb9e0f265e0e, type: 3}
       propertyPath: globalVolumeProfile
       value: 
@@ -228,10 +256,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: Actor Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 4270454001513785703, guid: b5d6af6717a23704bb31fb9e0f265e0e, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5387375850087579869, guid: b5d6af6717a23704bb31fb9e0f265e0e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5387375850087579869, guid: b5d6af6717a23704bb31fb9e0f265e0e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5387375850087579869, guid: b5d6af6717a23704bb31fb9e0f265e0e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5387375850087579869, guid: b5d6af6717a23704bb31fb9e0f265e0e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5824944532730939075, guid: b5d6af6717a23704bb31fb9e0f265e0e, type: 3}
       propertyPath: overworldMovement
       value: 
       objectReference: {fileID: 1282694845}
+    - target: {fileID: 5838173363693969516, guid: b5d6af6717a23704bb31fb9e0f265e0e, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6013434338062911210, guid: b5d6af6717a23704bb31fb9e0f265e0e, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7159084784141978256, guid: b5d6af6717a23704bb31fb9e0f265e0e, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7805101708634215443, guid: b5d6af6717a23704bb31fb9e0f265e0e, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8111950507492194374, guid: b5d6af6717a23704bb31fb9e0f265e0e, type: 3}
       propertyPath: targetTransform
       value: 
@@ -274,6 +338,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8147096439099444696, guid: b5d6af6717a23704bb31fb9e0f265e0e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8547816460015267119, guid: b5d6af6717a23704bb31fb9e0f265e0e, type: 3}
+      propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9028817651988108542, guid: b5d6af6717a23704bb31fb9e0f265e0e, type: 3}
@@ -66025,11 +66093,6 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: 10704a06e858a414cac028345bd383a7, type: 2}
-    - target: {fileID: 4645648599220487666, guid: f788637361256b340a82c3993b314bcc, type: 3}
-      propertyPath: 'message.Array.data[12]'
-      value: Whenever you can inspect something, the exclamation mark with the question
-        mark next to it will appear!
-      objectReference: {fileID: 0}
     - target: {fileID: 5790651458825494028, guid: f788637361256b340a82c3993b314bcc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.822921

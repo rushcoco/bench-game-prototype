@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="o_t_e" format="2">
+  <advance width="1079"/>
+  <unicode hex="F3950"/>
+  <outline>
+    <component base="o" yOffset="206" identifier="073A6545"/>
+    <component base="t_e" xOffset="399" yOffset="-11"/>
+  </outline>
+  <lib>
+    <dict>
+      <key>com.schriftgestaltung.Glyphs.lastChange</key>
+      <string>2024-09-03 17:44:00 +0000</string>
+      <key>public.markColor</key>
+      <string>0.98,0.36,0.67,1</string>
+      <key>public.objectLibs</key>
+      <dict>
+        <key>073A6545</key>
+        <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
+        </dict>
+      </dict>
+    </dict>
+  </lib>
+</glyph>
