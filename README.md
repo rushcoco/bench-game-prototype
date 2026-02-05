@@ -1,6 +1,6 @@
 # bench-game-prototype
 
-The Bench Game" is a language based puzzle adventure in a colorful, surreal world, where to solve puzzles, you will need...words to build sentences!?
+The Bench Game is a language based puzzle adventure in a colorful, surreal world, where to solve puzzles, you will need...words to build sentences!?
 
 Explore the park! Meet silly characters! Inspect your surroundings and learn new words!
 Solve the inhabitants' problems by saying the correct things, with the power of communication.
